@@ -25,21 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Scroll-based Fade-in Animations ---
-  const observerOptions = { threshold: 0.1 };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('opacity-100', 'translate-y-0');
-        entry.target.classList.remove('opacity-0', 'translate-y-10');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  const animatedElements = document.querySelectorAll('[data-animate]');
 
-  document.querySelectorAll('[data-animate]').forEach(el => {
-    el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-    observer.observe(el);
-  });
+  if ('IntersectionObserver' in window) {
+    const observerOptions = { threshold: 0.05, rootMargin: '0px 0px 50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    animatedElements.forEach(el => {
+      el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+      observer.observe(el);
+    });
+
+    // Safety fallback: reveal all animated elements after 3s in case observer fails
+    setTimeout(() => {
+      animatedElements.forEach(el => {
+        if (el.classList.contains('opacity-0')) {
+          el.classList.add('opacity-100', 'translate-y-0');
+          el.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, 3000);
+  }
+  // If IntersectionObserver not supported, elements remain fully visible (no opacity-0 added)
 
   // --- White Paper Download Form ---
   const downloadForm = document.getElementById('downloadForm');
