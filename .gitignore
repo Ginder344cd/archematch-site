@@ -9,5 +9,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Node (if ever added)
+# Node
 node_modules/
+
+# WordPress exports
+*.WordPress.*.xml
