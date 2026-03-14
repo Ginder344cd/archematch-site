@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainMaker App | AI-Powered Psychological Intelligence for Wealth Management</title>
+  <meta name="description" content="ArcheMatch Inc. — Transforming wealth management prospecting with AI-powered psychological intelligence. 10x performance improvements through Jungian archetype matching.">
+  <meta property="og:title" content="RainMaker App | Investor Relations">
+  <meta property="og:description" content="AI-Powered Psychological Intelligence for Wealth Management. Seed Round Open.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archematch.com/">
+  <meta property="og:image" content="https://archematch.com/wp-content/uploads/2025/12/logo-full.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RainMaker App | Investor Relations">
+  <meta name="twitter:description" content="AI-Powered Psychological Intelligence for Wealth Management.">
+  <link rel="icon" type="image/png" href="https://archematch.com/wp-content/uploads/2025/12/cropped-logo-full-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="https://archematch.com/wp-content/uploads/2025/12/cropped-logo-full-180x180.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2CV0L0PF8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C2CV0L0PF8');
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    .hero-bg {
+      background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85)),
+                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-blue-500 selection:text-white font-sans">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800" role="navigation" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex-shrink-0" aria-label="RainMaker App home">
+          <img src="https://archematch.com/wp-content/uploads/2025/12/logo-full.png" alt="RainMaker App" class="h-10 object-contain" width="200" height="40">
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-baseline space-x-6">
+          <a href="#opportunity" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">The Opportunity</a>
+          <a href="#solution" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Technology</a>
+          <a href="#demo" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Demo</a>
+          <a href="#traction" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Traction</a>
+          <a href="#team" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Team</a>
+          <a href="https://archematch.com/wp-content/uploads/2025/11/RainMakerApp-Pitch_Deck_Final.pdf" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Pitch Deck</a>
+          <a href="/white-paper.html" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">White Paper</a>
+          <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-900/50">
+            Access Data Room
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800 border-t border-slate-700 px-4 pb-4">
+      <a href="#opportunity" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">The Opportunity</a>
+      <a href="#solution" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Technology</a>
+      <a href="#demo" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Demo</a>
+      <a href="#traction" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Traction</a>
+      <a href="#team" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Team</a>
+      <a href="https://archematch.com/wp-content/uploads/2025/11/RainMakerApp-Pitch_Deck_Final.pdf" target="_blank" rel="noopener noreferrer" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Pitch Deck</a>
+      <a href="/white-paper.html" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">White Paper</a>
+      <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer" class="block mt-3 text-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full text-sm font-medium">Access Data Room</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center hero-bg" aria-labelledby="hero-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-20">
+      <div class="mb-8 flex justify-center">
+        <img src="https://archematch.com/wp-content/uploads/2025/12/logo-full.png" alt="RainMaker App" class="h-20 md:h-24 object-contain" width="400" height="96">
+      </div>
+
+      <div class="inline-block animate-bounce mb-6">
+        <span class="py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm font-semibold">
+          Seed Round Open: $1.8M
+        </span>
+      </div>
+
+      <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white font-display">
+        Where Psychology Meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Prosperity</span>
+      </h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-300">
+        Transforming wealth management through AI-powered psychological intelligence. We don't just improve prospecting — we reimagine it.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
+        <a href="https://archematch.com/wp-content/uploads/2025/11/RainMakerApp-Pitch_Deck_Final.pdf" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+          View Pitch Deck <i class="fa-solid fa-file-pdf ml-2" aria-hidden="true"></i>
+        </a>
+        <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-blue-500 rounded-full hover:bg-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+          Access Data Room <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i>
+        </a>
+        <a href="#demo"
+           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-300 border border-slate-600 rounded-full hover:bg-slate-800 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-slate-400">
+          Watch Demo
+        </a>
+        <a href="/white-paper.html"
+           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+          Research <i class="fa-solid fa-file-pdf ml-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Opportunity -->
+  <section id="opportunity" class="py-20 md:py-24 bg-slate-900" aria-labelledby="opportunity-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
+      <div class="text-center mb-16">
+        <h2 id="opportunity-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">The $6B Existential Crisis</h2>
+        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+        <p class="mt-4 text-lg text-slate-400">The wealth management industry is facing a perfect storm.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
+          <div class="text-5xl font-bold text-white mb-2 font-display">97%</div>
+          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Failure Rate</h3>
+          <p class="text-slate-400">Nearly all traditional prospecting attempts fail, leading to a 90% attrition rate for new advisors.</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
+          <div class="text-5xl font-bold text-white mb-2 font-display">100k+</div>
+          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Advisor Shortage</h3>
+          <p class="text-slate-400">Projected shortage by 2034 (McKinsey & Co. 2025). The workforce is retiring faster than it can be replaced.</p>
+        </div>
+        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
+          <div class="text-5xl font-bold text-white mb-2 font-display">$6B</div>
+          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Annual Loss</h3>
+          <p class="text-slate-400">Wasted annually on failed outreach and marketing spend. The core model is broken.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section id="solution" class="py-20 md:py-24 bg-slate-800 relative overflow-hidden" aria-labelledby="solution-heading">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-animate>
+      <div class="text-center mb-16">
+        <h2 id="solution-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">The Solution: Psychological Intelligence</h2>
+        <p class="mt-4 text-lg text-slate-400 max-w-3xl mx-auto">
+          We use Jungian archetypes and AI-driven research to determine compatibility
+          <span class="text-white font-semibold">BEFORE</span> outreach begins.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-blue-500 text-white" aria-hidden="true">
+                <i class="fa-solid fa-crosshairs text-xl"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2 font-sans">The Hunter Pathway</h3>
+              <p class="text-slate-400">For advisors building from scratch. We use public data signals (job changes, funding rounds) combined with psychological profiling to identify high-compatibility prospects.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-emerald-500 text-white" aria-hidden="true">
+                <i class="fa-solid fa-users-viewfinder text-xl"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2 font-sans">The Gatherer Pathway</h3>
+              <p class="text-slate-400">For established advisors. We analyze client social networks to uncover warm referral opportunities that match the advisor's specific archetype.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-purple-500 text-white" aria-hidden="true">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2 font-sans">Defensible Moat</h3>
+              <p class="text-slate-400">132 patent claims filed. 35M+ personality combinations. 40+ years of domain expertise embedded in the algorithm.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compatibility Score Card -->
+        <div class="glass-card p-1 rounded-2xl border border-slate-700 shadow-2xl bg-slate-900">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+              <div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider font-sans">Compatibility Score</div>
+                <div class="text-4xl font-bold text-emerald-400 font-display">94%</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-slate-500 uppercase tracking-wider font-sans">Match Type</div>
+                <div class="text-lg font-semibold text-white font-sans">High Synergy</div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="h-2 bg-slate-800 rounded overflow-hidden" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Compatibility progress">
+                <div class="h-full bg-blue-500 w-3/4 transition-all duration-1000"></div>
+              </div>
+              <div class="flex justify-between text-sm text-slate-400">
+                <span>Communication Style</span>
+                <span class="text-white">Direct / Analytical</span>
+              </div>
+              <div class="p-4 bg-slate-800/50 rounded border border-slate-700 text-sm italic text-slate-300">
+                "Recommended Approach: Focus on data-driven ROI. This prospect values efficiency over rapport building in early stages."
+              </div>
+              <div class="w-full py-3 bg-blue-600 text-white rounded font-medium mt-2 text-center text-sm">
+                Generate Personalized Outreach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section id="demo" class="py-20 md:py-24 bg-slate-800 border-t border-slate-700/50" aria-labelledby="demo-heading">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <div class="inline-block mb-4">
+        <span class="py-1.5 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold">
+          Live Demo
+        </span>
+      </div>
+      <h2 id="demo-heading" class="text-3xl md:text-4xl font-bold mb-12 text-white font-display">See RainMaker in Action</h2>
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
+        <iframe
+          class="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube.com/embed/Zvlj9a3akZw?rel=0"
+          title="RainMaker App Demo Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traction -->
+  <section id="traction" class="py-20 md:py-24 bg-slate-900" aria-labelledby="traction-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
+      <div class="bg-gradient-to-r from-blue-900/40 to-slate-900 border border-blue-500/30 rounded-3xl p-8 md:p-12 text-center">
+        <h2 id="traction-heading" class="text-3xl font-bold mb-8 text-white font-display">Proven Performance</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">10-15x</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Effectiveness Improvement</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">40%</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Response Rates</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">132</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Patent Claims</div>
+          </div>
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">$52M</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Proj. Year 5 EBITDA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-20 md:py-24 bg-slate-800" aria-labelledby="team-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
+      <div class="text-center mb-16">
+        <h2 id="team-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Leadership & Advisors</h2>
+        <p class="text-slate-400">Decades of domain expertise combined with cutting-edge academic validation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="glass-card p-6 rounded-xl text-center">
+          <div class="w-24 h-24 mx-auto bg-slate-700 rounded-full mb-4 overflow-hidden border-2 border-slate-600">
+            <div class="w-full h-full flex items-center justify-center text-2xl text-slate-500 font-serif bg-slate-800">GS</div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-sans">Gary Sinderbrand</h3>
+          <p class="text-blue-400 text-sm mb-4">Founder & CEO</p>
+          <p class="text-slate-400 text-sm">40+ years in financial services. Trained 12,000+ advisors at Merrill Lynch and UBS. Creator of BetterPath Training.</p>
+        </article>
+
+        <article class="glass-card p-6 rounded-xl text-center">
+          <div class="w-24 h-24 mx-auto bg-slate-700 rounded-full mb-4 overflow-hidden border-2 border-slate-600">
+            <div class="w-full h-full flex items-center justify-center text-2xl text-slate-500 font-serif bg-slate-800">RG</div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-sans">Raghu Gopalakrishnan</h3>
+          <p class="text-blue-400 text-sm mb-4">Senior Technologist</p>
+          <p class="text-slate-400 text-sm">Former CTO at Relovate. Enterprise-scale software architecture and extensive ML/AI experience.</p>
+        </article>
+
+        <article class="glass-card p-6 rounded-xl text-left">
+          <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4 font-sans">Key Advisors</h3>
+
+          <div class="mb-4">
+            <p class="text-white font-semibold">Dr. Jimmie Lenz</p>
+            <p class="text-xs text-blue-400">Duke University FinTech Director</p>
+            <p class="text-slate-400 text-xs mt-1">25+ years capital markets, machine learning & blockchain expertise.</p>
+          </div>
+
+          <div>
+            <p class="text-white font-semibold">Dr. Stephen A. Martin</p>
+            <p class="text-xs text-blue-400">Jungian Analyst, Philemon Foundation</p>
+            <p class="text-slate-400 text-xs mt-1">Academic validation for our 12-archetype personality system.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / CTA -->
+  <footer class="bg-slate-900 border-t border-slate-800 pt-20 pb-10" role="contentinfo">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6 text-white font-display">Ready to Review the Data?</h2>
+      <p class="text-slate-400 mb-10 text-lg">
+        Access our full financial model, pitch deck, and due diligence materials securely.
+      </p>
+
+      <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+        Enter Investor Data Room
+      </a>
+
+      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4">
+        <p>&copy; 2025 ArcheMatch Inc. dba RainMaker App. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="mailto:gary@archematch.com" class="hover:text-blue-400 transition-colors">gary@archematch.com</a>
+          <span aria-hidden="true">|</span>
+          <a href="/privacy-policy.html" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="/white-paper.html" class="hover:text-blue-400 transition-colors">White Paper</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
