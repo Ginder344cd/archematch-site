@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(el);
     });
 
-    // Safety fallback: reveal all animated elements after 3s in case observer fails
+    // Safety fallback: reveal all animated elements after 1s in case observer fails (mobile)
     setTimeout(() => {
       animatedElements.forEach(el => {
         if (el.classList.contains('opacity-0')) {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
           el.classList.remove('opacity-0', 'translate-y-10');
         }
       });
-    }, 3000);
+    }, 1000);
   }
   // If IntersectionObserver not supported, elements remain fully visible (no opacity-0 added)
 
@@ -105,6 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
           campaign_id: '78122468-f519-46f8-9edf-825679613fc0'
         }))
       }).catch(function () {});
+
+      // Send lead via email using formsubmit.co (no signup required, sends to gary@archematch.com)
+      fetch('https://formsubmit.co/ajax/gary@archematch.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'New White Paper Download Lead',
+          name: formData.firstName + ' ' + formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          role: formData.role,
+          downloaded_at: formData.downloadedAt,
+          source: formData.source
+        })
+      }).catch(() => {}); // Silently fail — localStorage is the backup
 
       formContainer.classList.add('hidden');
       successContainer.classList.remove('hidden');
