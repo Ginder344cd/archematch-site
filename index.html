@@ -262,7 +262,24 @@
         </span>
       </div>
       <h2 id="demo-heading" class="text-3xl md:text-4xl font-bold mb-12 text-white font-display">See Rainmaker in Action</h2>
-      <div class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
+
+      <!-- Self-hosted video (enterprise-friendly — no third-party domains to block) -->
+      <div id="demo-video-self" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="display: none;">
+        <video
+          id="demo-video-player"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/assets/img/demo-poster.jpg"
+          class="w-full"
+          style="aspect-ratio: 16/9;">
+          <source src="/assets/video/rainmaker-demo.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- YouTube fallback (shown when self-hosted video is not available) -->
+      <div id="demo-video-yt" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
         <iframe
           class="absolute top-0 left-0 w-full h-full"
           src="https://www.youtube.com/embed/Zvlj9a3akZw?rel=0"
@@ -273,8 +290,26 @@
           loading="lazy">
         </iframe>
       </div>
+
+      <p class="text-slate-500 text-sm mt-4">Video not loading? Your network may block external video. <a href="/assets/video/rainmaker-demo.mp4" class="text-blue-400 hover:text-blue-300" id="demo-direct-link" style="display: none;">Download the demo directly.</a></p>
     </div>
   </section>
+
+  <script>
+    // Auto-detect: if self-hosted video exists, prefer it over YouTube
+    (function() {
+      var video = document.getElementById('demo-video-player');
+      if (!video) return;
+      var source = video.querySelector('source');
+      fetch(source.src, { method: 'HEAD' }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('demo-video-self').style.display = 'block';
+          document.getElementById('demo-video-yt').style.display = 'none';
+          document.getElementById('demo-direct-link').style.display = 'inline';
+        }
+      }).catch(function() { /* YouTube fallback stays visible */ });
+    })();
+  </script>
 
   <!-- Traction -->
   <section id="traction" class="py-20 md:py-24 bg-slate-900" aria-labelledby="traction-heading">
