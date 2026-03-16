@@ -65,19 +65,31 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const formData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        company: document.getElementById('company').value,
-        role: document.getElementById('role').value,
-        downloadedAt: new Date().toISOString(),
-        source: 'white-paper-psychology-alignment'
-      };
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const company = document.getElementById('company').value;
+      const role = document.getElementById('role').value;
 
-      const leads = JSON.parse(localStorage.getItem('whitePaperLeads') || '[]');
-      leads.push(formData);
-      localStorage.setItem('whitePaperLeads', JSON.stringify(leads));
+      // Send lead to Instantly V2 API
+      fetch('https://api.instantly.ai/api/v2/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer NTA5MjllMTMtOWM5NC00NmU5LTkyYjgtMGE1MWMxNjIzYjM3OmZ0TU9sZVNjUHRQbQ=='
+        },
+        body: JSON.stringify({
+          email: email,
+          first_name: firstName,
+          last_name: lastName,
+          custom_variables: {
+            company: company,
+            role: role,
+            form_type: 'white_paper_download',
+            source: 'white-paper-psychology-alignment'
+          }
+        })
+      }).catch(function () { /* silent fail — download still works */ });
 
       formContainer.classList.add('hidden');
       successContainer.classList.remove('hidden');
