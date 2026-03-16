@@ -71,25 +71,40 @@ document.addEventListener('DOMContentLoaded', () => {
       const company = document.getElementById('company').value;
       const role = document.getElementById('role').value;
 
-      // Send lead to Instantly V2 API
+      // Send lead to both Instantly campaigns (Hunter + Gatherer)
+      var leadPayload = {
+        email: email,
+        first_name: firstName,
+        last_name: lastName,
+        custom_variables: {
+          company: company,
+          role: role,
+          form_type: 'white_paper_download',
+          source: 'white-paper-psychology-alignment'
+        }
+      };
+      var instantlyHeaders = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer NTA5MjllMTMtOWM5NC00NmU5LTkyYjgtMGE1MWMxNjIzYjM3OmZ0TU9sZVNjUHRQbQ=='
+      };
+
+      // Hunter campaign
       fetch('https://api.instantly.ai/api/v2/leads', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer NTA5MjllMTMtOWM5NC00NmU5LTkyYjgtMGE1MWMxNjIzYjM3OmZ0TU9sZVNjUHRQbQ=='
-        },
-        body: JSON.stringify({
-          email: email,
-          first_name: firstName,
-          last_name: lastName,
-          custom_variables: {
-            company: company,
-            role: role,
-            form_type: 'white_paper_download',
-            source: 'white-paper-psychology-alignment'
-          }
-        })
-      }).catch(function () { /* silent fail — download still works */ });
+        headers: instantlyHeaders,
+        body: JSON.stringify(Object.assign({}, leadPayload, {
+          campaign_id: '8d14f42c-4ba4-436e-9e33-29cf8bb152a8'
+        }))
+      }).catch(function () {});
+
+      // Gatherer campaign
+      fetch('https://api.instantly.ai/api/v2/leads', {
+        method: 'POST',
+        headers: instantlyHeaders,
+        body: JSON.stringify(Object.assign({}, leadPayload, {
+          campaign_id: '78122468-f519-46f8-9edf-825679613fc0'
+        }))
+      }).catch(function () {});
 
       formContainer.classList.add('hidden');
       successContainer.classList.remove('hidden');
