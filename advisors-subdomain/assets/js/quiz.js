@@ -310,11 +310,23 @@
       sessionStorage.setItem('rainmaker_advisor_type', advisorType);
       sessionStorage.setItem('rainmaker_tally', JSON.stringify(result.tally));
 
-      // Redirect to result page
-      var resultUrl = advisorType === 'hunter'
-        ? '/hunter/result.html'
-        : '/gatherer/result.html';
-      window.location.href = appendUTMToUrl(resultUrl);
+      // Check if result container exists on this page (single-page flow)
+      var inlineResult = document.getElementById('result-container');
+      if (inlineResult) {
+        // Hide quiz, show results inline
+        document.getElementById('quiz-section').style.display = 'none';
+        inlineResult.style.display = 'block';
+        initResult();
+        initWaitlist();
+        // Scroll to top of results
+        inlineResult.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback: redirect to result page
+        var resultUrl = advisorType === 'hunter'
+          ? '/hunter/result.html'
+          : '/gatherer/result.html';
+        window.location.href = appendUTMToUrl(resultUrl);
+      }
     }
 
     updateProgress();
@@ -361,9 +373,15 @@
     var archetypeKey = sessionStorage.getItem('rainmaker_archetype');
     var firstName = sessionStorage.getItem('rainmaker_first_name') || '';
 
+    // On assessment pages (quiz + result inline), the container starts hidden
+    // and is revealed by finishQuiz(). On standalone result pages, it's always visible.
+    var isInlinePage = !!document.getElementById('quiz-container');
+
     if (!archetypeKey) {
-      // No result — redirect back to assessment
-      window.location.href = appendUTMToUrl('/' + advisorType + '/assessment.html');
+      if (!isInlinePage) {
+        // Standalone result page with no result — redirect back to assessment
+        window.location.href = appendUTMToUrl('/' + advisorType + '/assessment.html');
+      }
       return;
     }
 

@@ -169,6 +169,57 @@
     ]'></div>
   </section>
 
+  <!-- Result (hidden until quiz completes — rendered inline) -->
+  <div id="result-container" data-advisor-type="gatherer" style="display: none;">
+    <section class="pt-16 pb-12 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="archetype-reveal fade-in-up">
+          <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">Your Gatherer Archetype</p>
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-100 mb-2">
+            You're <span id="result-archetype"></span><span id="result-greeting"></span>.
+          </h1>
+          <p id="result-tagline" class="text-xl text-slate-300 italic"></p>
+        </div>
+      </div>
+    </section>
+    <section class="pb-12 px-6">
+      <div id="result-description" class="max-w-3xl mx-auto"></div>
+    </section>
+    <section class="pb-12 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="glass-card rounded-xl p-8 border-t-2 border-gold">
+          <h2 id="result-blindspot-label" class="font-display text-xl font-bold text-gold mb-4"></h2>
+          <p id="result-blindspot" class="text-slate-300 leading-relaxed"></p>
+        </div>
+      </div>
+    </section>
+    <section class="pb-16 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h3 id="result-drawn-label" class="font-display text-lg font-bold text-slate-100 mb-4"></h3>
+        <ul id="result-drawn-list" class="space-y-3"></ul>
+      </div>
+    </section>
+    <section class="py-16 px-6 bg-slate-800">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-display text-3xl font-bold text-slate-100 mb-4">Reserve Your Founding Member Spot</h2>
+        <p class="text-slate-300 leading-relaxed mb-8">
+          Pick your favorite clients — the ones you'd clone if you could. The Rainmaker App analyzes what they have in common with your natural style, then identifies supplemental opportunities across your book that will feel completely natural to pursue. We're opening Gatherer access in limited cohorts.
+        </p>
+        <form id="waitlist-form" data-advisor-type="gatherer" data-utm class="text-left">
+          <div class="waitlist-grid mb-4">
+            <div><label class="block text-sm text-slate-400 mb-1.5">First Name</label><input type="text" name="first_name" required class="advisor-input" placeholder="First name"></div>
+            <div><label class="block text-sm text-slate-400 mb-1.5">Last Name</label><input type="text" name="last_name" required class="advisor-input" placeholder="Last name"></div>
+            <div><label class="block text-sm text-slate-400 mb-1.5">Email</label><input type="email" name="email" required class="advisor-input" placeholder="you@example.com"></div>
+            <div><label class="block text-sm text-slate-400 mb-1.5">Firm Name</label><input type="text" name="firm_name" class="advisor-input" placeholder="Your firm"></div>
+          </div>
+          <div class="mb-6"><label class="block text-sm text-slate-400 mb-1.5">Years in Practice</label><input type="text" name="years_in_practice" class="advisor-input" placeholder="e.g. 15" style="max-width: 200px;"></div>
+          <input type="hidden" name="advisor_type" value="gatherer">
+          <div class="text-center"><button type="submit" class="btn-gold text-lg">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></button></div>
+        </form>
+      </div>
+    </section>
+  </div>
+
   <!-- Footer -->
   <footer class="border-t border-slate-800 py-10 px-6">
     <div class="max-w-4xl mx-auto text-center">
