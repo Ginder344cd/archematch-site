@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Gatherer Archetype — The Rainmaker App</title>
+  <meta name="description" content="Your Gatherer Archetype results are ready. Discover your ideal client compatibility profile.">
+  <meta property="og:title" content="Your Gatherer Archetype — The Rainmaker App">
+  <meta property="og:description" content="Find out what your best clients have in common.">
+  <meta property="og:image" content="/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/advisor.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/img/logo-full.png" alt="The Rainmaker App" class="h-8">
+      </a>
+      <a href="/" class="text-sm text-slate-400 hover:text-slate-200 transition-colors"><i class="fa-solid fa-arrow-left mr-1"></i> Start Over</a>
+    </div>
+  </nav>
+
+  <div id="result-container" data-advisor-type="gatherer">
+
+    <!-- Archetype Reveal -->
+    <section class="pt-32 pb-12 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="archetype-reveal fade-in-up">
+          <p class="text-gold text-sm font-semibold tracking-widest uppercase mb-3">Your Gatherer Archetype</p>
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-100 mb-2">
+            You're <span id="result-archetype"></span><span id="result-greeting"></span>.
+          </h1>
+          <p id="result-tagline" class="text-xl text-slate-300 italic"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description -->
+    <section class="pb-12 px-6">
+      <div id="result-description" class="max-w-3xl mx-auto"></div>
+    </section>
+
+    <!-- Blind Spot -->
+    <section class="pb-12 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="glass-card rounded-xl p-8 border-t-2 border-gold">
+          <h2 id="result-blindspot-label" class="font-display text-xl font-bold text-gold mb-4"></h2>
+          <p id="result-blindspot" class="text-slate-300 leading-relaxed"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drawn To -->
+    <section class="pb-16 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h3 id="result-drawn-label" class="font-display text-lg font-bold text-slate-100 mb-4"></h3>
+        <ul id="result-drawn-list" class="space-y-3"></ul>
+      </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section class="py-16 px-6 bg-slate-800">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-display text-3xl font-bold text-slate-100 mb-4">
+          Reserve Your Founding Member Spot
+        </h2>
+        <p class="text-slate-300 leading-relaxed mb-8">
+          The Rainmaker App identifies your ideal client profile — then finds more of them. We're opening Gatherer access in limited cohorts. You'll get a compatibility score for every client in your book, plus a targeting profile to attract more of your best ones.
+        </p>
+
+        <form id="waitlist-form" data-advisor-type="gatherer" data-utm class="text-left">
+          <div class="waitlist-grid mb-4">
+            <div>
+              <label class="block text-sm text-slate-400 mb-1.5">First Name</label>
+              <input type="text" name="first_name" required class="advisor-input" placeholder="First name">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1.5">Last Name</label>
+              <input type="text" name="last_name" required class="advisor-input" placeholder="Last name">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1.5">Email</label>
+              <input type="email" name="email" required class="advisor-input" placeholder="you@example.com">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1.5">Firm Name</label>
+              <input type="text" name="firm_name" class="advisor-input" placeholder="Your firm">
+            </div>
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm text-slate-400 mb-1.5">Years in Practice</label>
+            <input type="text" name="years_in_practice" class="advisor-input" placeholder="e.g. 15" style="max-width: 200px;">
+          </div>
+          <input type="hidden" name="advisor_type" value="gatherer">
+          <div class="text-center">
+            <button type="submit" class="btn-gold text-lg">
+              Reserve My Spot <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-10 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="credibility-bar">
+        <span class="text-slate-300 font-semibold">Gary Sinderbrand</span> &nbsp;|&nbsp; 35 Years &nbsp;|&nbsp; 12,000+ Advisors Trained &nbsp;|&nbsp; Merrill Lynch · UBS · Morgan Stanley
+      </p>
+      <p class="text-slate-600 text-xs mt-4">&copy; 2026 The Rainmaker App. All rights reserved. <a href="https://archematch.com/privacy-policy.html" class="hover:text-slate-400 transition-colors">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/quiz.js"></script>
+</body>
+</html>

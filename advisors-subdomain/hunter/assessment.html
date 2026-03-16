@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hunter Assessment — The Rainmaker App</title>
+  <meta name="description" content="Take the 10-question Hunter assessment to discover your prospecting archetype.">
+  <meta property="og:title" content="Hunter Assessment — The Rainmaker App">
+  <meta property="og:description" content="Discover which prospects are naturally drawn to your communication style.">
+  <meta property="og:image" content="/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/advisor.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/img/logo-full.png" alt="The Rainmaker App" class="h-8">
+      </a>
+      <a href="/hunter/" class="text-sm text-slate-400 hover:text-slate-200 transition-colors"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+    </div>
+  </nav>
+
+  <!-- Email Gate -->
+  <section id="email-gate" class="pt-32 pb-20 px-6">
+    <div class="max-w-lg mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8">
+        <i class="fa-solid fa-crosshairs"></i> Hunter Assessment
+      </div>
+      <h1 class="font-display text-3xl md:text-4xl font-bold mb-3">Where should we send your results?</h1>
+      <p class="text-slate-400 mb-8">Your archetype report will be ready as soon as you finish the assessment.</p>
+
+      <form id="email-gate-form" data-advisor-type="hunter" data-utm class="space-y-4 text-left">
+        <div>
+          <label for="gate-name" class="block text-sm text-slate-400 mb-1.5">First Name</label>
+          <input type="text" id="gate-name" name="first_name" required class="advisor-input" placeholder="Your first name">
+        </div>
+        <div>
+          <label for="gate-email" class="block text-sm text-slate-400 mb-1.5">Email</label>
+          <input type="email" id="gate-email" name="email" required class="advisor-input" placeholder="you@example.com">
+        </div>
+        <input type="hidden" name="advisor_type" value="hunter">
+        <button type="submit" class="btn-gold w-full justify-center mt-2">
+          Start Assessment <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="trust-bar mt-8 justify-center">
+        <span><i class="fa-solid fa-lock text-slate-500"></i> We respect your inbox. No spam.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz (hidden until email gate passes) -->
+  <section id="quiz-section" class="pt-32 pb-20 px-6" style="display: none;">
+    <div class="quiz-container">
+      <!-- Progress -->
+      <div class="mb-8">
+        <p id="quiz-progress-text" class="text-sm text-slate-400 mb-2">Question 1 of 10</p>
+        <div class="quiz-progress-bar">
+          <div id="quiz-progress-fill" class="quiz-progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Question Area -->
+      <div id="quiz-question-area"></div>
+    </div>
+
+    <!-- Quiz data -->
+    <div id="quiz-container" data-advisor-type="hunter" data-questions='[
+      {
+        "question": "When you meet a new prospect for the first time, your instinct is to...",
+        "options": [
+          "Ask questions and listen deeply before saying anything about yourself",
+          "Share your story and let them see who you are first",
+          "Establish your credentials and track record early",
+          "Find common ground and make them comfortable"
+        ]
+      },
+      {
+        "question": "A prospect pushes back on your fees. You respond by...",
+        "options": [
+          "Calmly reframing the value without backing down",
+          "Acknowledging their concern and exploring what\u2019s really behind it",
+          "Showing them the data \u2014 returns, outcomes, comparisons",
+          "Telling them a story about a client in a similar situation"
+        ]
+      },
+      {
+        "question": "The prospects you close most easily tend to be...",
+        "options": [
+          "Analytical types who want to understand everything",
+          "Relationship-driven people who buy you before they buy your service",
+          "Ambitious people who want to win financially",
+          "Cautious people who need to feel completely safe first"
+        ]
+      },
+      {
+        "question": "When a prospect goes cold after a promising first meeting, you...",
+        "options": [
+          "Send a thoughtful follow-up with something genuinely useful",
+          "Pick up the phone \u2014 you\u2019d rather know than wonder",
+          "Give them space and trust the relationship you built",
+          "Analyze what happened and adjust your approach"
+        ]
+      },
+      {
+        "question": "Your prospecting approach is best described as...",
+        "options": [
+          "Strategic \u2014 you research before you reach out",
+          "Relational \u2014 you prospect through your network and referrals",
+          "Direct \u2014 you make the ask early and often",
+          "Educational \u2014 you lead with insight and let them come to you"
+        ]
+      },
+      {
+        "question": "When you imagine your ideal client, the first thing you think of is...",
+        "options": [
+          "Their financial complexity \u2014 you want a real challenge",
+          "How easy the relationship feels \u2014 you want mutual respect",
+          "Their ambition \u2014 you want someone who wants to grow",
+          "Their trust in you \u2014 you want to be their first call for everything"
+        ]
+      },
+      {
+        "question": "How do you prefer to present a financial plan or recommendation?",
+        "options": [
+          "Detailed and data-driven \u2014 show all the work",
+          "Story-driven \u2014 help them see their future",
+          "Direct and concise \u2014 here\u2019s what I recommend and why",
+          "Collaborative \u2014 build it with them in the room"
+        ]
+      },
+      {
+        "question": "What do you want prospects to feel when they leave your first meeting?",
+        "options": [
+          "Impressed \u2014 they\u2019re in the hands of an expert",
+          "Understood \u2014 someone finally gets their situation",
+          "Energized \u2014 they\u2019re ready to make a move",
+          "Safe \u2014 they can trust this person completely"
+        ]
+      },
+      {
+        "question": "The part of prospecting that energizes you most is...",
+        "options": [
+          "The research and preparation before the meeting",
+          "The conversation itself \u2014 connecting with someone new",
+          "The close \u2014 getting to yes",
+          "The follow-through \u2014 turning a prospect into a long-term relationship"
+        ]
+      },
+      {
+        "question": "If you could change one thing about how you prospect right now, it would be...",
+        "options": [
+          "Better targeting \u2014 finding the right people faster",
+          "More referrals \u2014 warm introductions instead of cold outreach",
+          "Shorter sales cycle \u2014 less time from first meeting to decision",
+          "More consistency \u2014 a repeatable system that doesn\u2019t depend on my mood"
+        ]
+      }
+    ]'></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-10 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="credibility-bar">
+        <span class="text-slate-300 font-semibold">Gary Sinderbrand</span> &nbsp;|&nbsp; 35 Years &nbsp;|&nbsp; 12,000+ Advisors Trained
+      </p>
+      <p class="text-slate-600 text-xs mt-4">&copy; 2026 The Rainmaker App. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/quiz.js"></script>
+</body>
+</html>

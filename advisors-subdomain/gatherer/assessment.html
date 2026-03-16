@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatherer Assessment — The Rainmaker App</title>
+  <meta name="description" content="Take the 10-question Gatherer assessment to discover your ideal client compatibility profile.">
+  <meta property="og:title" content="Gatherer Assessment — The Rainmaker App">
+  <meta property="og:description" content="Find out what your best clients have in common — and why your hardest ones will never be satisfied.">
+  <meta property="og:image" content="/assets/img/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/advisor.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/assets/img/logo-full.png" alt="The Rainmaker App" class="h-8">
+      </a>
+      <a href="/gatherer/" class="text-sm text-slate-400 hover:text-slate-200 transition-colors"><i class="fa-solid fa-arrow-left mr-1"></i> Back</a>
+    </div>
+  </nav>
+
+  <!-- Email Gate -->
+  <section id="email-gate" class="pt-32 pb-20 px-6">
+    <div class="max-w-lg mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-8">
+        <i class="fa-solid fa-shield-halved"></i> Gatherer Assessment
+      </div>
+      <h1 class="font-display text-3xl md:text-4xl font-bold mb-3">Where should we send your results?</h1>
+      <p class="text-slate-400 mb-8">Your archetype report will be ready as soon as you finish the assessment.</p>
+
+      <form id="email-gate-form" data-advisor-type="gatherer" data-utm class="space-y-4 text-left">
+        <div>
+          <label for="gate-name" class="block text-sm text-slate-400 mb-1.5">First Name</label>
+          <input type="text" id="gate-name" name="first_name" required class="advisor-input" placeholder="Your first name">
+        </div>
+        <div>
+          <label for="gate-email" class="block text-sm text-slate-400 mb-1.5">Email</label>
+          <input type="email" id="gate-email" name="email" required class="advisor-input" placeholder="you@example.com">
+        </div>
+        <input type="hidden" name="advisor_type" value="gatherer">
+        <button type="submit" class="btn-gold w-full justify-center mt-2">
+          Start Assessment <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="trust-bar mt-8 justify-center">
+        <span><i class="fa-solid fa-lock text-slate-500"></i> We respect your inbox. No spam.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz (hidden until email gate passes) -->
+  <section id="quiz-section" class="pt-32 pb-20 px-6" style="display: none;">
+    <div class="quiz-container">
+      <!-- Progress -->
+      <div class="mb-8">
+        <p id="quiz-progress-text" class="text-sm text-slate-400 mb-2">Question 1 of 10</p>
+        <div class="quiz-progress-bar">
+          <div id="quiz-progress-fill" class="quiz-progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Question Area -->
+      <div id="quiz-question-area"></div>
+    </div>
+
+    <!-- Quiz data -->
+    <div id="quiz-container" data-advisor-type="gatherer" data-questions='[
+      {
+        "question": "Think of your single best client relationship. What makes it feel effortless?",
+        "options": [
+          "They trust my judgment completely and never second-guess me",
+          "We genuinely like each other \u2014 it feels like a friendship",
+          "They\u2019re engaged and ambitious \u2014 our goals are aligned",
+          "They\u2019re organized and prepared \u2014 every meeting is productive"
+        ]
+      },
+      {
+        "question": "Now think of your most draining client. What\u2019s usually happening?",
+        "options": [
+          "They challenge every recommendation \u2014 nothing is ever good enough",
+          "The relationship feels transactional \u2014 they don\u2019t value me, just my returns",
+          "They\u2019re passive and disengaged \u2014 I can\u2019t get them to take action",
+          "They\u2019re chaotic and unpredictable \u2014 I never know what\u2019s coming"
+        ]
+      },
+      {
+        "question": "Your best clients tend to have found you through...",
+        "options": [
+          "A specific referral from someone who knows me well",
+          "A shared community \u2014 same club, same network, same world",
+          "They sought me out \u2014 they\u2019d heard about my reputation",
+          "A long relationship that started small and grew over time"
+        ]
+      },
+      {
+        "question": "When you think about the clients you\u2019d clone if you could, they share...",
+        "options": [
+          "A similar communication style to mine \u2014 we just get each other",
+          "Similar values \u2014 they care about the same things I care about",
+          "Similar ambitions \u2014 they want to build something significant",
+          "Similar trust \u2014 they\u2019ve given me full discretion over time"
+        ]
+      },
+      {
+        "question": "A long-time client refers someone who immediately feels like a bad fit. You...",
+        "options": [
+          "Take the meeting out of loyalty, but keep my boundaries clear",
+          "Trust my instincts and find a polite way to redirect them",
+          "Take it on \u2014 I can make any relationship work if I try hard enough",
+          "Have an honest conversation with the referring client about fit"
+        ]
+      },
+      {
+        "question": "The clients who\u2019ve left you over the years \u2014 looking back, what was usually true?",
+        "options": [
+          "They wanted something I wasn\u2019t willing to become",
+          "The personal connection was never really there",
+          "Their ambitions outgrew what I was offering at the time",
+          "They needed more hand-holding than I could sustainably provide"
+        ]
+      },
+      {
+        "question": "When you\u2019re at your best with a client, you\u2019re usually...",
+        "options": [
+          "Solving a complex problem they couldn\u2019t solve alone",
+          "Having a real conversation \u2014 not just a financial review",
+          "Helping them see a bigger vision for what\u2019s possible",
+          "Giving them the confidence to make a decision they\u2019ve been avoiding"
+        ]
+      },
+      {
+        "question": "If you could redesign your book from scratch today, you would...",
+        "options": [
+          "Keep the complexity, lose the friction",
+          "Keep the relationships, lose the transactional ones",
+          "Keep the ambitious clients, lose the ones who\u2019ve settled",
+          "Keep the trusting ones, lose the ones who always need convincing"
+        ]
+      },
+      {
+        "question": "The referrals your best clients send tend to be...",
+        "options": [
+          "Well-qualified and similar to themselves",
+          "People they genuinely care about \u2014 personal referrals",
+          "High-achievers who are ready to make moves",
+          "People who\u2019ve been burned before and need someone they can trust"
+        ]
+      },
+      {
+        "question": "What would \u201cthe perfect book\u201d feel like to you?",
+        "options": [
+          "Every client values my expertise and follows my lead",
+          "Every client feels like someone I\u2019d have dinner with",
+          "Every client is actively building toward something significant",
+          "Every client trusts me so completely they never lose sleep over their finances"
+        ]
+      }
+    ]'></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-10 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="credibility-bar">
+        <span class="text-slate-300 font-semibold">Gary Sinderbrand</span> &nbsp;|&nbsp; 35 Years &nbsp;|&nbsp; 12,000+ Advisors Trained
+      </p>
+      <p class="text-slate-600 text-xs mt-4">&copy; 2026 The Rainmaker App. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/quiz.js"></script>
+</body>
+</html>
