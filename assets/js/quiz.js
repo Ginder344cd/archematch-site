@@ -56,6 +56,40 @@
     });
   }
 
+  /* ── Instantly V2 API ── */
+  var INSTANTLY_API_KEY = 'NTA5MjllMTMtOWM5NC00NmU5LTkyYjgtMGE1MWMxNjIzYjM3OmZ0TU9sZVNjUHRQbQ==';
+  var INSTANTLY_API_BASE = 'https://api.instantly.ai/api/v2';
+
+  // Campaign IDs — replace these with your actual Instantly campaign UUIDs
+  var CAMPAIGN_IDS = {
+    hunter:   'HUNTER_CAMPAIGN_ID',
+    gatherer: 'GATHERER_CAMPAIGN_ID'
+  };
+
+  function sendToInstantly(email, firstName, customVars) {
+    var advisorType = (customVars && customVars.advisor_type) || '';
+    var campaignId = CAMPAIGN_IDS[advisorType];
+
+    var payload = {
+      email: email,
+      first_name: firstName,
+      custom_variables: customVars || {}
+    };
+    // Assign to campaign if we have the ID
+    if (campaignId && campaignId.indexOf('_CAMPAIGN_ID') === -1) {
+      payload.campaign_id = campaignId;
+    }
+
+    return fetch(INSTANTLY_API_BASE + '/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + INSTANTLY_API_KEY
+      },
+      body: JSON.stringify(payload)
+    }).catch(function () { /* silent fail — funnel still works */ });
+  }
+
   /* ── On page load: persist UTM and patch all internal links ── */
   persistUTM();
   document.addEventListener('DOMContentLoaded', function () {
@@ -302,26 +336,14 @@
       sessionStorage.setItem('rainmaker_first_name', firstName);
       sessionStorage.setItem('rainmaker_email', email);
 
-      // POST to Instantly webhook
-      var webhookUrl = gateForm.getAttribute('data-webhook');
+      // Send to Instantly
       var advisorType = gateForm.getAttribute('data-advisor-type');
-      var payload = {
-        first_name: firstName,
-        email: email,
+      var utm = Object.assign({}, getStoredUTM(), getUTMParams());
+      var customVars = Object.assign({}, utm, {
         advisor_type: advisorType,
         form_type: 'email_gate'
-      };
-      // Merge UTM
-      var utm = Object.assign({}, getStoredUTM(), getUTMParams());
-      Object.assign(payload, utm);
-
-      if (webhookUrl && webhookUrl !== 'PLACEHOLDER_WEBHOOK_URL') {
-        fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).catch(function () { /* silent fail — quiz still works */ });
-      }
+      });
+      sendToInstantly(email, firstName, customVars);
 
       // Show quiz
       document.getElementById('email-gate').style.display = 'none';
@@ -395,34 +417,30 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var data = {};
-      new FormData(form).forEach(function (val, key) { data[key] = val; });
+      var formData = {};
+      new FormData(form).forEach(function (val, key) { formData[key] = val; });
 
-      // Merge UTM
-      var utm = Object.assign({}, getStoredUTM(), getUTMParams());
-      Object.assign(data, utm);
-
-      // Add archetype info
-      data.archetype = sessionStorage.getItem('rainmaker_archetype') || '';
-      data.advisor_type = form.getAttribute('data-advisor-type') || '';
-      data.form_type = 'waitlist';
-
-      var webhookUrl = form.getAttribute('data-webhook');
       var btn = form.querySelector('button[type="submit"]');
       var originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
       btn.disabled = true;
 
-      var submitPromise;
-      if (webhookUrl && webhookUrl !== 'PLACEHOLDER_WEBHOOK_URL') {
-        submitPromise = fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-      } else {
-        submitPromise = Promise.resolve();
-      }
+      // Build custom variables for Instantly
+      var utm = Object.assign({}, getStoredUTM(), getUTMParams());
+      var customVars = Object.assign({}, utm, {
+        advisor_type: formData.advisor_type || form.getAttribute('data-advisor-type') || '',
+        archetype: sessionStorage.getItem('rainmaker_archetype') || '',
+        form_type: 'waitlist',
+        last_name: formData.last_name || '',
+        firm_name: formData.firm_name || '',
+        years_in_practice: formData.years_in_practice || ''
+      });
+
+      var submitPromise = sendToInstantly(
+        formData.email,
+        formData.first_name,
+        customVars
+      ) || Promise.resolve();
 
       submitPromise
         .then(function () {
