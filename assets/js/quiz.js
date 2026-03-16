@@ -63,7 +63,7 @@
   // Campaign IDs — replace these with your actual Instantly campaign UUIDs
   var CAMPAIGN_IDS = {
     hunter:   'HUNTER_CAMPAIGN_ID',
-    gatherer: 'GATHERER_CAMPAIGN_ID'
+    gatherer: '78122468-f519-46f8-9edf-825679613fc0'
   };
 
   function sendToInstantly(email, firstName, customVars) {
