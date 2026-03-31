@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainmaker App | AI-Powered Psychological Intelligence for Wealth Management</title>
-  <meta name="description" content="ArcheMatch Inc. — Transforming wealth management prospecting with AI-powered psychological intelligence. 10x performance improvements through Jungian archetype matching.">
+  <meta name="description" content="Rainmaker — Transforming wealth management prospecting with AI-powered psychological intelligence. 10-15x performance improvements through Jungian archetype matching.">
   <meta property="og:title" content="Rainmaker App | Investor Relations">
   <meta property="og:description" content="AI-Powered Psychological Intelligence for Wealth Management. Seed Round Open.">
   <meta property="og:type" content="website">
@@ -35,10 +35,10 @@
   <style>
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
     .hero-bg {
-      background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85)),
-                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
+      background: radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                  linear-gradient(to bottom, #0f172a, #1e293b);
     }
     .glass-card {
       background: rgba(255, 255, 255, 0.03);
@@ -129,12 +129,12 @@
   <section class="py-10 bg-slate-800 border-y border-slate-700/50" aria-label="Trusted affiliations">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-center text-xs text-slate-500 uppercase tracking-wider mb-6">Built on expertise from</p>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 text-slate-400">
-        <span class="text-sm font-medium">Merrill Lynch</span>
-        <span class="text-sm font-medium">UBS</span>
-        <span class="text-sm font-medium">Duke University</span>
-        <span class="text-sm font-medium">Philemon Foundation</span>
-        <span class="text-sm font-medium">USPTO Patent Pending</span>
+      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+        <img src="assets/img/merrill-lynch-logo.png" alt="Merrill Lynch" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);">
+        <img src="assets/img/ubs-logo.png" alt="UBS" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);">
+        <img src="assets/img/duke-logo.png" alt="Duke University" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);">
+        <img src="assets/img/philemon-logo.svg" alt="Philemon Foundation" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity">
+        <img src="assets/img/uspto-logo.svg" alt="USPTO Patent Pending" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity">
       </div>
     </div>
   </section>
@@ -262,7 +262,24 @@
         </span>
       </div>
       <h2 id="demo-heading" class="text-3xl md:text-4xl font-bold mb-12 text-white font-display">See Rainmaker in Action</h2>
-      <div class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
+
+      <!-- Self-hosted video (enterprise-friendly — no third-party domains to block) -->
+      <div id="demo-video-self" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="display: none;">
+        <video
+          id="demo-video-player"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/assets/img/demo-poster.jpg"
+          class="w-full"
+          style="aspect-ratio: 16/9;">
+          <source src="/assets/video/rainmaker-demo.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- YouTube fallback (shown when self-hosted video is not available) -->
+      <div id="demo-video-yt" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
         <iframe
           class="absolute top-0 left-0 w-full h-full"
           src="https://www.youtube.com/embed/-SixKqd9TE0?rel=0"
@@ -273,8 +290,26 @@
           loading="lazy">
         </iframe>
       </div>
+
+      <p class="text-slate-500 text-sm mt-4">Video not loading? Your network may block external video. <a href="/assets/video/rainmaker-demo.mp4" class="text-blue-400 hover:text-blue-300" id="demo-direct-link" style="display: none;">Download the demo directly.</a></p>
     </div>
   </section>
+
+  <script>
+    // Auto-detect: if self-hosted video exists, prefer it over YouTube
+    (function() {
+      var video = document.getElementById('demo-video-player');
+      if (!video) return;
+      var source = video.querySelector('source');
+      fetch(source.src, { method: 'HEAD' }).then(function(r) {
+        if (r.ok) {
+          document.getElementById('demo-video-self').style.display = 'block';
+          document.getElementById('demo-video-yt').style.display = 'none';
+          document.getElementById('demo-direct-link').style.display = 'inline';
+        }
+      }).catch(function() { /* YouTube fallback stays visible */ });
+    })();
+  </script>
 
   <!-- Traction -->
   <section id="traction" class="py-20 md:py-24 bg-slate-900" aria-labelledby="traction-heading">
@@ -283,24 +318,24 @@
         <h2 id="traction-heading" class="text-3xl font-bold mb-8 text-white font-display">Proven Performance</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">10-15x</div>
-            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Effectiveness Improvement</div>
-            <div class="text-xs text-slate-500 mt-1">Pilot cohort, N=50 advisors</div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">25-40%</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Response Rates</div>
+            <div class="text-xs text-slate-500 mt-1">vs. 2-3% industry baseline</div>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">40%</div>
-            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Response Rates</div>
-            <div class="text-xs text-slate-500 mt-1">vs. 2-3% industry avg.</div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">100%</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Testers Improved</div>
+            <div class="text-xs text-slate-500 mt-1">Across all experience levels</div>
           </div>
           <div>
             <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">132</div>
             <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Patent Claims</div>
-            <div class="text-xs text-slate-500 mt-1">Filed with USPTO</div>
+            <div class="text-xs text-slate-500 mt-1">Filed with USPTO, zero prior art</div>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">$52M</div>
-            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Proj. Year 5 EBITDA</div>
-            <div class="text-xs text-slate-500 mt-1">Per financial model</div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">$60.6M</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wide font-sans">Proj. Year 5 Revenue</div>
+            <div class="text-xs text-slate-500 mt-1">86% EBITDA margin</div>
           </div>
         </div>
       </div>
@@ -375,32 +410,32 @@
 
       <div class="space-y-6">
         <div class="flex items-center gap-4">
-          <div class="w-32 text-right text-sm font-semibold text-white shrink-0">Product (40%)</div>
+          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Product & Engineering (33%)</div>
           <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-blue-500 h-full rounded-full" style="width: 40%"></div>
+            <div class="bg-blue-500 h-full rounded-full" style="width: 33%"></div>
           </div>
-          <div class="w-20 text-sm text-slate-400 shrink-0">$720K</div>
+          <div class="w-20 text-sm text-slate-400 shrink-0">$594K</div>
         </div>
         <div class="flex items-center gap-4">
-          <div class="w-32 text-right text-sm font-semibold text-white shrink-0">Engineering (25%)</div>
+          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Sales & Marketing (31%)</div>
           <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-emerald-500 h-full rounded-full" style="width: 25%"></div>
+            <div class="bg-emerald-500 h-full rounded-full" style="width: 31%"></div>
           </div>
-          <div class="w-20 text-sm text-slate-400 shrink-0">$450K</div>
+          <div class="w-20 text-sm text-slate-400 shrink-0">$558K</div>
         </div>
         <div class="flex items-center gap-4">
-          <div class="w-32 text-right text-sm font-semibold text-white shrink-0">Sales (20%)</div>
+          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Customer Success (18%)</div>
           <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-purple-500 h-full rounded-full" style="width: 20%"></div>
+            <div class="bg-purple-500 h-full rounded-full" style="width: 18%"></div>
           </div>
-          <div class="w-20 text-sm text-slate-400 shrink-0">$360K</div>
+          <div class="w-20 text-sm text-slate-400 shrink-0">$324K</div>
         </div>
         <div class="flex items-center gap-4">
-          <div class="w-32 text-right text-sm font-semibold text-white shrink-0">Operations (15%)</div>
+          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Operations & Legal (18%)</div>
           <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-amber-500 h-full rounded-full" style="width: 15%"></div>
+            <div class="bg-amber-500 h-full rounded-full" style="width: 18%"></div>
           </div>
-          <div class="w-20 text-sm text-slate-400 shrink-0">$270K</div>
+          <div class="w-20 text-sm text-slate-400 shrink-0">$324K</div>
         </div>
       </div>
     </div>
@@ -418,7 +453,7 @@
         <article class="glass-card p-6 rounded-xl text-center">
           <h3 class="text-xl font-bold text-white font-sans">Gary Sinderbrand</h3>
           <p class="text-blue-400 text-sm mb-4">Founder & CEO</p>
-          <p class="text-slate-400 text-sm mb-4">40+ years in financial services. Trained 12,000+ advisors at Merrill Lynch and UBS. Creator of BetterPath Training.</p>
+          <p class="text-slate-400 text-sm mb-4">40+ years in financial services. Trained 12,000+ advisors. Built $100M+ training programs at Merrill Lynch and UBS. 300,000+ advisor network, 5,000+ LinkedIn connections.</p>
           <a href="https://www.linkedin.com/in/garysinderbrand/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm transition-colors">
             <i class="fa-brands fa-linkedin mr-1" aria-hidden="true"></i> LinkedIn
           </a>
@@ -491,7 +526,7 @@
       <div class="text-center mb-16">
         <h2 id="landscape-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Competitive Landscape</h2>
         <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-slate-400">No one else combines psychological intelligence with prospecting at scale.</p>
+        <p class="mt-4 text-lg text-slate-400">Existing tools solve pieces of the puzzle. Rainmaker is the only platform that combines all of them.</p>
       </div>
 
       <div class="overflow-x-auto">
@@ -500,9 +535,9 @@
             <tr class="border-b border-slate-700">
               <th class="py-4 px-4 text-slate-400 font-medium">Capability</th>
               <th class="py-4 px-4 text-center text-blue-400 font-bold">Rainmaker</th>
-              <th class="py-4 px-4 text-center text-slate-400 font-medium">Generic CRMs</th>
-              <th class="py-4 px-4 text-center text-slate-400 font-medium">Lead Gen Tools</th>
-              <th class="py-4 px-4 text-center text-slate-400 font-medium">Personality Assessments</th>
+              <th class="py-4 px-4 text-center text-slate-400 font-medium">Salesforce / Wealthbox</th>
+              <th class="py-4 px-4 text-center text-slate-400 font-medium">Apollo.io / ZoomInfo</th>
+              <th class="py-4 px-4 text-center text-slate-400 font-medium">SmartAsset AMP</th>
             </tr>
           </thead>
           <tbody class="text-slate-300">
@@ -511,10 +546,10 @@
               <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
+              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
             </tr>
             <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">AI-Powered Matching</td>
+              <td class="py-3 px-4">AI Compatibility Matching</td>
               <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
               <td class="py-3 px-4 text-center text-amber-400">Partial</td>
@@ -525,7 +560,7 @@
               <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
               <td class="py-3 px-4 text-center text-amber-400">Partial</td>
               <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
+              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
             </tr>
             <tr class="border-b border-slate-800">
               <td class="py-3 px-4">Personalized Outreach</td>
@@ -534,9 +569,23 @@
               <td class="py-3 px-4 text-center text-amber-400">Partial</td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
             </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4">FA-Specific Workflows</td>
+              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
+              <td class="py-3 px-4 text-center text-amber-400">Partial</td>
+              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
+              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
+            </tr>
+            <tr class="border-b border-slate-800">
+              <td class="py-3 px-4">Installed User Base</td>
+              <td class="py-3 px-4 text-center text-amber-400">Early</td>
+              <td class="py-3 px-4 text-center text-emerald-400">Massive</td>
+              <td class="py-3 px-4 text-center text-emerald-400">Large</td>
+              <td class="py-3 px-4 text-center text-emerald-400">89K+ referrals/yr</td>
+            </tr>
             <tr>
               <td class="py-3 px-4">Patent-Protected IP</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
+              <td class="py-3 px-4 text-center text-emerald-400">132 claims</td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
               <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
@@ -639,11 +688,11 @@
       <div class="space-y-4">
         <details class="glass-card rounded-xl group">
           <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What is the minimum investment?
+            What are the deal terms?
             <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
           </summary>
           <div class="px-6 pb-6 text-slate-400 text-sm">
-            Please contact us directly to discuss investment terms. We are flexible for strategic investors who bring domain expertise or distribution partnerships.
+            We're raising $1.8M on a SAFE note with a 25% discount. Minimum investment is $50,000. The round provides 18 months of runway to hit enterprise launch milestones. Full terms and cap table are available in the data room.
           </div>
         </details>
 
@@ -653,7 +702,7 @@
             <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
           </summary>
           <div class="px-6 pb-6 text-slate-400 text-sm">
-            We have a working prototype that has been validated through a 50-advisor pilot program. The seed round will fund the transition from prototype to full production platform.
+            The MVP is live and operational at rainmakerapp.io. It has been validated through beta testing with advisors across experience levels — from 18-month rookies to 15-year veterans — all reporting measurable improvement. 100% of testers report improvement over their previous methods. The seed round funds the transition from validated MVP to enterprise-scale production platform.
           </div>
         </details>
 
@@ -663,7 +712,27 @@
             <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
           </summary>
           <div class="px-6 pb-6 text-slate-400 text-sm">
-            We have 132 patent claims filed with the USPTO covering our psychological matching algorithm, archetype inference system, and compatibility scoring methodology. Combined with 40+ years of proprietary domain expertise embedded in the model, this creates a significant barrier to entry.
+            132 patent claims filed with the USPTO with zero prior art — covering our psychological matching algorithm, archetype inference system, and compatibility scoring methodology. Combined with 40+ years of proprietary domain expertise and a 35M+ personality combinations data moat, the barrier to entry is substantial. No competing product combines AI, psychology, and advisor-specific workflows.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-xl group">
+          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
+            What does pricing look like?
+            <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400 text-sm">
+            Three tiers: Professional at $197/month ($2,364/year) for solo advisors, Team at $499/month ($5,988/year) for 2-5 advisors, and Enterprise at $99-$1,188/seat for 10+ advisors with dedicated onboarding. Unit economics are strong: 7:1 LTV/CAC improving to 14:1+ at scale, 73-93% gross margins, and &lt;5% annual churn.
+          </div>
+        </details>
+
+        <details class="glass-card rounded-xl group">
+          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
+            What is the path to profitability?
+            <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
+          </summary>
+          <div class="px-6 pb-6 text-slate-400 text-sm">
+            Year 1 is a planned investment phase ($1.1M revenue, -$114K EBITDA). We reach profitability in Year 2 ($4.3M revenue, 41% margin) and scale to $60.6M revenue with 86% EBITDA margin by Year 5. Even at 50% of plan, we deliver $25M EBITDA. The full financial model with assumptions is in the data room.
           </div>
         </details>
 
@@ -673,17 +742,7 @@
             <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
           </summary>
           <div class="px-6 pb-6 text-slate-400 text-sm">
-            Dual approach: (1) Top-down enterprise sales to broker-dealers and RIA aggregators for bulk seat licenses, and (2) bottom-up direct-to-advisor marketing through industry conferences, thought leadership, and referral partnerships.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            When do you expect to reach profitability?
-            <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-400 text-sm">
-            Our financial model projects cash-flow positive by Year 3, with $52M projected EBITDA by Year 5. These projections are available in our data room for detailed review.
+            Dual approach: (1) Top-down enterprise sales to broker-dealers and RIA aggregators — we're already in discussions with major wirehouses including a structured Morgan Stanley POC. (2) Bottom-up direct-to-advisor acquisition leveraging the founder's 300,000+ advisor email list, 5,000+ LinkedIn connections, and a 40,000-advisor professional network. The founder built $100M+ training programs at the major wirehouses — these are existing relationships, not cold outreach.
           </div>
         </details>
       </div>
@@ -709,6 +768,8 @@
           <a href="mailto:gary@archematch.com" class="hover:text-blue-400 transition-colors">gary@archematch.com</a>
           <span aria-hidden="true">|</span>
           <a href="/privacy-policy.html" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="/terms.html" class="hover:text-blue-400 transition-colors">Terms of Service</a>
           <span aria-hidden="true">|</span>
           <a href="/white-paper.html" class="hover:text-blue-400 transition-colors">White Paper</a>
         </div>

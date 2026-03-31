@@ -1,0 +1,201 @@
+/* Advisor Pages — Custom Styles (supplements Tailwind via assets/css/styles.css) */
+
+/* ── Glass card hover lift ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Selector cards ── */
+.selector-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.selector-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.selector-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Gold accent utilities ── */
+.text-gold { color: #d4a853; }
+.bg-gold { background-color: #d4a853; }
+.border-gold { border-color: #d4a853; }
+.bg-gold-hover:hover { background-color: #c49a47; }
+
+/* ── Quiz ── */
+.quiz-container { max-width: 720px; margin: 0 auto; }
+
+.quiz-option {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+.quiz-option:hover {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+.quiz-option.selected {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.2);
+}
+
+.quiz-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #d4a853);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+/* ── Email gate form ── */
+.advisor-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.advisor-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+.advisor-input::placeholder {
+  color: rgba(203, 213, 225, 0.5);
+}
+
+/* ── CTA button ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #d4a853, #c49a47);
+  color: #0f172a;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #c49a47, #b08a3d);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ── Pain-point cards ── */
+.pain-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid #d4a853;
+  padding: 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* ── Result archetype reveal ── */
+.archetype-reveal {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(212, 168, 83, 0.08));
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+/* ── Trust bar ── */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.trust-bar span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ── Waitlist form grid ── */
+.waitlist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .waitlist-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Credibility footer ── */
+.credibility-bar {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
