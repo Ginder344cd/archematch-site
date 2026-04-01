@@ -112,14 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           _subject: 'New White Paper Download Lead',
-          name: formData.firstName + ' ' + formData.lastName,
-          email: formData.email,
-          company: formData.company,
-          role: formData.role,
-          downloaded_at: formData.downloadedAt,
-          source: formData.source
+          name: firstName + ' ' + lastName,
+          email: email,
+          company: company,
+          role: role,
+          downloaded_at: new Date().toISOString(),
+          source: 'white-paper-psychology-alignment'
         })
-      }).catch(() => {}); // Silently fail — localStorage is the backup
+      }).catch(() => {});
 
       formContainer.classList.add('hidden');
       successContainer.classList.remove('hidden');
@@ -138,4 +138,59 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- Enhanced Site Visit Tracking (GA4 custom events) ---
+  if (typeof gtag === 'function') {
+    // Track scroll depth milestones (25%, 50%, 75%, 100%)
+    var scrollMarkers = [25, 50, 75, 100];
+    var scrollFired = {};
+    window.addEventListener('scroll', function () {
+      var scrollPct = Math.round(
+        (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+      );
+      scrollMarkers.forEach(function (mark) {
+        if (scrollPct >= mark && !scrollFired[mark]) {
+          scrollFired[mark] = true;
+          gtag('event', 'scroll_depth', {
+            percent: mark,
+            page: window.location.pathname
+          });
+        }
+      });
+    }, { passive: true });
+
+    // Track outbound link clicks (data room, LinkedIn, etc.)
+    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+      if (link.hostname !== window.location.hostname) {
+        link.addEventListener('click', function () {
+          gtag('event', 'outbound_click', {
+            url: link.href,
+            link_text: (link.textContent || '').trim().substring(0, 50),
+            page: window.location.pathname
+          });
+        });
+      }
+    });
+
+    // Track CTA button clicks
+    document.querySelectorAll('a[href*="orangedox"], a[href*="Pitch-Deck"], a[href*="white-paper"]').forEach(function (cta) {
+      cta.addEventListener('click', function () {
+        gtag('event', 'cta_click', {
+          destination: cta.href,
+          link_text: (cta.textContent || '').trim().substring(0, 50),
+          page: window.location.pathname
+        });
+      });
+    });
+
+    // Track time on page (fire at 30s, 60s, 120s, 300s)
+    [30, 60, 120, 300].forEach(function (seconds) {
+      setTimeout(function () {
+        gtag('event', 'time_on_page', {
+          seconds: seconds,
+          page: window.location.pathname
+        });
+      }, seconds * 1000);
+    });
+  }
 });
