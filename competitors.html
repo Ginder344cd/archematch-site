@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainmaker vs. the Competition | Why Psychology Beats Data Alone</title>
+  <meta name="description" content="See how Rainmaker compares to Finny, Aidentified, LinkedIn Sales Navigator, and ZoomInfo. Spoiler: they tell you WHO to call. We tell you WHY they'll connect with you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --navy-mid: #0f2040; --navy-card: #132444; --navy-light: #1a3060;
+      --teal: #3ecfb2; --teal-glow: rgba(62,207,178,0.12); --blue: #4f8ef7; --purple: #9b6dfa;
+      --gold: #f0c040; --red: #f05060; --white: #fff; --white-80: rgba(255,255,255,0.8);
+      --white-60: rgba(255,255,255,0.6); --border: rgba(255,255,255,0.08);
+      --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+      --radius: 12px; --radius-lg: 20px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .container-sm { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+    .label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(62,207,178,0.35); border-radius: 100px; padding: 5px 14px; margin-bottom: 20px; }
+    .section-title { font-family: var(--serif); font-size: clamp(30px,4vw,52px); font-weight: 600; line-height: 1.15; margin-bottom: 16px; }
+    .divider { width: 60px; height: 3px; background: linear-gradient(90deg,var(--teal),var(--blue)); border-radius: 2px; margin: 16px 0 32px; }
+    .center { text-align: center; }
+    .center .divider { margin: 16px auto 32px; }
+    .teal { color: var(--teal); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 600; transition: all 0.2s; font-family: var(--sans); cursor: pointer; border: none; white-space: nowrap; }
+    .btn-primary { background: linear-gradient(135deg,var(--teal),#2bb8a0); color: var(--navy); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(62,207,178,0.4); }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.35); color: var(--white); background: transparent; }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+
+    /* NAV */
+    .nav { position: fixed; top:0; left:0; right:0; z-index:1000; padding: 0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; background: rgba(10,22,40,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo svg { width:36px; height:36px; }
+    .nav-logo-text { font-size:17px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+    .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+    .nav-links a { font-size:14px; font-weight:500; color:var(--white-80); transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--teal); }
+
+    /* HERO */
+    .comp-hero { padding: 140px 0 80px; text-align:center; position:relative; overflow:hidden; }
+    .comp-hero::before { content:''; position:absolute; top:-10%; left:50%; transform:translateX(-50%); width:800px; height:500px; background:radial-gradient(ellipse, rgba(62,207,178,0.09) 0%, transparent 70%); pointer-events:none; }
+    .comp-hero-content { position:relative; z-index:1; }
+    .comp-hero h1 { font-family:var(--serif); font-size:clamp(36px,5.5vw,72px); font-weight:700; line-height:1.1; margin-bottom:24px; max-width:900px; margin-left:auto; margin-right:auto; }
+    .comp-hero p { font-size:19px; color:var(--white-80); max-width:620px; margin: 0 auto 40px; line-height:1.7; }
+
+    /* THE FUNDAMENTAL POINT */
+    .fundamental { padding: 64px 0; background: var(--navy-mid); }
+    .fundamental-inner { background: linear-gradient(135deg, rgba(62,207,178,0.08), rgba(79,142,247,0.05)); border: 1px solid rgba(62,207,178,0.3); border-radius: var(--radius-lg); padding: 52px 56px; text-align: center; max-width: 860px; margin: 0 auto; }
+    .fundamental-q { font-family: var(--serif); font-size: clamp(20px,3vw,32px); font-weight:600; margin-bottom:24px; }
+    .fundamental-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: center; margin-top: 40px; }
+    .f-box { background: var(--navy-card); border-radius: var(--radius-lg); padding: 28px 24px; }
+    .f-box-bad { border: 1px solid rgba(240,80,96,0.4); }
+    .f-box-good { border: 1px solid rgba(62,207,178,0.4); }
+    .f-label { font-size: 11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
+    .f-label-bad { color: var(--red); }
+    .f-label-good { color: var(--teal); }
+    .f-text { font-size: 18px; font-weight: 600; line-height: 1.4; }
+    .f-vs { font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--white-60); }
+    @media (max-width:768px) { .fundamental-grid { grid-template-columns: 1fr; } .fundamental-inner { padding: 36px 24px; } }
+
+    /* COMPARISON TABLE */
+    .comp-table-section { padding: 80px 0; }
+    .comp-table-wrap { overflow-x: auto; margin-top: 48px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; min-width: 800px; }
+    thead th { padding: 20px 20px; font-size: 13px; font-weight: 700; text-align: left; border-bottom: 1px solid var(--border); background: var(--navy-mid); }
+    thead th:first-child { width: 180px; color: var(--white-60); font-size:12px; text-transform:uppercase; letter-spacing:0.08em; }
+    thead th.col-rm { background: linear-gradient(180deg, rgba(62,207,178,0.12), rgba(62,207,178,0.06)); border-top: 3px solid var(--teal); color: var(--teal); text-align: center; font-size: 15px; }
+    thead th.col-comp { color: var(--white-80); text-align: center; }
+    tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    tbody td { padding: 18px 20px; font-size: 14px; color: var(--white-80); border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+    tbody td:first-child { font-weight: 600; color: var(--white); font-size: 13px; }
+    tbody td.col-rm { background: rgba(62,207,178,0.04); border-left: 1px solid rgba(62,207,178,0.15); border-right: 1px solid rgba(62,207,178,0.15); text-align: center; }
+    tbody tr:last-child td { border-bottom: none; }
+    .chk { color: var(--teal); font-size: 18px; font-weight: 700; }
+    .x { color: var(--red); font-size: 16px; }
+    .check-desc { font-size: 13px; color: var(--white-80); margin-top: 4px; line-height: 1.5; }
+    .highlight-row td { background: rgba(62,207,178,0.06) !important; }
+
+    /* COMPETITOR DEEP DIVES */
+    .deepdive-section { padding: 80px 0; background: var(--navy-mid); }
+    .deepdive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+    @media (max-width: 768px) { .deepdive-grid { grid-template-columns: 1fr; } }
+    .dd-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; }
+    .dd-name { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+    .dd-tag { font-size: 12px; color: var(--white-60); font-weight: 500; margin-bottom: 20px; }
+    .dd-what { font-size: 14px; color: var(--white-80); line-height: 1.7; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .dd-pros, .dd-cons { margin-bottom: 16px; }
+    .dd-pros h5, .dd-cons h5 { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .dd-pros h5 { color: var(--teal); }
+    .dd-cons h5 { color: var(--red); }
+    .dd-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .dd-list li { font-size: 13px; color: var(--white-80); display: flex; gap: 8px; line-height: 1.5; }
+    .dd-list li::before { flex-shrink: 0; margin-top:1px; }
+    .dd-pros .dd-list li::before { content: '✓'; color: var(--teal); }
+    .dd-cons .dd-list li::before { content: '✗'; color: var(--red); }
+    .dd-verdict { margin-top: 20px; padding: 16px 18px; background: rgba(62,207,178,0.07); border-radius: 10px; font-size: 13px; color: var(--white-80); line-height: 1.6; border-left: 3px solid var(--teal); }
+    .dd-verdict strong { color: var(--teal); }
+
+    /* WHY RAINMAKER WINS */
+    .wins-section { padding: 80px 0; }
+    .wins-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 48px; }
+    @media (max-width: 1024px) { .wins-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .wins-grid { grid-template-columns: 1fr; } }
+    .win-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 24px; text-align:center; position:relative; overflow:hidden; }
+    .win-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background: linear-gradient(90deg,var(--teal),var(--blue)); }
+    .win-icon { font-size: 36px; margin-bottom: 16px; }
+    .win-title { font-weight: 700; font-size: 15px; margin-bottom: 10px; }
+    .win-desc { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+
+    /* MIGRATION OFFER */
+    .migration { padding: 80px 0; background: var(--navy-mid); }
+    .migration-inner { background: linear-gradient(135deg, rgba(79,142,247,0.07), rgba(62,207,178,0.06)); border: 1px solid rgba(62,207,178,0.25); border-radius: var(--radius-lg); padding: 56px; text-align:center; max-width:760px; margin:0 auto; }
+    .migration h2 { font-family: var(--serif); font-size: clamp(26px,3.5vw,44px); font-weight:700; margin-bottom:16px; }
+    .migration p { font-size:17px; color:var(--white-80); margin-bottom:36px; line-height:1.7; max-width:560px; margin-left:auto; margin-right:auto; }
+    .migration-features { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:36px; }
+    .mig-feat { font-size:14px; color:var(--teal); font-weight:600; display:flex; align-items:center; gap:6px; }
+    .migration-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    /* FOOTER MINI */
+    .footer-mini { padding: 40px 0; border-top: 1px solid var(--border); text-align:center; font-size:13px; color:var(--white-60); }
+    .footer-mini a { color:var(--teal); margin: 0 12px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="36" stroke="#3ecfb2" stroke-width="2" fill="none"/>
+        <circle cx="40" cy="40" r="5" fill="#3ecfb2"/>
+        <line x1="40" y1="10" x2="40" y2="22" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+        <line x1="40" y1="58" x2="40" y2="70" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+        <line x1="10" y1="40" x2="22" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+        <line x1="58" y1="40" x2="70" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Rainmaker</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="competitors.html" class="active">vs. Competitors</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <a href="index.html#get-started" class="btn btn-primary">Request Access →</a>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="comp-hero">
+    <div class="container">
+      <div class="comp-hero-content fade-up">
+        <div class="label">Competitive Analysis</div>
+        <h1>Every Competitor Tells You <em>Who</em> to Call.<br/><span class="teal">Rainmaker Tells You <em>Why</em> They'll Connect With You.</span></h1>
+        <p>Finny, Aidentified, LinkedIn Sales Navigator, and ZoomInfo all solve a data problem. Rainmaker solves a psychology problem. Those are fundamentally different products — and only one of them actually increases your response rate.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="index.html#get-started" class="btn btn-primary">Try Rainmaker Free</a>
+          <a href="#comparison" class="btn btn-outline">See the Full Comparison ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- THE FUNDAMENTAL POINT -->
+  <section class="fundamental">
+    <div class="container">
+      <div class="fundamental-inner fade-up">
+        <p class="fundamental-q">The industry has been optimizing the wrong variable.</p>
+        <p style="font-size:16px; color:var(--white-80); line-height:1.75;">Every tool on the market assumes that if you just had <em>better contact data</em> or <em>better timing signals</em>, you'd convert more prospects. But data shows the average cold outreach response rate is still only 2–3% despite a decade of "smarter" prospecting tools. The problem was never the data. <strong style="color:var(--white);">The problem is psychological mismatch.</strong></p>
+        <div class="fundamental-grid">
+          <div class="f-box f-box-bad">
+            <div class="f-label f-label-bad">What Competitors Answer</div>
+            <div class="f-text">"Who should I call — and when?"</div>
+          </div>
+          <div class="f-vs">VS</div>
+          <div class="f-box f-box-good">
+            <div class="f-label f-label-good">What Rainmaker Answers</div>
+            <div class="f-text">"Why will this specific person connect with <em>me</em> — and how should I approach them?"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON TABLE -->
+  <section class="comp-table-section" id="comparison">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Side-by-Side Comparison</div>
+        <h2 class="section-title">Rainmaker vs. the Field</h2>
+        <div class="divider"></div>
+        <p style="font-size:17px; color:var(--white-80); max-width:580px; margin:0 auto;">Every competitor in this space has raised millions and built impressive technology. Here's what they actually do — and what they can't.</p>
+      </div>
+
+      <div class="comp-table-wrap fade-up" style="margin-top:48px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th class="col-rm">⚡ Rainmaker</th>
+              <th class="col-comp">Finny<br/><span style="font-size:11px;font-weight:400;color:var(--white-60);">$20M raised</span></th>
+              <th class="col-comp">Aidentified<br/><span style="font-size:11px;font-weight:400;color:var(--white-60);">FactSet-backed</span></th>
+              <th class="col-comp">LinkedIn Sales Nav</th>
+              <th class="col-comp">ZoomInfo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Core Approach</td>
+              <td class="col-rm" style="color:var(--teal); font-weight:600;">Profile the ADVISOR first, then match prospects to their psychology</td>
+              <td>Money-in-motion signals (life events, triggers)</td>
+              <td>Relationship mapping + wealth signals</td>
+              <td>Contact database + search filters</td>
+              <td>B2B contact data + intent signals</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Psychological Profiling</td>
+              <td class="col-rm">
+                <span class="chk">✓</span>
+                <div class="check-desc">Jungian archetypes — 12 advisor &amp; prospect types. Multi-dimensional scoring: archetype, communication style, values, professional fit. 132 patent claims.</div>
+              </td>
+              <td><span class="x">✗</span><div class="check-desc">F-Score = conversion likelihood only. No personality analysis.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">Wealth + relationships only. No psychological dimension.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+            </tr>
+            <tr>
+              <td>Tells You HOW to Approach Each Prospect</td>
+              <td class="col-rm">
+                <span class="chk">✓</span>
+                <div class="check-desc">Archetype-specific outreach scripts generated per prospect, grounded in alignment data.</div>
+              </td>
+              <td><span class="x">✗</span><div class="check-desc">Tells you when to reach out. Not how.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">Tells you the path to the person. Not the message.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">InMail templates only. Generic.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">Contact data only.</div></td>
+            </tr>
+            <tr>
+              <td>Founder Domain Expertise</td>
+              <td class="col-rm">
+                <span class="chk">✓</span>
+                <div class="check-desc">40 years in financial services. 22 years at Merrill Lynch. Co-created Payne-Sinderbrand program. Actively trains at ML/UBS/MS today. 12,000+ FAs trained.</div>
+              </td>
+              <td><div class="check-desc" style="color:var(--red);">3 AI engineers. Founded 2024. No FA experience.</div></td>
+              <td><div class="check-desc" style="color:var(--red);">Data/tech founders. Ex-Dun &amp; Bradstreet. No FA experience.</div></td>
+              <td><div class="check-desc" style="color:var(--red);">Generic sales tool. Not FA-specific.</div></td>
+              <td><div class="check-desc" style="color:var(--red);">Generic B2B data. Not FA-specific.</div></td>
+            </tr>
+            <tr>
+              <td>Embedded Training / Coaching</td>
+              <td class="col-rm">
+                <span class="chk">✓</span>
+                <div class="check-desc">40 years of methodology built into on-demand coaching. Addresses advisor skill gaps — teaches HOW, not just WHO.</div>
+              </td>
+              <td><span class="x">✗</span><div class="check-desc">Tool only. No training.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">Data platform only.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+            </tr>
+            <tr>
+              <td>Referral Network Analysis (Gatherer)</td>
+              <td class="col-rm">
+                <span class="chk">✓</span>
+                <div class="check-desc">Maps your existing client network to find psychologically-matched warm referral targets hidden in plain sight.</div>
+              </td>
+              <td><span class="x">✗</span><div class="check-desc">New prospect focus only.</div></td>
+              <td><div class="check-desc" style="color:var(--teal);">Partial — relationship mapping, but no psychological scoring.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+              <td><span class="x">✗</span><div class="check-desc">None.</div></td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Claimed Response Rates</td>
+              <td class="col-rm" style="font-weight:700; color:var(--teal); font-size:15px;">25–40%<div class="check-desc" style="color:var(--white-80);">10–15× improvement over industry baseline in beta</div></td>
+              <td><div class="check-desc">$7.7M new AUM/advisor claimed. Response rate: not published.</div></td>
+              <td><div class="check-desc">"75% time savings" claimed. Response rate: not published.</div></td>
+              <td><div class="check-desc" style="color:var(--white-60);">Industry standard: 2–3%</div></td>
+              <td><div class="check-desc" style="color:var(--white-60);">Industry standard: 2–3%</div></td>
+            </tr>
+            <tr>
+              <td>Patent Protection</td>
+              <td class="col-rm"><span class="chk">✓</span><div class="check-desc">132 patent claims filed. Methodology defensible.</div></td>
+              <td><span class="x">✗</span></td>
+              <td><span class="x">✗</span></td>
+              <td><span class="x">✗</span></td>
+              <td><span class="x">✗</span></td>
+            </tr>
+            <tr>
+              <td>LTV / CAC Ratio</td>
+              <td class="col-rm" style="font-weight:700; color:var(--teal);">7:1</td>
+              <td><div class="check-desc" style="color:var(--white-60);">Not published</div></td>
+              <td><div class="check-desc" style="color:var(--white-60);">Not published</div></td>
+              <td><div class="check-desc" style="color:var(--white-60);">Not published</div></td>
+              <td><div class="check-desc" style="color:var(--white-60);">Not published</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPETITOR DEEP DIVES -->
+  <section class="deepdive-section" id="deepdives">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Honest Analysis</div>
+        <h2 class="section-title">A Fair Look at<br/><span class="teal">Each Competitor</span></h2>
+        <div class="divider"></div>
+        <p style="font-size:17px; color:var(--white-80); max-width:580px; margin: 0 auto;">We respect what these tools do. Here's a straight assessment of where they excel — and what they fundamentally cannot do.</p>
+      </div>
+
+      <div class="deepdive-grid">
+
+        <div class="dd-card fade-up delay-1">
+          <div class="dd-name">Finny</div>
+          <div class="dd-tag">$20M raised · Founded 2024 · AI-native prospecting</div>
+          <p class="dd-what">Finny monitors life events and money-in-motion signals — job changes, inheritance events, liquidity triggers — to tell advisors when someone is most likely to be receptive to a financial conversation. It's smart timing intelligence built for the modern advisor workflow.</p>
+          <div class="dd-pros">
+            <h5>What They Do Well</h5>
+            <ul class="dd-list">
+              <li>Real-time life event detection is genuinely impressive</li>
+              <li>Well-designed product with a strong founding team in AI</li>
+              <li>Substantial funding means continuous product improvement</li>
+            </ul>
+          </div>
+          <div class="dd-cons">
+            <h5>What They Can't Do</h5>
+            <ul class="dd-list">
+              <li>Zero financial advisory experience on the founding team</li>
+              <li>Tells you WHEN someone might be open — not WHETHER you're the right advisor for them</li>
+              <li>No psychological profiling means timing intelligence alone still produces mismatched outreach</li>
+              <li>No embedded coaching — advisors must already know how to convert a lead once they have it</li>
+            </ul>
+          </div>
+          <div class="dd-verdict"><strong>Bottom line:</strong> Finny is a strong trigger-event tool. Pair it with Rainmaker if you want to know both <em>when</em> to reach out and <em>why they'll respond to you</em>.</div>
+        </div>
+
+        <div class="dd-card fade-up delay-2">
+          <div class="dd-name">Aidentified</div>
+          <div class="dd-tag">FactSet-backed · Relationship intelligence + wealth mapping</div>
+          <p class="dd-what">Aidentified maps the relationship graph between wealthy individuals and advisors, surfacing warm paths to introductions alongside wealth signals and life-event data. The FactSet backing gives it strong data infrastructure and credibility in institutional channels.</p>
+          <div class="dd-pros">
+            <h5>What They Do Well</h5>
+            <ul class="dd-list">
+              <li>Relationship path-finding is legitimately differentiated</li>
+              <li>Strong institutional data quality through FactSet infrastructure</li>
+              <li>Good for established advisors with existing networks to leverage</li>
+            </ul>
+          </div>
+          <div class="dd-cons">
+            <h5>What They Can't Do</h5>
+            <ul class="dd-list">
+              <li>Data science founders — no firsthand FA experience means the product fits generic sales workflows, not advisor-specific ones</li>
+              <li>Finds the path to the person, but not whether your personalities will resonate</li>
+              <li>No psychological analysis of prospect communication style or decision-making approach</li>
+              <li>No training layer — assumes advisors know what to do with a warm intro</li>
+            </ul>
+          </div>
+          <div class="dd-verdict"><strong>Bottom line:</strong> Aidentified is the most sophisticated data tool in this space. But a warm introduction to the wrong-fit prospect is still a dead end. Psychology determines fit; data only finds the path.</div>
+        </div>
+
+        <div class="dd-card fade-up delay-1">
+          <div class="dd-name">LinkedIn Sales Navigator</div>
+          <div class="dd-tag">Microsoft-owned · The dominant B2B prospecting platform</div>
+          <p class="dd-what">Sales Navigator is the industry standard for B2B contact discovery — with powerful search filters, lead recommendations, and InMail capabilities. Nearly every financial advisor has used it or considered it. Its scale and integration ecosystem are unmatched.</p>
+          <div class="dd-pros">
+            <h5>What They Do Well</h5>
+            <ul class="dd-list">
+              <li>Massive database — virtually every professional is findable</li>
+              <li>Strong filtering by industry, title, company, geography</li>
+              <li>InMail can reach anyone; no cold email bounces</li>
+            </ul>
+          </div>
+          <div class="dd-cons">
+            <h5>What They Can't Do</h5>
+            <ul class="dd-list">
+              <li>Built for generic B2B sales — not wealth management specifically</li>
+              <li>No psychological scoring — every prospect looks the same once you find them</li>
+              <li>InMail response rates are declining; saturation is real</li>
+              <li>No guidance on how to actually approach a prospect once found</li>
+              <li>No training or methodology embedded — you're on your own after the search</li>
+            </ul>
+          </div>
+          <div class="dd-verdict"><strong>Bottom line:</strong> LinkedIn Sales Nav is a phone book with good filters. Rainmaker is a matching system that tells you why specific people in that phone book will want to hear from you — and exactly what to say.</div>
+        </div>
+
+        <div class="dd-card fade-up delay-2">
+          <div class="dd-name">ZoomInfo</div>
+          <div class="dd-tag">Public company ($ZI) · B2B contact intelligence leader</div>
+          <p class="dd-what">ZoomInfo is the dominant B2B contact data provider — deep firmographic data, technographic signals, and buyer intent indicators for enterprise sales teams. It powers the outbound motion at most large companies. Comprehensive and well-integrated.</p>
+          <div class="dd-pros">
+            <h5>What They Do Well</h5>
+            <ul class="dd-list">
+              <li>Best-in-class contact data depth and accuracy</li>
+              <li>Intent data helps prioritize active buyers</li>
+              <li>Enterprise integrations with major CRMs are rock-solid</li>
+            </ul>
+          </div>
+          <div class="dd-cons">
+            <h5>What They Can't Do</h5>
+            <ul class="dd-list">
+              <li>Designed for enterprise SaaS sales — not financial advisory relationships</li>
+              <li>Zero FA-specific functionality, archetypes, or psychological profiling</li>
+              <li>No wealth indicators, life-event signals, or advisor-client fit analysis</li>
+              <li>No training — presumes a skilled SDR team that advisors typically don't have</li>
+              <li>Response rates: industry standard 2–3% — same problem, more data</li>
+            </ul>
+          </div>
+          <div class="dd-verdict"><strong>Bottom line:</strong> ZoomInfo solves a generic B2B problem. Wealth management client acquisition is a relationship problem rooted in trust and personality fit. These require fundamentally different tools.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY RAINMAKER WINS -->
+  <section class="wins-section">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Rainmaker's Unique Advantages</div>
+        <h2 class="section-title">Four Moats No Competitor<br/><span class="teal">Can Buy or Build Quickly</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="wins-grid">
+        <div class="win-card fade-up delay-1">
+          <div class="win-icon">🧠</div>
+          <div class="win-title">Psychological Profiling</div>
+          <p class="win-desc">Jungian archetypes assess the advisor's own personality before finding prospects. 132 patent claims protect the methodology. No competitor has anything like it.</p>
+        </div>
+        <div class="win-card fade-up delay-2">
+          <div class="win-icon">🏛️</div>
+          <div class="win-title">40 Years of Domain Expertise</div>
+          <p class="win-desc">Built by a 40-year industry veteran who co-created the Payne-Sinderbrand program at Merrill Lynch. Every feature reflects lived experience in the field — not assumptions.</p>
+        </div>
+        <div class="win-card fade-up delay-3">
+          <div class="win-icon">🎓</div>
+          <div class="win-title">On-Demand Coaching</div>
+          <p class="win-desc">Expert guidance is embedded throughout the platform, addressing the skill gaps that kill conversions. Other tools assume you know what to do. Rainmaker teaches you.</p>
+        </div>
+        <div class="win-card fade-up delay-3">
+          <div class="win-icon">📊</div>
+          <div class="win-title">Proven Results</div>
+          <p class="win-desc">25–40% response rates in beta vs. the industry's 2–3%. A 7:1 LTV/CAC ratio. These aren't projections — they're what beta advisors are actually seeing today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MIGRATION / CTA -->
+  <section class="migration">
+    <div class="container">
+      <div class="migration-inner fade-up">
+        <div class="label" style="display:inline-block; margin-bottom:20px;">Still Using Another Tool?</div>
+        <h2>Switch in 30 Minutes.<br/><span class="teal">See Results in Week One.</span></h2>
+        <p>Rainmaker doesn't require ripping out your existing stack. Most advisors run it alongside their current tools for the first 30 days — and let the response rates do the talking.</p>
+        <div class="migration-features">
+          <div class="mig-feat">✓ Free 30-day trial</div>
+          <div class="mig-feat">✓ No credit card required</div>
+          <div class="mig-feat">✓ Onboarding in under 30 minutes</div>
+          <div class="mig-feat">✓ Works alongside existing tools</div>
+        </div>
+        <div class="migration-btns">
+          <a href="index.html#get-started" class="btn btn-primary">Request Access →</a>
+          <a href="index.html#demo" class="btn btn-outline">Watch the Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER MINI -->
+  <div class="footer-mini">
+    <div class="container">
+      <p>© 2026 Archematch Inc. / Rainmaker. Patent Pending. &nbsp;|&nbsp;
+        <a href="index.html">Home</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="blog/">Blog</a>
+        <a href="index.html#team">Team</a>
+        <a href="mailto:hello@archematch.com">Contact</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

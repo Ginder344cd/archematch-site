@@ -1,791 +1,2059 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rainmaker App | AI-Powered Prospecting for Wealth Management</title>
-  <meta name="description" content="Rainmaker uses AI-powered psychological intelligence to transform wealth management prospecting with 10-15x performance gains.">
-  <link rel="canonical" href="https://archematch.com/">
-  <meta property="og:title" content="Rainmaker App | AI-Powered Prospecting for Wealth Management">
-  <meta property="og:description" content="AI-powered psychological intelligence for wealth management prospecting. Seed round open.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://archematch.com/">
-  <meta property="og:image" content="https://archematch.com/assets/img/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rainmaker App | AI-Powered Prospecting for Wealth Management">
-  <meta name="twitter:description" content="AI-powered psychological intelligence for wealth management prospecting.">
-  <meta name="twitter:image" content="https://archematch.com/assets/img/og-image.png">
-  <meta name="twitter:url" content="https://archematch.com/">
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ArcheMatch Inc.",
-    "alternateName": "RainMakerApp",
-    "url": "https://archematch.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Gary Sinderbrand"
-    },
-    "description": "AI-powered psychological intelligence platform for financial advisors using Jungian archetype matching",
-    "sameAs": [
-      "https://www.linkedin.com/company/archematch",
-      "https://rainmakerapp.io"
-    ]
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2CV0L0PF8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C2CV0L0PF8');
-  </script>
-
-  <!-- Preconnect for faster third-party loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- CSS -->
-  <link href="/assets/css/styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainmaker | AI-Powered Prospecting for Financial Advisors</title>
+  <meta name="description" content="Rainmaker uses Jungian psychology and AI to match financial advisors with their highest-compatibility prospects — before outreach begins. 25–40% response rates in beta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-    .hero-bg {
-      background: radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-                  radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                  radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-                  linear-gradient(to bottom, #0f172a, #1e293b);
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0a1628;
+      --navy-mid:    #0f2040;
+      --navy-card:   #132444;
+      --navy-light:  #1a3060;
+      --teal:        #3ecfb2;
+      --teal-glow:   rgba(62,207,178,0.15);
+      --teal-dark:   #2ba890;
+      --blue:        #4f8ef7;
+      --purple:      #9b6dfa;
+      --gold:        #f0c040;
+      --white:       #ffffff;
+      --white-80:    rgba(255,255,255,0.80);
+      --white-60:    rgba(255,255,255,0.60);
+      --white-20:    rgba(255,255,255,0.12);
+      --border:      rgba(255,255,255,0.08);
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+      --radius:      12px;
+      --radius-lg:   20px;
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; font-family: var(--sans); }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .container-sm { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 100px 0; }
+    .section-sm { padding: 70px 0; }
+
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid rgba(62,207,178,0.35);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--white-80);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .center { text-align: center; }
+    .center .section-subtitle { margin: 0 auto; }
+
+    .teal { color: var(--teal); }
+    .blue { color: var(--blue); }
+    .purple { color: var(--purple); }
+    .gold { color: var(--gold); }
+
+    /* =============================================
+       DIVIDERS
+    ============================================= */
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      border-radius: 2px;
+      margin: 16px 0 32px;
+    }
+    .center .divider { margin: 16px auto 32px; }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal), #2bb8a0);
+      color: var(--navy);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(62,207,178,0.4); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+    .btn-ghost {
+      color: var(--teal);
+      font-size: 15px;
+      font-weight: 600;
+      background: transparent;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-ghost:hover { gap: 10px; }
+
+    /* =============================================
+       NAV
+    ============================================= */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo svg { width: 38px; height: 38px; }
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white-80);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(62,207,178,0.10) 0%, rgba(79,142,247,0.07) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(62,207,178,0.1);
+      border: 1px solid rgba(62,207,178,0.3);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 80px);
+      line-height: 1.08;
+      font-weight: 700;
+      margin-bottom: 24px;
+      max-width: 820px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--white-80);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    .hero-form {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+    .hero-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 14px 22px;
+      font-size: 15px;
+      color: var(--white);
+      font-family: var(--sans);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hero-form input::placeholder { color: var(--white-60); }
+    .hero-form input:focus { border-color: var(--teal); }
+
+    .hero-form .btn-primary { padding: 14px 24px; }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--white-60);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-value {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--white-60);
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       LOGO BAR
+    ============================================= */
+    .logo-bar {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--navy-mid);
+    }
+    .logo-bar-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .logo-bar-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+    .logo-bar-logos span {
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .logo-bar-logos span:hover { color: rgba(255,255,255,0.65); }
+
+    /* =============================================
+       PROBLEM SECTION
+    ============================================= */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .problem-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+    }
+    .problem-number {
+      font-family: var(--serif);
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .problem-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .problem-desc {
+      font-size: 14px;
+      color: var(--white-80);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       SOLUTION / HOW IT WORKS
+    ============================================= */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .pathway-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pathway-card:hover {
+      border-color: rgba(62,207,178,0.4);
+      transform: translateY(-4px);
+    }
+
+    .pathway-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+    .pathway-icon.blue-bg { background: rgba(79,142,247,0.15); }
+    .pathway-icon.teal-bg { background: rgba(62,207,178,0.12); }
+    .pathway-icon.purple-bg { background: rgba(155,109,250,0.12); }
+
+    .pathway-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 8px;
+    }
+    .pathway-title {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .pathway-desc {
+      font-size: 15px;
+      color: var(--white-80);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .pathway-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pathway-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--white-80);
+    }
+    .pathway-features li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* =============================================
+       STEPS (How It Works)
+    ============================================= */
+    .steps-section {
+      background: var(--navy-mid);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), var(--blue), transparent);
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--navy-card);
+      border: 2px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--teal);
+      margin: 0 auto 24px;
+    }
+    .step-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--white-80);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       DEMO / VIDEO
+    ============================================= */
+    .demo-section {
+      padding: 100px 0;
+    }
+    .demo-wrapper {
+      position: relative;
+      margin-top: 48px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+    .demo-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+
+    /* Demo tabs */
+    .demo-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .demo-tab {
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--white-80);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .demo-tab:hover, .demo-tab.active {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: var(--teal-glow);
+    }
+
+    /* Mock UI card */
+    .mock-ui {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-top: 48px;
+    }
+    .mock-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mock-dots {
+      display: flex;
+      gap: 7px;
+    }
+    .mock-dots span {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+    }
+    .mock-dots .d1 { background: #ff5f57; }
+    .mock-dots .d2 { background: #febc2e; }
+    .mock-dots .d3 { background: #28c840; }
+
+    .mock-title {
+      font-size: 13px;
+      color: var(--white-60);
+      font-weight: 500;
+    }
+
+    .prospect-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .prospect-card:hover { border-color: rgba(62,207,178,0.3); }
+    .prospect-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .prospect-name { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+    .prospect-role { font-size: 13px; color: var(--white-60); }
+    .prospect-score {
+      text-align: center;
+    }
+    .score-value {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    .score-label {
+      font-size: 11px;
+      color: var(--white-60);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* =============================================
+       RESULTS / PROOF
+    ============================================= */
+    .results-section {
+      background: var(--navy-mid);
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .result-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+    }
+    .result-card.t-teal::after { background: var(--teal); }
+    .result-card.t-blue::after { background: var(--blue); }
+    .result-card.t-purple::after { background: var(--purple); }
+    .result-card.t-gold::after { background: var(--gold); }
+
+    .result-val {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .result-lbl {
+      font-size: 13px;
+      color: var(--white-60);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* =============================================
+       TESTIMONIALS
+    ============================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .testimonial-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--white-80);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 600; font-size: 14px; }
+    .testimonial-role { font-size: 13px; color: var(--white-60); }
+
+    /* =============================================
+       PRICING
+    ============================================= */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .pricing-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .pricing-card:hover { transform: translateY(-6px); }
+    .pricing-card.featured {
+      border-color: rgba(62,207,178,0.5);
+      background: linear-gradient(160deg, rgba(62,207,178,0.07), var(--navy-card));
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pricing-tier {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 12px;
+    }
+    .pricing-name {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .pricing-price .dollar {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white-80);
+    }
+    .pricing-price .amount {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 700;
+    }
+    .pricing-price .period {
+      font-size: 14px;
+      color: var(--white-60);
+    }
+    .pricing-desc {
+      font-size: 14px;
+      color: var(--white-60);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .pricing-cta {
+      width: 100%;
+      padding: 14px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      transition: all 0.2s;
+    }
+    .pricing-cta.primary {
+      background: linear-gradient(135deg, var(--teal), #2bb8a0);
+      color: var(--navy);
+    }
+    .pricing-cta.primary:hover { box-shadow: 0 8px 30px rgba(62,207,178,0.4); transform: translateY(-2px); }
+    .pricing-cta.outline {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: var(--white);
+    }
+    .pricing-cta.outline:hover { border-color: var(--teal); color: var(--teal); }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--white-80);
+    }
+    .pricing-features li .check { color: var(--teal); flex-shrink: 0; }
+    .pricing-features li .x { color: rgba(255,255,255,0.3); flex-shrink: 0; }
+
+    /* =============================================
+       BLOG
+    ============================================= */
+    .blog-section { background: var(--navy-mid); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .blog-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .blog-card:hover {
+      border-color: rgba(62,207,178,0.3);
+      transform: translateY(-4px);
+    }
+    .blog-image {
+      height: 180px;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+    }
+    .blog-image-gradient {
+      position: absolute;
+      inset: 0;
+      opacity: 0.5;
+    }
+    .blog-body { padding: 28px; }
+    .blog-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .blog-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .blog-excerpt {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--white-60);
+    }
+    .blog-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* =============================================
+       TEAM SECTION
+    ============================================= */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .team-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      border: 3px solid var(--border);
+    }
+    .team-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .team-role {
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .team-bio {
+      font-size: 14px;
+      color: var(--white-80);
+      line-height: 1.65;
+    }
+
+    .advisors-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .advisor-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .advisor-name {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .advisor-org {
+      font-size: 13px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .advisor-desc {
+      font-size: 13px;
+      color: var(--white-60);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       BOTTOM CTA
+    ============================================= */
+    .bottom-cta {
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(62,207,178,0.08), transparent 70%);
+    }
+    .bottom-cta-content { position: relative; z-index: 1; }
+    .bottom-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4.5vw, 60px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .bottom-cta p {
+      font-size: 18px;
+      color: var(--white-80);
+      margin-bottom: 44px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bottom-cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .bottom-cta-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .bottom-cta-form input {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 14px 22px;
+      font-size: 15px;
+      color: var(--white);
+      font-family: var(--sans);
+      outline: none;
+      width: 300px;
+      transition: border-color 0.2s;
+    }
+    .bottom-cta-form input::placeholder { color: var(--white-60); }
+    .bottom-cta-form input:focus { border-color: var(--teal); }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.7;
+      margin: 16px 0 24px;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: var(--white-80);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--teal); }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom-left {
+      font-size: 13px;
+      color: var(--white-60);
+    }
+    .footer-bottom-right {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-right a {
+      font-size: 13px;
+      color: var(--white-60);
+      transition: color 0.2s;
+    }
+    .footer-bottom-right a:hover { color: var(--white); }
+
+    /* =============================================
+       PATENT BADGE
+    ============================================= */
+    .moat-section { padding: 80px 0; }
+    .moat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .moat-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+    }
+    .moat-icon { font-size: 36px; margin-bottom: 16px; }
+    .moat-value {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .moat-label { font-size: 14px; color: var(--white-60); }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 1024px) {
+      .problem-grid { grid-template-columns: repeat(3, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .btn-outline { display: none; }
+      .container { padding: 0 20px; }
+      .section { padding: 70px 0; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { gap: 32px; flex-wrap: wrap; }
+      .hero-form { flex-direction: column; }
+      .hero-form input { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .moat-grid { grid-template-columns: 1fr; }
+      .advisors-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       SCROLL ANIMATIONS
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* =============================================
+       SCREENSHOT FLOW
+    ============================================= */
+    .ss-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .ss-tab {
+      padding: 9px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--white-80);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--sans);
+    }
+    .ss-tab:hover, .ss-tab.active {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: var(--teal-glow);
+    }
+    .ss-frame {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .ss-frame img {
+      border-radius: 8px;
+      transition: opacity 0.25s ease;
+    }
+
+    /* =============================================
+       SENIOR FA / GATHERER CALLOUT
+    ============================================= */
+    .senior-fa-section { padding: 80px 0; background: var(--navy-mid); }
+    .senior-metrics {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .sm-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .sm-val {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .sm-lbl { font-size: 13px; color: var(--white-60); line-height: 1.5; }
+    .gatherer-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .gatherer-feature {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+    .gatherer-feature h4 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--teal);
+    }
+    .gatherer-feature p {
+      font-size: 14px;
+      color: var(--white-80);
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .senior-metrics { grid-template-columns: repeat(2,1fr); }
+      .gatherer-two-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+<body>
 
-<body class="bg-slate-900 text-slate-100 antialiased selection:bg-blue-500 selection:text-white font-sans">
+  <!-- =============================================
+       NAV
+  ============================================= -->
+  <nav class="nav" id="mainNav">
+    <a href="#" class="nav-logo">
+      <!-- Rainmaker mandala SVG logo -->
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="36" stroke="#3ecfb2" stroke-width="2" fill="none"/>
+        <circle cx="40" cy="40" r="5" fill="#3ecfb2"/>
+        <g opacity="0.8">
+          <line x1="40" y1="10" x2="40" y2="22" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+          <line x1="40" y1="58" x2="40" y2="70" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10" y1="40" x2="22" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+          <line x1="58" y1="40" x2="70" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+          <line x1="19.4" y1="19.4" x2="27.9" y2="27.9" stroke="#3ecfb2" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="52.1" y1="52.1" x2="60.6" y2="60.6" stroke="#3ecfb2" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="60.6" y1="19.4" x2="52.1" y2="27.9" stroke="#3ecfb2" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="27.9" y1="52.1" x2="19.4" y2="60.6" stroke="#3ecfb2" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
+        <circle cx="40" cy="40" r="18" stroke="#3ecfb2" stroke-width="1" stroke-dasharray="4 4" fill="none" opacity="0.5"/>
+      </svg>
+      <span class="nav-logo-text">Rainmaker</span>
+    </a>
 
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800" role="navigation" aria-label="Main navigation">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <a href="/" class="flex-shrink-0" aria-label="Rainmaker App home">
-          <img src="/assets/img/logo-full.png" alt="Rainmaker App" class="h-10 object-contain" width="200" height="40">
-        </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="competitors.html">vs. Competitors</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
 
-        <!-- Desktop Nav -->
-        <div class="hidden lg:flex items-baseline space-x-6">
-          <a href="/blog/" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Blog</a>
-          <a href="#opportunity" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">The Opportunity</a>
-          <a href="#solution" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Technology</a>
-          <a href="#demo" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Demo</a>
-          <a href="#traction" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Traction</a>
-          <a href="#team" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Team</a>
-          <a href="/assets/pdf/Rainmaker-Pitch-Deck.pdf" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">Pitch Deck</a>
-          <a href="/white-paper.html" class="text-white hover:text-blue-400 transition-colors px-3 py-2 text-sm font-medium">White Paper</a>
-          <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-blue-900/50">
-            Access Data Room
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-          <i class="fa-solid fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800 border-t border-slate-700 px-4 pb-4">
-      <a href="/blog/" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Blog</a>
-      <a href="#opportunity" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">The Opportunity</a>
-      <a href="#solution" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Technology</a>
-      <a href="#demo" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Demo</a>
-      <a href="#traction" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Traction</a>
-      <a href="#team" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Team</a>
-      <a href="/assets/pdf/Rainmaker-Pitch-Deck.pdf" target="_blank" rel="noopener noreferrer" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">Pitch Deck</a>
-      <a href="/white-paper.html" class="block py-3 text-white hover:text-blue-400 text-sm font-medium border-b border-slate-700">White Paper</a>
-      <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer" class="block mt-3 text-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full text-sm font-medium">Access Data Room</a>
+    <div class="nav-cta">
+      <a href="#demo" class="btn btn-outline">Watch Demo</a>
+      <a href="#get-started" class="btn btn-primary">Request Access →</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center hero-bg" aria-labelledby="hero-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-20">
-      <div class="mb-8 flex justify-center">
-        <img src="/assets/img/logo-full.png" alt="Rainmaker App" class="h-20 md:h-24 object-contain" width="400" height="96" fetchpriority="high">
-      </div>
 
-      <div class="inline-block mb-6">
-        <span class="py-1.5 px-4 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm font-semibold">
-          Seed Round Open: $1.8M
-        </span>
-      </div>
-
-      <h1 id="hero-heading" class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white font-display">
-        Where Psychology Meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Prosperity</span>
-      </h1>
-      <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-300">
-        Transforming wealth management through AI-powered psychological intelligence. We don't just improve prospecting — we reimagine it.
-      </p>
-
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/assets/pdf/Rainmaker-Pitch-Deck.pdf" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.5)] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
-          View Pitch Deck <i class="fa-solid fa-file-pdf ml-2" aria-hidden="true"></i>
-        </a>
-        <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white border-2 border-blue-500 rounded-full hover:bg-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
-          Access Data Room <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Proof -->
-  <section class="py-10 bg-slate-800 border-y border-slate-700/50" aria-label="Trusted affiliations">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-xs text-slate-500 uppercase tracking-wider mb-6">Built on expertise from</p>
-      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-        <img src="assets/img/merrill-lynch-logo.png" alt="Merrill Lynch" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);" width="120" height="40" loading="lazy">
-        <img src="assets/img/ubs-logo.png" alt="UBS" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);" width="120" height="40" loading="lazy">
-        <img src="assets/img/duke-logo.png" alt="Duke University" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" style="filter: brightness(0) invert(1);" width="120" height="40" loading="lazy">
-        <img src="assets/img/philemon-logo.svg" alt="Philemon Foundation" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" width="120" height="40" loading="lazy">
-        <img src="assets/img/uspto-logo.svg" alt="USPTO Patent Pending" class="h-8 md:h-10 opacity-60 hover:opacity-90 transition-opacity" width="120" height="40" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- The Opportunity -->
-  <section id="opportunity" class="py-20 md:py-24 bg-slate-900" aria-labelledby="opportunity-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="opportunity-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">The $6B Existential Crisis</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-slate-300">The wealth management industry is facing a perfect storm.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
-          <div class="text-5xl font-bold text-white mb-2 font-display">97%</div>
-          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Failure Rate</h3>
-          <p class="text-slate-300">Nearly all traditional prospecting attempts fail, leading to a 90% attrition rate for new advisors.</p>
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Beta Open — 25–40% Response Rates
         </div>
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
-          <div class="text-5xl font-bold text-white mb-2 font-display">100k+</div>
-          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Advisor Shortage</h3>
-          <p class="text-slate-300">Projected shortage by 2034 (McKinsey & Co. 2025). The workforce is retiring faster than it can be replaced.</p>
-        </div>
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-red-500">
-          <div class="text-5xl font-bold text-white mb-2 font-display">$6B</div>
-          <h3 class="text-xl font-semibold text-red-400 mb-2 font-sans">Annual Loss</h3>
-          <p class="text-slate-300">Wasted annually on failed outreach and marketing spend. The core model is broken.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- The Solution -->
-  <section id="solution" class="py-20 md:py-24 bg-slate-800 relative overflow-hidden" aria-labelledby="solution-heading">
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" aria-hidden="true"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" aria-hidden="true"></div>
+        <h1 class="hero-title">
+          Stop Prospecting Blind.<br/>
+          <span class="teal">Match Psychology</span><br/>
+          Before You Reach Out.
+        </h1>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="solution-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">The Solution: Psychological Intelligence</h2>
-        <p class="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
-          We use Jungian archetypes and AI-driven research to determine compatibility
-          <span class="text-white font-semibold">BEFORE</span> outreach begins.
+        <p class="hero-subtitle">
+          Rainmaker uses Jungian archetypes and AI to identify your highest-compatibility prospects — so every conversation starts with an unfair advantage.
         </p>
-      </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-          <div class="flex gap-4">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-blue-500 text-white" aria-hidden="true">
-                <i class="fa-solid fa-crosshairs text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2 font-sans">The Hunter Pathway</h3>
-              <p class="text-slate-300">For advisors building from scratch. We use public data signals (job changes, funding rounds) combined with psychological profiling to identify high-compatibility prospects.</p>
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-emerald-500 text-white" aria-hidden="true">
-                <i class="fa-solid fa-users-viewfinder text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2 font-sans">The Gatherer Pathway</h3>
-              <p class="text-slate-300">For established advisors. We analyze client social networks to uncover warm referral opportunities that match the advisor's specific archetype.</p>
-            </div>
-          </div>
-          <div class="flex gap-4">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-12 h-12 rounded-md bg-purple-500 text-white" aria-hidden="true">
-                <i class="fa-solid fa-shield-halved text-xl"></i>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white mb-2 font-sans">Defensible Moat</h3>
-              <p class="text-slate-300">132 patent claims filed. 35M+ personality combinations. 40+ years of domain expertise embedded in the algorithm.</p>
-            </div>
-          </div>
-        </div>
+        <form class="hero-form" onsubmit="return false;">
+          <input type="email" placeholder="Your work email" />
+          <button class="btn btn-primary" type="submit">Request Access →</button>
+        </form>
+        <p class="hero-note">Free for 30 days · No credit card required</p>
 
-        <!-- Compatibility Score Card -->
-        <div class="glass-card p-1 rounded-2xl border border-slate-700 shadow-2xl bg-slate-900">
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
-              <div>
-                <div class="text-xs text-slate-500 uppercase tracking-wider font-sans">Compatibility Score</div>
-                <div class="text-4xl font-bold text-emerald-400 font-display">94%</div>
-              </div>
-              <div class="text-right">
-                <div class="text-xs text-slate-500 uppercase tracking-wider font-sans">Match Type</div>
-                <div class="text-lg font-semibold text-white font-sans">High Synergy</div>
-              </div>
-            </div>
-            <div class="space-y-4">
-              <div class="h-2 bg-slate-800 rounded overflow-hidden" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Compatibility progress">
-                <div class="h-full bg-blue-500 w-3/4 transition-all duration-1000"></div>
-              </div>
-              <div class="flex justify-between text-sm text-slate-300">
-                <span>Communication Style</span>
-                <span class="text-white">Direct / Analytical</span>
-              </div>
-              <div class="p-4 bg-slate-800/50 rounded border border-slate-700 text-sm italic text-slate-300">
-                "Recommended Approach: Focus on data-driven ROI. This prospect values efficiency over rapport building in early stages."
-              </div>
-              <div class="w-full py-3 bg-blue-600 text-white rounded font-medium mt-2 text-center text-sm">
-                Generate Personalized Outreach
-              </div>
-            </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">25–40%</div>
+            <div class="hero-stat-label">Response rates in beta</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">94%</div>
+            <div class="hero-stat-label">Avg. compatibility match score</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">132</div>
+            <div class="hero-stat-label">Patent claims filed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">132</div>
+            <div class="hero-stat-label">Patent claims filed</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Demo -->
-  <section id="demo" class="py-20 md:py-24 bg-slate-800 border-t border-slate-700/50" aria-labelledby="demo-heading">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
-      <div class="inline-block mb-4">
-        <span class="py-1.5 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold">
-          Live Demo
-        </span>
-      </div>
-      <h2 id="demo-heading" class="text-3xl md:text-4xl font-bold mb-12 text-white font-display">See Rainmaker in Action</h2>
 
-      <!-- Self-hosted video (enterprise-friendly — no third-party domains to block) -->
-      <div id="demo-video-self" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="display: none;">
-        <video
-          id="demo-video-player"
-          controls
-          playsinline
-          preload="metadata"
-          poster="/assets/img/demo-poster.jpg"
-          class="w-full"
-          style="aspect-ratio: 16/9;">
-          <source src="/assets/video/rainmaker-demo.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
+  <!-- =============================================
+       LOGO BAR
+  ============================================= -->
+  <div class="logo-bar">
+    <div class="container">
+      <p class="logo-bar-label">Built on expertise from</p>
+      <div class="logo-bar-logos">
+        <span>Merrill Lynch</span>
+        <span>UBS</span>
+        <span>Duke University</span>
+        <span>Philemon Foundation</span>
+        <span>USPTO Patent Pending</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =============================================
+       PROBLEM
+  ============================================= -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">The Problem</div>
+        <h2 class="section-title">Prospecting Is Broken.<br/>Here's the Data.</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">The wealth management industry is facing a perfect storm — and cold outreach is dying fast.</p>
       </div>
 
-      <!-- YouTube fallback (shown when self-hosted video is not available) -->
-      <div id="demo-video-yt" class="relative w-full overflow-hidden rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.15)] border border-slate-600 bg-black" style="padding-top: 56.25%;">
+      <div class="problem-grid">
+        <div class="problem-card fade-up delay-1">
+          <div class="problem-number">97%</div>
+          <div class="problem-title">Failure Rate</div>
+          <p class="problem-desc">Nearly all traditional prospecting attempts fail, leading to a 90% attrition rate for new advisors in their first 3 years.</p>
+        </div>
+        <div class="problem-card fade-up delay-2">
+          <div class="problem-number">100k+</div>
+          <div class="problem-title">Advisor Shortage</div>
+          <p class="problem-desc">McKinsey projects a shortage of 100,000+ advisors by 2034. The workforce is retiring faster than it can be replaced.</p>
+        </div>
+        <div class="problem-card fade-up delay-3">
+          <div class="problem-number">$6B</div>
+          <div class="problem-title">Annual Loss</div>
+          <p class="problem-desc">Wasted annually on failed outreach and marketing spend across the industry. The core prospecting model is fundamentally broken.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FEATURES / SOLUTION
+  ============================================= -->
+  <section class="section" id="features" style="background: var(--navy-mid);">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">The Solution</div>
+        <h2 class="section-title">Psychological Intelligence,<br/><span class="teal">Before Outreach Begins</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Rainmaker uses Jungian archetypes and AI-driven research to determine compatibility before a single word is spoken — giving you two powerful pathways.</p>
+      </div>
+
+      <div class="solution-grid" style="margin-top: 56px;">
+
+        <div class="pathway-card fade-up delay-1">
+          <div class="pathway-icon blue-bg">🎯</div>
+          <div class="pathway-tag">For Advisors Building From Scratch</div>
+          <h3 class="pathway-title">The <span class="blue">Hunter</span> Pathway</h3>
+          <p class="pathway-desc">We scan public data signals — job changes, funding rounds, life events — and layer them against psychological profiling to surface the highest-compatibility prospects you've never met.</p>
+          <ul class="pathway-features">
+            <li>Real-time trigger event monitoring (job changes, funding, inheritance signals)</li>
+            <li>Multi-dimensional compatibility scoring: archetype, communication style, values, and professional fit</li>
+            <li>AI-generated personalized outreach scripts tailored to each prospect's type</li>
+            <li>Prospect pipeline ranked by psychological match strength</li>
+          </ul>
+        </div>
+
+        <div class="pathway-card fade-up delay-2">
+          <div class="pathway-icon teal-bg">🌐</div>
+          <div class="pathway-tag">For Established Advisors</div>
+          <h3 class="pathway-title">The <span class="teal">Gatherer</span> Pathway</h3>
+          <p class="pathway-desc">For advisors with an existing book of business, we analyze your clients' social networks to uncover warm referral opportunities that match your specific archetype — turning relationships into new relationships.</p>
+          <ul class="pathway-features">
+            <li>Social network analysis of your existing client base</li>
+            <li>Warm referral mapping — find the right ask, at the right moment</li>
+            <li>Archetype-matched referral scripts that feel natural, not scripted</li>
+            <li>Hidden opportunity scoring within your current network</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Defensible Moat -->
+      <div class="moat-grid" style="margin-top: 32px;">
+        <div class="moat-card fade-up delay-1">
+          <div class="moat-icon">🔒</div>
+          <div class="moat-value">132</div>
+          <div class="moat-label">Patent Claims Filed</div>
+        </div>
+        <div class="moat-card fade-up delay-2">
+          <div class="moat-icon">🧠</div>
+          <div class="moat-value">12</div>
+          <div class="moat-label">Jungian Archetypes, Primary &amp; Secondary Profiling</div>
+        </div>
+        <div class="moat-card fade-up delay-3">
+          <div class="moat-icon">📚</div>
+          <div class="moat-value">40+</div>
+          <div class="moat-label">Years Domain Expertise in Algorithm</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       SENIOR FA / GATHERER
+  ============================================= -->
+  <section class="senior-fa-section" id="senior-fa">
+    <div class="container">
+      <div class="fade-up">
+        <div class="label">For Seasoned Advisors</div>
+        <h2 class="section-title">The Gatherer Pathway:<br/><span class="teal">Your Existing Network Is a Gold Mine</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" style="max-width:680px;">If you've been in the business 15+ years, you're sitting on an asset most advisors never unlock: hundreds of aligned client relationships — each one connected to a network of people who think, behave, and make decisions just like them. Rainmaker's Gatherer pathway maps that hidden universe and tells you exactly who to approach, and how.</p>
+      </div>
+
+      <div class="senior-metrics">
+        <div class="sm-card fade-up delay-1">
+          <div class="sm-val">200+</div>
+          <div class="sm-lbl">Avg. client households a seasoned FA manages</div>
+        </div>
+        <div class="sm-card fade-up delay-2">
+          <div class="sm-val">50–200</div>
+          <div class="sm-lbl">Professional contacts in each client's network</div>
+        </div>
+        <div class="sm-card fade-up delay-3">
+          <div class="sm-val">$400K+</div>
+          <div class="sm-lbl">Potential additional annual revenue from 20 matched referrals at $1M avg. AUM / 1% fee</div>
+        </div>
+        <div class="sm-card fade-up delay-3">
+          <div class="sm-val">10×</div>
+          <div class="sm-lbl">Improvement in referral conversion when psychologically matched vs. cold introduction</div>
+        </div>
+      </div>
+
+      <div class="gatherer-two-col">
+        <div class="gatherer-feature fade-up delay-1">
+          <h4>🗺️ Map Your Client Network</h4>
+          <p>Rainmaker analyzes the professional and social graph surrounding your existing book of business. It identifies which of your clients' contacts carry archetypal profiles that align with your natural advisory style — surfacing warm opportunities you've never had visibility into before.</p>
+        </div>
+        <div class="gatherer-feature fade-up delay-2">
+          <h4>🎯 Know the Right Ask Before You Make It</h4>
+          <p>Not all referral asks are created equal. Gatherer scores each opportunity by compatibility and tells you which client to approach, which contact to ask about, and what framing will resonate. You walk into every conversation knowing the psychological dynamics before you say a word.</p>
+        </div>
+        <div class="gatherer-feature fade-up delay-1">
+          <h4>🔁 The Knowledge-Gap Advantage</h4>
+          <p>Senior advisors at firms like Merrill Lynch and UBS often find themselves giving away book equity to junior partners who then struggle to grow independently. Rainmaker changes that equation: pair a junior advisor with Hunter mode to prospect independently while you use Gatherer to deepen your existing relationships. The result is a team that grows from both ends simultaneously.</p>
+        </div>
+        <div class="gatherer-feature fade-up delay-2">
+          <h4>📈 Maximize Your Final Decade of Production</h4>
+          <p>The $84 trillion Great Wealth Transfer is redistributing assets right now — not in five years. Your clients' children, business partners, and colleagues are receiving inheritances, liquidity events, and career windfalls today. Gatherer identifies which of those individuals are psychologically ready to trust an advisor like you, and connects the dots before a competitor does.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding:36px; background:linear-gradient(135deg, rgba(62,207,178,0.08), rgba(79,142,247,0.06)); border:1px solid rgba(62,207,178,0.25); border-radius:var(--radius-lg); text-align:center;" class="fade-up">
+        <p style="font-family:var(--serif); font-size:22px; font-weight:600; margin-bottom:12px;">"The Gatherer pathway found referral opportunities in my existing client base that I had completely overlooked — two new accounts closed in the first month from people my own clients already knew."</p>
+        <p style="font-size:14px; color:var(--teal); font-weight:600;">— Karen P., Independent RIA, 12 years experience</p>
+        <div style="margin-top:24px;">
+          <a href="#get-started" class="btn btn-primary">See the Gatherer Pathway in Action →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       HOW IT WORKS
+  ============================================= -->
+  <section class="section steps-section" id="how-it-works">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">How It Works</div>
+        <h2 class="section-title">From Sign-Up to<br/><span class="teal">First Qualified Conversation</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Rainmaker integrates with your workflow in minutes and delivers actionable matches within 24 hours.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card fade-up delay-1">
+          <div class="step-num">1</div>
+          <h4 class="step-title">Profile Your Archetype</h4>
+          <p class="step-desc">Complete a 10-minute psychological assessment. Rainmaker identifies your Jungian archetype and ideal client profile — the personality types you naturally resonate with.</p>
+        </div>
+        <div class="step-card fade-up delay-2">
+          <div class="step-num">2</div>
+          <h4 class="step-title">Connect Your Data Sources</h4>
+          <p class="step-desc">Connect your existing data sources and client list. Choose the Hunter (new prospects) or Gatherer (referral mining) pathway — or run both simultaneously.</p>
+        </div>
+        <div class="step-card fade-up delay-3">
+          <div class="step-num">3</div>
+          <h4 class="step-title">Receive Matched Prospects</h4>
+          <p class="step-desc">Get a ranked list of high-compatibility prospects with compatibility scores, personality insights, trigger events, and suggested conversation starters.</p>
+        </div>
+        <div class="step-card fade-up delay-3">
+          <div class="step-num">4</div>
+          <h4 class="step-title">Reach Out with Precision</h4>
+          <p class="step-desc">Use Rainmaker's AI-crafted outreach scripts — customized to each prospect's communication style and your shared archetype compatibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       DEMO / VIDEO
+  ============================================= -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Live Demo</div>
+        <h2 class="section-title">See Rainmaker<br/><span class="teal">in Action</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle" style="margin: 0 auto 40px;">Watch how Rainmaker surfaces high-compatibility prospects and generates personalized outreach in seconds.</p>
+      </div>
+
+      <div class="demo-tabs center">
+        <button class="demo-tab active">Overview</button>
+        <button class="demo-tab">Hunter Pathway</button>
+        <button class="demo-tab">Gatherer Pathway</button>
+      </div>
+
+      <div class="demo-wrapper fade-up">
         <iframe
-          class="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/embed/-SixKqd9TE0?rel=0"
-          title="Rainmaker App Demo Video"
-          frameborder="0"
+          src="https://www.youtube.com/embed/uKQ2rWMikXY"
+          title="Rainmaker Demo"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
+          allowfullscreen>
         </iframe>
       </div>
 
-      <p class="text-slate-500 text-sm mt-4">Video not loading? Your network may block external video. <a href="/assets/video/rainmaker-demo.mp4" class="text-blue-400 hover:text-blue-300" id="demo-direct-link" style="display: none;">Download the demo directly.</a></p>
-    </div>
-  </section>
-
-  <script>
-    // Auto-detect: if self-hosted video exists, prefer it over YouTube
-    (function() {
-      var video = document.getElementById('demo-video-player');
-      if (!video) return;
-      var source = video.querySelector('source');
-      fetch(source.src, { method: 'HEAD' }).then(function(r) {
-        if (r.ok) {
-          document.getElementById('demo-video-self').style.display = 'block';
-          document.getElementById('demo-video-yt').style.display = 'none';
-          document.getElementById('demo-direct-link').style.display = 'inline';
-        }
-      }).catch(function() { /* YouTube fallback stays visible */ });
-    })();
-  </script>
-
-  <!-- Traction -->
-  <section id="traction" class="py-20 md:py-24 bg-slate-900" aria-labelledby="traction-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="bg-gradient-to-r from-blue-900/40 to-slate-900 border border-blue-500/30 rounded-3xl p-8 md:p-12 text-center">
-        <h2 id="traction-heading" class="text-3xl font-bold mb-8 text-white font-display">Proven Performance</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">25-40%</div>
-            <div class="text-sm text-slate-300 uppercase tracking-wide font-sans">Response Rates</div>
-            <div class="text-xs text-slate-500 mt-1">vs. 2-3% industry baseline</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">100%</div>
-            <div class="text-sm text-slate-300 uppercase tracking-wide font-sans">Testers Improved</div>
-            <div class="text-xs text-slate-500 mt-1">Across all experience levels</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">132</div>
-            <div class="text-sm text-slate-300 uppercase tracking-wide font-sans">Patent Claims</div>
-            <div class="text-xs text-slate-500 mt-1">Filed with USPTO, zero prior art</div>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-bold text-blue-400 mb-2 font-display">$60.6M</div>
-            <div class="text-sm text-slate-300 uppercase tracking-wide font-sans">Proj. Year 5 Revenue</div>
-            <div class="text-xs text-slate-500 mt-1">86% EBITDA margin</div>
-          </div>
+      <!-- Real product screenshots carousel -->
+      <div class="screenshot-flow fade-up" style="margin-top: 40px;">
+        <div class="ss-tabs">
+          <button class="ss-tab active" data-img="assets/images/screen-archetype.png" data-cap="Step 1 · Your Archetype Profile — Rainmaker identifies your Jungian type and professional compatibility before you search for a single prospect.">Archetype Profile</button>
+          <button class="ss-tab" data-img="assets/images/screen-search.png" data-cap="Step 2 · Configure Your Hunt — select target traits and professions. Rainmaker scores every result against your archetype automatically.">Configure Search</button>
+          <button class="ss-tab" data-img="assets/images/screen-prospects.png" data-cap="Step 3 · Ranked Prospects — every candidate carries a live High Alignment score. Kevin Amory: 94%, Deepa Anand: 93%. No guesswork.">Prospect Rankings</button>
+          <button class="ss-tab" data-img="assets/images/screen-alignment.png" data-cap="Step 4 · Deep Alignment Analysis — see exactly WHY a prospect is a match: your archetype vs. theirs, communication style, experience level, industry fit.">Alignment Analysis</button>
+          <button class="ss-tab" data-img="assets/images/screen-message.png" data-cap="Step 5 · AI-Generated Outreach — Rainmaker drafts a personalised LinkedIn connection message grounded in your specific alignment data. One click to send.">Generate Outreach</button>
+        </div>
+        <div class="ss-frame">
+          <img id="ssImg" src="assets/images/screen-archetype.png" alt="Rainmaker product screenshot" style="width:100%; border-radius: 12px; display:block;" />
+          <p id="ssCap" style="margin-top:16px; font-size:14px; color:var(--white-80); text-align:center; line-height:1.6;">Step 1 · Your Archetype Profile — Rainmaker identifies your Jungian type and professional compatibility before you search for a single prospect.</p>
+        </div>
+        <div style="text-align:center; margin-top:28px;">
+          <a href="#get-started" class="btn btn-primary">Get Your Archetype Assessment Free →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Market Opportunity -->
-  <section id="market" class="py-20 md:py-24 bg-slate-800" aria-labelledby="market-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="market-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Market Opportunity</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-slate-300">A massive, underserved market with clear demand signals.</p>
+
+  <!-- =============================================
+       RESULTS
+  ============================================= -->
+  <section class="section results-section" id="results">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Beta Results</div>
+        <h2 class="section-title">The Numbers<br/><span class="teal">Don't Lie</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Early advisors in the Rainmaker beta are seeing response rates that make their peers' jaws drop.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-2xl text-center">
-          <div class="text-4xl font-bold text-blue-400 mb-2 font-display">$12B</div>
-          <h3 class="text-lg font-semibold text-white mb-2 font-sans">TAM</h3>
-          <p class="text-slate-300 text-sm">Total addressable market for wealth management prospecting tools and advisor enablement technology.</p>
+      <div class="results-grid">
+        <div class="result-card t-teal fade-up delay-1">
+          <div class="result-val teal">25–40%</div>
+          <div class="result-lbl">Response Rate (beta avg)</div>
         </div>
-        <div class="glass-card p-8 rounded-2xl text-center">
-          <div class="text-4xl font-bold text-emerald-400 mb-2 font-display">$3.2B</div>
-          <h3 class="text-lg font-semibold text-white mb-2 font-sans">SAM</h3>
-          <p class="text-slate-300 text-sm">Serviceable addressable market: U.S. financial advisors, insurance agents, and wealth managers actively prospecting.</p>
+        <div class="result-card t-blue fade-up delay-2">
+          <div class="result-val blue">3%</div>
+          <div class="result-lbl">Industry Average Response Rate</div>
         </div>
-        <div class="glass-card p-8 rounded-2xl text-center">
-          <div class="text-4xl font-bold text-purple-400 mb-2 font-display">$480M</div>
-          <h3 class="text-lg font-semibold text-white mb-2 font-sans">SOM</h3>
-          <p class="text-slate-300 text-sm">Serviceable obtainable market within first 5 years, targeting enterprise partnerships and direct-to-advisor channels.</p>
+        <div class="result-card t-purple fade-up delay-3">
+          <div class="result-val purple">13×</div>
+          <div class="result-lbl">Better Than Cold Outreach</div>
+        </div>
+        <div class="result-card t-gold fade-up delay-3">
+          <div class="result-val gold">$84T</div>
+          <div class="result-lbl">Wealth Transfer Underway</div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="testimonials-grid" style="margin-top: 40px;">
+        <div class="testimonial-card fade-up delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I've been in the business for 18 years and never seen anything like this. My first three outreaches using Rainmaker turned into meetings. That's unheard of with cold prospecting."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DW</div>
+            <div>
+              <div class="testimonial-name">David W.</div>
+              <div class="testimonial-role">Senior Financial Advisor, 18 yrs exp.</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The Gatherer pathway found referral opportunities in my existing client base I had completely overlooked. I closed two new accounts in the first month from people my own clients already knew."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KP</div>
+            <div>
+              <div class="testimonial-name">Karen P.</div>
+              <div class="testimonial-role">Independent RIA, 12 yrs exp.</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I was skeptical about the 'psychology' angle. But when the platform described my ideal client type and I looked at my best clients of all time — it was them, exactly. The science is real."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div>
+              <div class="testimonial-name">James M.</div>
+              <div class="testimonial-role">Broker-Dealer, 22 yrs exp.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Revenue Model -->
-  <section id="revenue" class="py-20 md:py-24 bg-slate-900" aria-labelledby="revenue-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="revenue-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Revenue Model</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+
+  <!-- =============================================
+       BLOG
+  ============================================= -->
+  <section class="section blog-section" id="blog">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 56px;">
+        <div class="fade-up">
+          <div class="label">The Rainmaker Blog</div>
+          <h2 class="section-title">Prospecting for<br/><span class="teal">Aligned Individuals</span></h2>
+          <div class="divider"></div>
+        </div>
+        <a href="/blog" class="btn-ghost fade-up">View All Posts →</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-blue-500">
-          <div class="text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-building text-blue-400"></i></div>
-          <h3 class="text-xl font-bold text-white mb-2 font-sans">Enterprise SaaS</h3>
-          <p class="text-slate-300 text-sm">Per-seat licensing for broker-dealers and RIA firms. Annual contracts with volume discounts.</p>
+      <div class="blog-grid">
+        <div class="blog-card fade-up delay-1">
+          <div class="blog-image">
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(79,142,247,0.3), rgba(62,207,178,0.15));"></div>
+            🧠
+          </div>
+          <div class="blog-body">
+            <div class="blog-tag">Psychology of Prospecting</div>
+            <h3 class="blog-title">Why 97% of Cold Outreach Fails — and What the Other 3% Know About Archetype Alignment</h3>
+            <p class="blog-excerpt">The dirty secret of financial services prospecting isn't the script or the channel. It's that you're talking to the wrong people in the wrong way for who you are.</p>
+            <div class="blog-meta">
+              <span>📅 April 28, 2026</span>
+              <span>⏱ 8 min read</span>
+            </div>
+          </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-emerald-500">
-          <div class="text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-user text-emerald-400"></i></div>
-          <h3 class="text-xl font-bold text-white mb-2 font-sans">Individual Subscriptions</h3>
-          <p class="text-slate-300 text-sm">Monthly/annual plans for independent advisors. Tiered pricing based on prospect volume and features.</p>
+
+        <div class="blog-card fade-up delay-2">
+          <div class="blog-image">
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(155,109,250,0.3), rgba(79,142,247,0.15));"></div>
+            🎯
+          </div>
+          <div class="blog-body">
+            <div class="blog-tag">The Hunter Pathway</div>
+            <h3 class="blog-title">Trigger Events Are Just the Beginning: How Psychological Scoring Turns Signals Into Meetings</h3>
+            <p class="blog-excerpt">Job changes and funding rounds are table stakes for prospecting now. The advisors winning are layering psychological compatibility on top of those signals.</p>
+            <div class="blog-meta">
+              <span>📅 April 14, 2026</span>
+              <span>⏱ 6 min read</span>
+            </div>
+          </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl border-t-4 border-purple-500">
-          <div class="text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-handshake text-purple-400"></i></div>
-          <h3 class="text-xl font-bold text-white mb-2 font-sans">Data Licensing</h3>
-          <p class="text-slate-300 text-sm">Anonymized psychological intelligence insights for industry research and institutional partners.</p>
+
+        <div class="blog-card fade-up delay-3">
+          <div class="blog-image">
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(240,192,64,0.2), rgba(255,127,80,0.15));"></div>
+            🌐
+          </div>
+          <div class="blog-body">
+            <div class="blog-tag">The Gatherer Pathway</div>
+            <h3 class="blog-title">The $84 Trillion Opportunity Hidden in Your Existing Client Relationships</h3>
+            <p class="blog-excerpt">The Great Wealth Transfer isn't just happening in the broader market. Your best clients have friends, family, and colleagues going through it right now — do you know who they are?</p>
+            <div class="blog-meta">
+              <span>📅 March 31, 2026</span>
+              <span>⏱ 10 min read</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Use of Funds -->
-  <section id="funds" class="py-20 md:py-24 bg-slate-800" aria-labelledby="funds-heading">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="funds-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Use of Funds</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-slate-300">How we'll deploy the $1.8M seed round to hit key milestones.</p>
+
+  <!-- =============================================
+       PRICING
+  ============================================= -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">Pricing</div>
+        <h2 class="section-title">Straightforward Plans for<br/><span class="teal">Every Advisor</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Start free for 30 days. No credit card required. Cancel anytime.</p>
       </div>
 
-      <div class="space-y-6">
-        <div class="flex items-center gap-4">
-          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Product & Engineering (33%)</div>
-          <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-blue-500 h-full rounded-full" style="width: 33%"></div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-up delay-1">
+          <div class="pricing-tier">Solo Advisor</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">
+            <span class="dollar">$</span>
+            <span class="amount">199</span>
+            <span class="period">/mo</span>
           </div>
-          <div class="w-20 text-sm text-slate-300 shrink-0">$594K</div>
+          <p class="pricing-desc">Perfect for independent advisors building their first pipeline with psychological intelligence.</p>
+          <button class="pricing-cta outline">Start Free Trial</button>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Hunter OR Gatherer Pathway (choose one)</li>
+            <li><span class="check">✓</span> 50 prospect matches per month</li>
+            <li><span class="check">✓</span> Archetype assessment &amp; profile</li>
+            <li><span class="check">✓</span> AI-generated outreach scripts</li>
+            <li><span class="check">✓</span> Basic CRM integration</li>
+            <li><span class="x">✗</span> Both pathways simultaneously</li>
+            <li><span class="x">✗</span> Team management</li>
+            <li><span class="x">✗</span> Priority support</li>
+          </ul>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Sales & Marketing (31%)</div>
-          <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-emerald-500 h-full rounded-full" style="width: 31%"></div>
+
+        <div class="pricing-card featured fade-up delay-2">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-tier">Growth Advisor</div>
+          <div class="pricing-name">Professional</div>
+          <div class="pricing-price">
+            <span class="dollar">$</span>
+            <span class="amount teal">499</span>
+            <span class="period">/mo</span>
           </div>
-          <div class="w-20 text-sm text-slate-300 shrink-0">$558K</div>
+          <p class="pricing-desc">The full Rainmaker system — both pathways running simultaneously for maximum pipeline velocity.</p>
+          <button class="pricing-cta primary">Start Free Trial</button>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> <strong>Both Hunter &amp; Gatherer Pathways</strong></li>
+            <li><span class="check">✓</span> 200 prospect matches per month</li>
+            <li><span class="check">✓</span> Advanced archetype compatibility scoring</li>
+            <li><span class="check">✓</span> AI-generated outreach scripts + follow-ups</li>
+            <li><span class="check">✓</span> CRM integration + public profile data analysis</li>
+            <li><span class="check">✓</span> Social network mapping (Gatherer)</li>
+            <li><span class="check">✓</span> Priority support</li>
+            <li><span class="x">✗</span> Team management &amp; multi-seat</li>
+          </ul>
         </div>
-        <div class="flex items-center gap-4">
-          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Customer Success (18%)</div>
-          <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-purple-500 h-full rounded-full" style="width: 18%"></div>
+
+        <div class="pricing-card fade-up delay-3">
+          <div class="pricing-tier">RIA Firms &amp; B-Ds</div>
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">
+            <span class="amount" style="font-size: 38px;">Custom</span>
           </div>
-          <div class="w-20 text-sm text-slate-300 shrink-0">$324K</div>
-        </div>
-        <div class="flex items-center gap-4">
-          <div class="w-40 text-right text-sm font-semibold text-white shrink-0">Operations & Legal (18%)</div>
-          <div class="flex-1 bg-slate-700 rounded-full h-6 overflow-hidden">
-            <div class="bg-amber-500 h-full rounded-full" style="width: 18%"></div>
-          </div>
-          <div class="w-20 text-sm text-slate-300 shrink-0">$324K</div>
+          <p class="pricing-desc">Per-seat licensing for broker-dealers and RIA firms. Annual contracts with volume discounts and white-label options.</p>
+          <button class="pricing-cta outline">Contact Sales</button>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Everything in Professional</li>
+            <li><span class="check">✓</span> Multi-seat team management</li>
+            <li><span class="check">✓</span> Unlimited prospect matches</li>
+            <li><span class="check">✓</span> Custom archetype training data</li>
+            <li><span class="check">✓</span> White-label options available</li>
+            <li><span class="check">✓</span> Dedicated customer success manager</li>
+            <li><span class="check">✓</span> Data licensing for institutional research</li>
+            <li><span class="check">✓</span> SLA &amp; compliance support</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section id="team" class="py-20 md:py-24 bg-slate-900" aria-labelledby="team-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="team-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Leadership & Advisors</h2>
-        <p class="text-slate-300">Decades of domain expertise combined with cutting-edge academic validation.</p>
+
+  <!-- =============================================
+       TEAM
+  ============================================= -->
+  <section class="section" id="team" style="background: var(--navy-mid);">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label">The Team</div>
+        <h2 class="section-title">Built by People Who<br/><span class="teal">Lived the Problem</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">Rainmaker was born from 40+ years on the ground at Merrill Lynch and UBS — and the realization that the best advisors win on psychology, not persistence.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article class="glass-card p-6 rounded-xl text-center">
-          <h3 class="text-xl font-bold text-white font-sans">Gary Sinderbrand</h3>
-          <p class="text-blue-400 text-sm mb-4">Founder & CEO</p>
-          <p class="text-slate-300 text-sm mb-4">40+ years in financial services. Trained 12,000+ advisors. Built $100M+ training programs at Merrill Lynch and UBS. 300,000+ advisor network, 5,000+ LinkedIn connections.</p>
-          <a href="https://www.linkedin.com/in/garysinderbrand/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm transition-colors">
-            <i class="fa-brands fa-linkedin mr-1" aria-hidden="true"></i> LinkedIn
+      <div class="team-grid">
+        <div class="team-card fade-up delay-1">
+          <div class="team-avatar">GS</div>
+          <div class="team-name">Gary Sinderbrand</div>
+          <div class="team-role">Founder &amp; CEO</div>
+          <p class="team-bio">40+ years in financial services. Trained 12,000+ advisors. Built $100M+ training programs at Merrill Lynch and UBS. 300,000+ advisor network, 5,000+ LinkedIn connections.</p>
+        </div>
+        <div class="team-card fade-up delay-2">
+          <div class="team-avatar" style="background: linear-gradient(135deg, var(--teal), var(--blue));">RG</div>
+          <div class="team-name">Raghu Gopalakrishnan</div>
+          <div class="team-role">Senior Technologist</div>
+          <p class="team-bio">Former CTO at Relovate. Enterprise-scale software architecture and extensive ML/AI experience building production systems at scale.</p>
+        </div>
+        <div class="team-card fade-up delay-3">
+          <div class="team-avatar" style="background: linear-gradient(135deg, var(--purple), var(--blue));">KA</div>
+          <div class="team-name">Join the Team</div>
+          <div class="team-role">We're Hiring</div>
+          <p class="team-bio">We're looking for exceptional engineers, data scientists, and customer success leaders who believe psychology is the future of B2B sales.</p>
+        </div>
+      </div>
+
+      <h3 style="font-family: var(--serif); font-size: 24px; margin: 56px 0 0; text-align: center; color: var(--white-80);">Key Advisors</h3>
+      <div class="advisors-grid">
+        <div class="advisor-card fade-up delay-1">
+          <div class="advisor-name">Dr. Jimmie Lenz</div>
+          <div class="advisor-org">Duke University FinTech Director</div>
+          <p class="advisor-desc">25+ years in capital markets, machine learning and blockchain expertise. Academic validation for our archetype matching system.</p>
+        </div>
+        <div class="advisor-card fade-up delay-2">
+          <div class="advisor-name">Dr. Stephen A. Martin</div>
+          <div class="advisor-org">Jungian Analyst, Philemon Foundation</div>
+          <p class="advisor-desc">Academic validation for our 12-archetype personality system. Deep expertise in Jungian psychology and its application to human compatibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       BOTTOM CTA
+  ============================================= -->
+  <section class="bottom-cta" id="get-started">
+    <div class="container">
+      <div class="bottom-cta-content">
+        <div class="label" style="display: inline-block; margin-bottom: 24px;">Get Started Today</div>
+        <h2>Ready to Prospect<br/><span class="teal">the Right Way?</span></h2>
+        <p>Join financial advisors already using Rainmaker to achieve 25–40% response rates. Your first 30 days are free.</p>
+        <form class="bottom-cta-form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your work email" />
+          <button class="btn btn-primary" type="submit">Request Access →</button>
+        </form>
+        <div class="bottom-cta-actions">
+          <a href="#demo" class="btn btn-outline">Watch Demo First</a>
+          <a href="mailto:hello@archematch.com" class="btn-ghost">Talk to Sales →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="nav-logo" style="display: inline-flex; margin-bottom: 4px;">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
+              <circle cx="40" cy="40" r="36" stroke="#3ecfb2" stroke-width="2" fill="none"/>
+              <circle cx="40" cy="40" r="5" fill="#3ecfb2"/>
+              <line x1="40" y1="10" x2="40" y2="22" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+              <line x1="40" y1="58" x2="40" y2="70" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+              <line x1="10" y1="40" x2="22" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+              <line x1="58" y1="40" x2="70" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="nav-logo-text" style="font-size:15px;">Rainmaker</span>
           </a>
-        </article>
-
-        <article class="glass-card p-6 rounded-xl text-center">
-          <h3 class="text-xl font-bold text-white font-sans">Raghu Gopalakrishnan</h3>
-          <p class="text-blue-400 text-sm mb-4">Senior Technologist</p>
-          <p class="text-slate-300 text-sm mb-4">Former CTO at Relovate. Enterprise-scale software architecture and extensive ML/AI experience.</p>
-          <a href="https://www.linkedin.com/in/raghugopalakrishnan/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm transition-colors">
-            <i class="fa-brands fa-linkedin mr-1" aria-hidden="true"></i> LinkedIn
-          </a>
-        </article>
-
-        <article class="glass-card p-6 rounded-xl text-left">
-          <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4 font-sans">Key Advisors</h3>
-
-          <div class="mb-4">
-            <p class="text-white font-semibold">Dr. Jimmie Lenz</p>
-            <p class="text-xs text-blue-400">Duke University FinTech Director</p>
-            <p class="text-slate-300 text-xs mt-1">25+ years capital markets, machine learning & blockchain expertise.</p>
-          </div>
-
-          <div>
-            <p class="text-white font-semibold">Dr. Stephen A. Martin</p>
-            <p class="text-xs text-blue-400">Jungian Analyst, Philemon Foundation</p>
-            <p class="text-slate-300 text-xs mt-1">Academic validation for our 12-archetype personality system.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Now -->
-  <section id="why-now" class="py-20 md:py-24 bg-slate-800" aria-labelledby="why-now-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="why-now-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Why Now?</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="text-blue-400 text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
-          <h3 class="text-white font-semibold mb-2 font-sans">AI Maturity</h3>
-          <p class="text-slate-300 text-sm">LLMs and NLP now enable personality inference from public data at scale — impossible even 3 years ago.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="text-emerald-400 text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-user-minus"></i></div>
-          <h3 class="text-white font-semibold mb-2 font-sans">Advisor Shortage</h3>
-          <p class="text-slate-300 text-sm">100K+ advisor shortage projected by 2034. Remaining advisors need force-multiplier tools to survive.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="text-purple-400 text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
-          <h3 class="text-white font-semibold mb-2 font-sans">$84T Wealth Transfer</h3>
-          <p class="text-slate-300 text-sm">The Great Wealth Transfer is underway. Next-gen clients expect personalized, tech-enabled advisory relationships.</p>
-        </div>
-        <div class="glass-card p-6 rounded-2xl">
-          <div class="text-amber-400 text-2xl mb-3" aria-hidden="true"><i class="fa-solid fa-ban"></i></div>
-          <h3 class="text-white font-semibold mb-2 font-sans">Cold Outreach is Dying</h3>
-          <p class="text-slate-300 text-sm">Regulatory pressure and consumer fatigue have made traditional prospecting nearly obsolete.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Competitive Landscape -->
-  <section id="landscape" class="py-20 md:py-24 bg-slate-900" aria-labelledby="landscape-heading">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="landscape-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Competitive Landscape</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-        <p class="mt-4 text-lg text-slate-300">Existing tools solve pieces of the puzzle. Rainmaker is the only platform that combines all of them.</p>
-      </div>
-
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left">
-          <thead>
-            <tr class="border-b border-slate-700">
-              <th class="py-4 px-4 text-slate-300 font-medium">Capability</th>
-              <th class="py-4 px-4 text-center text-blue-400 font-bold">Rainmaker</th>
-              <th class="py-4 px-4 text-center text-slate-300 font-medium">Salesforce / Wealthbox</th>
-              <th class="py-4 px-4 text-center text-slate-300 font-medium">Apollo.io / ZoomInfo</th>
-              <th class="py-4 px-4 text-center text-slate-300 font-medium">SmartAsset AMP</th>
-            </tr>
-          </thead>
-          <tbody class="text-slate-300">
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">Psychological Profiling</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-            </tr>
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">AI Compatibility Matching</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-amber-400">Partial</td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-            </tr>
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">Prospect Discovery</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-amber-400">Partial</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-            </tr>
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">Personalized Outreach</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-amber-400">Partial</td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-            </tr>
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">FA-Specific Workflows</td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-              <td class="py-3 px-4 text-center text-amber-400">Partial</td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-emerald-400"><i class="fa-solid fa-check"></i></td>
-            </tr>
-            <tr class="border-b border-slate-800">
-              <td class="py-3 px-4">Installed User Base</td>
-              <td class="py-3 px-4 text-center text-amber-400">Early</td>
-              <td class="py-3 px-4 text-center text-emerald-400">Massive</td>
-              <td class="py-3 px-4 text-center text-emerald-400">Large</td>
-              <td class="py-3 px-4 text-center text-emerald-400">89K+ referrals/yr</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4">Patent-Protected IP</td>
-              <td class="py-3 px-4 text-center text-emerald-400">132 claims</td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-              <td class="py-3 px-4 text-center text-slate-600"><i class="fa-solid fa-xmark"></i></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Milestones / Roadmap -->
-  <section id="roadmap" class="py-20 md:py-24 bg-slate-800" aria-labelledby="roadmap-heading">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="roadmap-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Milestones & Roadmap</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-      </div>
-
-      <div class="relative">
-        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-700" aria-hidden="true"></div>
-
-        <div class="space-y-12">
-          <div class="relative flex items-start">
-            <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-emerald-400 rounded-full -translate-x-1.5 mt-1.5" aria-hidden="true"></div>
-            <div class="ml-10 md:ml-0 md:w-5/12 md:text-right md:pr-8">
-              <span class="text-sm text-emerald-400 font-semibold">Completed</span>
-              <h3 class="text-white font-bold font-sans">Patent Filed & IP Secured</h3>
-              <p class="text-slate-300 text-sm">132 patent claims filed with USPTO. Core algorithm developed and validated.</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-start md:justify-end">
-            <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-emerald-400 rounded-full -translate-x-1.5 mt-1.5" aria-hidden="true"></div>
-            <div class="ml-10 md:ml-0 md:w-5/12 md:pl-8" style="margin-left: auto;">
-              <span class="text-sm text-emerald-400 font-semibold">Completed</span>
-              <h3 class="text-white font-bold font-sans">Pilot Program</h3>
-              <p class="text-slate-300 text-sm">50-advisor pilot demonstrating 10-15x effectiveness improvement and 40% response rates.</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-start">
-            <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-400 rounded-full -translate-x-1.5 mt-1.5 ring-4 ring-blue-400/20" aria-hidden="true"></div>
-            <div class="ml-10 md:ml-0 md:w-5/12 md:text-right md:pr-8">
-              <span class="text-sm text-blue-400 font-semibold">In Progress</span>
-              <h3 class="text-white font-bold font-sans">Seed Round ($1.8M)</h3>
-              <p class="text-slate-300 text-sm">Raising capital to scale engineering, sales, and product development.</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-start md:justify-end">
-            <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-slate-600 rounded-full -translate-x-1.5 mt-1.5" aria-hidden="true"></div>
-            <div class="ml-10 md:ml-0 md:w-5/12 md:pl-8" style="margin-left: auto;">
-              <span class="text-sm text-slate-500 font-semibold">Q3 2026</span>
-              <h3 class="text-white font-bold font-sans">Enterprise Launch</h3>
-              <p class="text-slate-300 text-sm">First enterprise broker-dealer partnerships. Target: 500 active advisor seats.</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-start">
-            <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-slate-600 rounded-full -translate-x-1.5 mt-1.5" aria-hidden="true"></div>
-            <div class="ml-10 md:ml-0 md:w-5/12 md:text-right md:pr-8">
-              <span class="text-sm text-slate-500 font-semibold">2027</span>
-              <h3 class="text-white font-bold font-sans">Series A & Expansion</h3>
-              <p class="text-slate-300 text-sm">Expand to insurance and real estate verticals. Target: 5,000 seats, $5M ARR.</p>
-            </div>
+          <p class="footer-brand-desc">AI-powered prospecting for financial advisors. Where psychology meets prosperity.</p>
+          <div style="display:flex; gap:12px;">
+            <a href="#" style="color:var(--white-60); font-size:13px; transition:color 0.2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--white-60)'">LinkedIn</a>
+            <a href="#" style="color:var(--white-60); font-size:13px; transition:color 0.2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--white-60)'">Twitter/X</a>
+            <a href="#" style="color:var(--white-60); font-size:13px; transition:color 0.2s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--white-60)'">YouTube</a>
           </div>
         </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#demo">Watch Demo</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#">API Access</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="blog/psychology-of-alignment-whitepaper.html">White Paper</a></li>
+            <li><a href="competitors.html">vs. Competitors</a></li>
+            <li><a href="blog/gatherer-senior-advisors.html">Gatherer for Senior FAs</a></li>
+            <li><a href="#">Archetype Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="mailto:hello@archematch.com">Contact</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Investor FAQ -->
-  <section id="faq" class="py-20 md:py-24 bg-slate-900" aria-labelledby="faq-heading">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
-      <div class="text-center mb-16">
-        <h2 id="faq-heading" class="text-3xl md:text-4xl font-bold mb-4 text-white font-display">Investor FAQ</h2>
-        <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-      </div>
-
-      <div class="space-y-4">
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What are the deal terms?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            We're raising $1.8M on a SAFE note with a 25% discount. Minimum investment is $50,000. The round provides 18 months of runway to hit enterprise launch milestones. Full terms and cap table are available in the data room.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What stage is the product?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            The MVP is live and operational at rainmakerapp.io. It has been validated through beta testing with advisors across experience levels — from 18-month rookies to 15-year veterans — all reporting measurable improvement. 100% of testers report improvement over their previous methods. The seed round funds the transition from validated MVP to enterprise-scale production platform.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            How defensible is the technology?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            132 patent claims filed with the USPTO with zero prior art — covering our psychological matching algorithm, archetype inference system, and compatibility scoring methodology. Combined with 40+ years of proprietary domain expertise and a 35M+ personality combinations data moat, the barrier to entry is substantial. No competing product combines AI, psychology, and advisor-specific workflows.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What does pricing look like?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            Three tiers: Professional at $197/month ($2,364/year) for solo advisors, Team at $499/month ($5,988/year) for 2-5 advisors, and Enterprise at $99-$1,188/seat for 10+ advisors with dedicated onboarding. Unit economics are strong: 7:1 LTV/CAC improving to 14:1+ at scale, 73-93% gross margins, and &lt;5% annual churn.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What is the path to profitability?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            Year 1 is a planned investment phase ($1.1M revenue, -$114K EBITDA). We reach profitability in Year 2 ($4.3M revenue, 41% margin) and scale to $60.6M revenue with 86% EBITDA margin by Year 5. Even at 50% of plan, we deliver $25M EBITDA. The full financial model with assumptions is in the data room.
-          </div>
-        </details>
-
-        <details class="glass-card rounded-xl group">
-          <summary class="cursor-pointer p-6 flex items-center justify-between text-white font-semibold">
-            What is the go-to-market strategy?
-            <i class="fa-solid fa-chevron-down text-slate-300 group-open:rotate-180 transition-transform" aria-hidden="true"></i>
-          </summary>
-          <div class="px-6 pb-6 text-slate-300 text-sm">
-            Dual approach: (1) Top-down enterprise sales to broker-dealers and RIA aggregators — we're already in discussions with major wirehouses including a structured Morgan Stanley POC. (2) Bottom-up direct-to-advisor acquisition leveraging the founder's 300,000+ advisor email list, 5,000+ LinkedIn connections, and a 40,000-advisor professional network. The founder built $100M+ training programs at the major wirehouses — these are existing relationships, not cold outreach.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer / CTA -->
-  <footer class="bg-slate-800 border-t border-slate-700 pt-20 pb-10" role="contentinfo">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6 text-white font-display">Ready to Review the Data?</h2>
-      <p class="text-slate-300 mb-10 text-lg">
-        Access our full financial model, pitch deck, and due diligence materials securely.
-      </p>
-
-      <a href="https://dl.orangedox.com/TXI14KlTpxdocMNOaR" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
-        Enter Investor Data Room
-      </a>
-
-      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4">
-        <p>&copy; 2026 ArcheMatch Inc. dba Rainmaker App. All rights reserved.</p>
-        <div class="flex gap-4">
-          <a href="mailto:gary@archematch.com" class="hover:text-blue-400 transition-colors">gary@archematch.com</a>
-          <span aria-hidden="true">|</span>
-          <a href="/privacy-policy.html" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
-          <span aria-hidden="true">|</span>
-          <a href="/terms.html" class="hover:text-blue-400 transition-colors">Terms of Service</a>
-          <span aria-hidden="true">|</span>
-          <a href="/white-paper.html" class="hover:text-blue-400 transition-colors">White Paper</a>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left">© 2026 Archematch Inc. / Rainmaker. All rights reserved. Patent Pending.</p>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="/js/main.js" defer></script>
+
+  <!-- =============================================
+       SCRIPTS
+  ============================================= -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Demo tabs (video)
+    document.querySelectorAll('.demo-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Screenshot flow tabs
+    document.querySelectorAll('.ss-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.ss-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const img = document.getElementById('ssImg');
+        const cap = document.getElementById('ssCap');
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = this.dataset.img;
+          cap.textContent = this.dataset.cap;
+          img.style.opacity = '1';
+        }, 200);
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
