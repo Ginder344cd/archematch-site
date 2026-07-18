@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rainmaker | AI-Powered Prospecting for Financial Advisors</title>
-  <meta name="description" content="Rainmaker uses Jungian psychology and AI to match financial advisors with their highest-compatibility prospects before outreach. 25-40% beta response rates." />
+  <title>ArcheMatch | The First Financial Advisor Operating System</title>
+  <meta name="description" content="ArcheMatch is the first true Financial Advisor Operating System. RainMaker finds and wins your highest-compatibility clients with Jungian psychology and AI. Ask Archie coaches you with 40 years of real advisor wisdom, on demand." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,16 +16,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:        #0a1628;
-      --navy-mid:    #0f2040;
-      --navy-card:   #132444;
-      --navy-light:  #1a3060;
-      --teal:        #3ecfb2;
-      --teal-glow:   rgba(62,207,178,0.15);
-      --teal-dark:   #2ba890;
-      --blue:        #4f8ef7;
-      --purple:      #9b6dfa;
-      --gold:        #f0c040;
+      --navy:        #0a0e14;
+      --navy-mid:    #0e141d;
+      --navy-card:   #131a26;
+      --navy-light:  #1b2434;
+      --teal:        #10b981;
+      --teal-glow:   rgba(16,185,129,0.15);
+      --teal-dark:   #059669;
+      --blue:        #3b82f6;
+      --purple:      #6366f1;
+      --gold:        #f97316;
+      --orange:      #f97316;
+      --orange-glow: rgba(249,115,22,0.15);
       --white:       #ffffff;
       --white-80:    rgba(255,255,255,0.80);
       --white-60:    rgba(255,255,255,0.60);
@@ -66,7 +68,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--teal);
-      border: 1px solid rgba(62,207,178,0.35);
+      border: 1px solid rgba(16,185,129,0.35);
       border-radius: 100px;
       padding: 5px 14px;
       margin-bottom: 20px;
@@ -125,7 +127,7 @@
       background: linear-gradient(135deg, var(--teal), #2bb8a0);
       color: var(--navy);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(62,207,178,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,0.4); }
 
     .btn-outline {
       border: 1.5px solid rgba(255,255,255,0.35);
@@ -218,7 +220,7 @@
       transform: translateX(-50%);
       width: 900px;
       height: 700px;
-      background: radial-gradient(ellipse at center, rgba(62,207,178,0.10) 0%, rgba(79,142,247,0.07) 40%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(16,185,129,0.10) 0%, rgba(59,130,246,0.07) 40%, transparent 70%);
       pointer-events: none;
     }
 
@@ -228,8 +230,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(62,207,178,0.1);
-      border: 1px solid rgba(62,207,178,0.3);
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
       border-radius: 100px;
       padding: 7px 16px;
       font-size: 13px;
@@ -412,7 +414,7 @@
       transition: border-color 0.3s, transform 0.3s;
     }
     .pathway-card:hover {
-      border-color: rgba(62,207,178,0.4);
+      border-color: rgba(16,185,129,0.4);
       transform: translateY(-4px);
     }
 
@@ -425,9 +427,9 @@
       font-size: 24px;
       margin-bottom: 24px;
     }
-    .pathway-icon.blue-bg { background: rgba(79,142,247,0.15); }
-    .pathway-icon.teal-bg { background: rgba(62,207,178,0.12); }
-    .pathway-icon.purple-bg { background: rgba(155,109,250,0.12); }
+    .pathway-icon.blue-bg { background: rgba(59,130,246,0.15); }
+    .pathway-icon.teal-bg { background: rgba(16,185,129,0.12); }
+    .pathway-icon.purple-bg { background: rgba(99,102,241,0.12); }
 
     .pathway-tag {
       font-size: 11px;
@@ -614,7 +616,7 @@
       margin-bottom: 12px;
       transition: border-color 0.2s;
     }
-    .prospect-card:hover { border-color: rgba(62,207,178,0.3); }
+    .prospect-card:hover { border-color: rgba(16,185,129,0.3); }
     .prospect-avatar {
       width: 48px; height: 48px;
       border-radius: 50%;
@@ -757,8 +759,8 @@
     }
     .pricing-card:hover { transform: translateY(-6px); }
     .pricing-card.featured {
-      border-color: rgba(62,207,178,0.5);
-      background: linear-gradient(160deg, rgba(62,207,178,0.07), var(--navy-card));
+      border-color: rgba(16,185,129,0.5);
+      background: linear-gradient(160deg, rgba(16,185,129,0.07), var(--navy-card));
     }
     .pricing-badge {
       position: absolute;
@@ -826,7 +828,7 @@
       background: linear-gradient(135deg, var(--teal), #2bb8a0);
       color: var(--navy);
     }
-    .pricing-cta.primary:hover { box-shadow: 0 8px 30px rgba(62,207,178,0.4); transform: translateY(-2px); }
+    .pricing-cta.primary:hover { box-shadow: 0 8px 30px rgba(16,185,129,0.4); transform: translateY(-2px); }
     .pricing-cta.outline {
       background: transparent;
       border: 1.5px solid rgba(255,255,255,0.25);
@@ -868,7 +870,7 @@
       transition: border-color 0.3s, transform 0.3s;
     }
     .blog-card:hover {
-      border-color: rgba(62,207,178,0.3);
+      border-color: rgba(16,185,129,0.3);
       transform: translateY(-4px);
     }
     .blog-image {
@@ -1008,7 +1010,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(62,207,178,0.08), transparent 70%);
+      background: radial-gradient(ellipse, rgba(16,185,129,0.08), transparent 70%);
     }
     .bottom-cta-content { position: relative; z-index: 1; }
     .bottom-cta h2 {
@@ -1332,11 +1334,13 @@
   ============================================= -->
   <nav class="nav" id="mainNav">
     <a href="/" class="nav-logo">
-      <img src="assets/images/logo-full.png" alt="Rainmaker" style="height:40px;width:auto;display:block;">
+      <img src="assets/images/logo-mark.png" alt="ArcheMatch" style="height:38px;width:38px;display:block;">
+      <span class="nav-logo-text">ArcheMatch</span>
     </a>
 
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
+      <li><a href="#ask-archie">Ask Archie</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="competitors.html">vs. Competitors</a></li>
@@ -1363,19 +1367,20 @@
 
         <h1 class="hero-title">
           Stop Prospecting Blind.<br/>
-          <span class="teal">Match Psychology</span><br/>
-          Before You Reach Out.
+          The First True<br/>
+          <span class="teal">Financial Advisor</span><br/>
+          <span class="teal">Operating System.</span>
         </h1>
 
         <p class="hero-subtitle">
-          Rainmaker uses Jungian archetypes and AI to identify your highest-compatibility prospects — so every conversation starts with an unfair advantage.
+          One platform, two engines. <strong>RainMaker</strong> finds and wins your highest-compatibility clients with Jungian archetypes and AI. <strong>Ask Archie</strong> coaches you with forty years of real advisor wisdom — on demand, any hour of the day.
         </p>
 
         <form class="hero-form" onsubmit="return false;">
           <input type="email" placeholder="Your work email" />
           <button class="btn btn-primary" type="submit">Request Early Access →</button>
         </form>
-        <p class="hero-note">Free for 30 days · No credit card required</p>
+        <p class="hero-note">Or <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:underline;">get your archetype and first search free at rainmakerapp.io</a> — no card required</p>
 
         <div class="hero-stats">
           <div class="hero-stat">
@@ -1455,7 +1460,7 @@
         <div class="label">The Solution</div>
         <h2 class="section-title">Psychological Intelligence,<br/><span class="teal">Before Outreach Begins</span></h2>
         <div class="divider"></div>
-        <p class="section-subtitle">Rainmaker uses Jungian archetypes and AI-driven research to determine compatibility before a single word is spoken — giving you two powerful pathways.</p>
+        <p class="section-subtitle">RainMaker — the first engine of the ArcheMatch operating system — uses Jungian archetypes and AI-driven research to determine compatibility before a single word is spoken, through two powerful pathways.</p>
       </div>
 
       <div class="solution-grid" style="margin-top: 56px;">
@@ -1560,7 +1565,7 @@
         </div>
       </div>
 
-      <div style="margin-top:40px; padding:36px; background:linear-gradient(135deg, rgba(62,207,178,0.08), rgba(79,142,247,0.06)); border:1px solid rgba(62,207,178,0.25); border-radius:var(--radius-lg); text-align:center;" class="fade-up">
+      <div style="margin-top:40px; padding:36px; background:linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.06)); border:1px solid rgba(16,185,129,0.25); border-radius:var(--radius-lg); text-align:center;" class="fade-up">
         <p style="font-family:var(--serif); font-size:22px; font-weight:600; margin-bottom:12px;">Your existing book is full of warm, psychologically-aligned referrals. Gatherer surfaces the ones you’ve been overlooking.</p>
         <div style="margin-top:24px;">
           <a href="mailto:info@archematch.com" class="btn btn-primary">See the Gatherer Pathway in Action →</a>
@@ -1645,16 +1650,61 @@
           <button class="ss-tab" data-img="assets/images/screen-message.png" data-cap="Step 5 · AI-Generated Outreach — Rainmaker drafts a personalised LinkedIn connection message grounded in your specific alignment data. One click to send.">Generate Outreach</button>
         </div>
         <div class="ss-frame">
-          <img id="ssImg" src="assets/images/screen-archetype.png" alt="Rainmaker product screenshot" style="width:100%; border-radius: 12px; display:block;" />
+          <img id="ssImg" src="assets/images/screen-archetype.png" alt="RainMaker product screenshot" style="width:100%; border-radius: 12px; display:block;" />
           <p id="ssCap" style="margin-top:16px; font-size:14px; color:var(--white-80); text-align:center; line-height:1.6;">Step 1 · Your Archetype Profile — Rainmaker identifies your Jungian type and professional compatibility before you search for a single prospect.</p>
         </div>
         <div style="text-align:center; margin-top:28px;">
-          <a href="mailto:info@archematch.com" class="btn btn-primary">Get Your Archetype Assessment Free →</a>
+          <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary">Get Your Archetype Free at rainmakerapp.io →</a>
+          <p style="margin-top:12px; font-size:14px; color:var(--white-60);">Take the assessment and run your first prospect search free — no card required. Upgrade when you're ready to go deeper.</p>
         </div>
       </div>
     </div>
   </section>
 
+
+
+  <!-- =============================================
+       ASK ARCHIE
+  ============================================= -->
+  <section class="section" id="ask-archie" style="background: var(--navy-mid);">
+    <div class="container">
+      <div class="center fade-up">
+        <div class="label" style="color:var(--orange);">The Second Engine</div>
+        <h2 class="section-title">Meet <span style="color:var(--orange);">Ask Archie</span> —<br/>a 40-Year Veteran, On Demand</h2>
+        <div class="divider" style="background:var(--orange);"></div>
+        <p class="section-subtitle">Archie is forty years of real advisor coaching — full training courses, hundreds of live coaching calls, and every framework Gary Sinderbrand ever taught — distilled into an AI coach that answers the moment you need it.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:56px; align-items:center;" class="archie-grid">
+        <div class="fade-up delay-1">
+          <h3 style="font-family:var(--serif); font-size:26px; margin-bottom:18px;">How it works</h3>
+          <ul class="pathway-features">
+            <li><strong>It knows you.</strong> Archie reads your archetype and career stage, and tailors every answer to how you work — a rookie and a 30-year veteran get different coaching on the same question.</li>
+            <li><strong>Ask anything, any hour.</strong> A prospect says they already have an advisor. A client wants to wait out the market. Type the question, get the framework — with the exact language to use.</li>
+            <li><strong>It stays in its lane.</strong> Ask about trust law and Archie tells you it's a question for an estate attorney — then coaches you on being the advisor who makes that referral call. No faking. Ever.</li>
+            <li><strong>It never stops learning you.</strong> Every conversation is remembered, so the coaching compounds just like a real mentoring relationship.</li>
+          </ul>
+          <div style="margin-top:28px;">
+            <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary" style="background:var(--orange);">Try Ask Archie Free →</a>
+          </div>
+        </div>
+
+        <div class="fade-up delay-2">
+          <div style="background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+            <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); margin-bottom:16px;">Ask Archie</div>
+            <div style="background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.35); border-radius:12px; padding:14px 16px; font-size:14px; margin-bottom:16px;">
+              What's the best way to respond to a prospect who says they already have an advisor?
+            </div>
+            <div style="background:var(--navy-mid); border:1px solid var(--border); border-radius:12px; padding:16px; font-size:14px; color:var(--white-80); line-height:1.7;">
+              That objection isn't a door closing — it's the most important thing they could tell you. Your move is <strong style="color:var(--white);">Constructive Doubt</strong>: don't attack their advisor, don't sell yourself. Plant one legitimate question they can't unhear… then ride the silence.
+            </div>
+            <div style="margin-top:14px; font-size:12px; color:var(--white-60);">Real answer, generated from Gary's coaching library</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>@media (max-width: 860px){ .archie-grid { grid-template-columns: 1fr !important; } }</style>
 
   <!-- =============================================
        RESULTS
@@ -1744,7 +1794,7 @@
       <div class="blog-grid">
         <div class="blog-card fade-up delay-1">
           <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(79,142,247,0.3), rgba(62,207,178,0.15));"></div>
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(16,185,129,0.15));"></div>
             🧠
           </div>
           <div class="blog-body">
@@ -1760,7 +1810,7 @@
 
         <div class="blog-card fade-up delay-2">
           <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(155,109,250,0.3), rgba(79,142,247,0.15));"></div>
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(59,130,246,0.15));"></div>
             🎯
           </div>
           <div class="blog-body">
@@ -1776,7 +1826,7 @@
 
         <div class="blog-card fade-up delay-3">
           <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(240,192,64,0.2), rgba(255,127,80,0.15));"></div>
+            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(255,127,80,0.15));"></div>
             🌐
           </div>
           <div class="blog-body">
@@ -1957,14 +2007,14 @@
         <div>
           <a href="/" class="nav-logo" style="display: inline-flex; margin-bottom: 4px;">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
-              <circle cx="40" cy="40" r="36" stroke="#3ecfb2" stroke-width="2" fill="none"/>
-              <circle cx="40" cy="40" r="5" fill="#3ecfb2"/>
-              <line x1="40" y1="10" x2="40" y2="22" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
-              <line x1="40" y1="58" x2="40" y2="70" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
-              <line x1="10" y1="40" x2="22" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
-              <line x1="58" y1="40" x2="70" y2="40" stroke="#3ecfb2" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="2" fill="none"/>
+              <circle cx="40" cy="40" r="5" fill="#10b981"/>
+              <line x1="40" y1="10" x2="40" y2="22" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+              <line x1="40" y1="58" x2="40" y2="70" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+              <line x1="10" y1="40" x2="22" y2="40" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+              <line x1="58" y1="40" x2="70" y2="40" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            <span class="nav-logo-text" style="font-size:15px;">Rainmaker</span>
+            <span class="nav-logo-text" style="font-size:15px;">ArcheMatch</span>
           </a>
           <p class="footer-brand-desc">AI-powered prospecting for financial advisors. Where psychology meets prosperity.</p>
         </div>
