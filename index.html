@@ -1,1314 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArcheMatch | The First Financial Advisor Operating System</title>
-  <meta name="description" content="ArcheMatch is the first true Financial Advisor Operating System. RainMaker finds and wins your highest-compatibility clients with Jungian psychology and AI. Ask Archie coaches you with 40 years of real advisor wisdom, on demand." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* =============================================
-       RESET & BASE
-    ============================================= */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:        #0a0e14;
-      --navy-mid:    #0e141d;
-      --navy-card:   #131a26;
-      --navy-light:  #1b2434;
-      --teal:        #10b981;
-      --teal-glow:   rgba(16,185,129,0.15);
-      --teal-dark:   #059669;
-      --blue:        #3b82f6;
-      --purple:      #6366f1;
-      --gold:        #f97316;
-      --orange:      #f97316;
-      --orange-glow: rgba(249,115,22,0.15);
-      --white:       #ffffff;
-      --white-80:    rgba(255,255,255,0.80);
-      --white-60:    rgba(255,255,255,0.60);
-      --white-20:    rgba(255,255,255,0.12);
-      --border:      rgba(255,255,255,0.08);
-      --serif:       'Playfair Display', Georgia, serif;
-      --sans:        'Inter', system-ui, sans-serif;
-      --radius:      12px;
-      --radius-lg:   20px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--navy);
-      color: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { cursor: pointer; border: none; font-family: var(--sans); }
-
-    /* =============================================
-       UTILITY
-    ============================================= */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-    .container-sm { max-width: 860px; margin: 0 auto; padding: 0 32px; }
-    .section { padding: 100px 0; }
-    .section-sm { padding: 70px 0; }
-
-    .label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      border: 1px solid rgba(16,185,129,0.35);
-      border-radius: 100px;
-      padding: 5px 14px;
-      margin-bottom: 20px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      font-size: 18px;
-      color: var(--white-80);
-      max-width: 580px;
-      line-height: 1.7;
-    }
-
-    .center { text-align: center; }
-    .center .section-subtitle { margin: 0 auto; }
-
-    .teal { color: var(--teal); }
-    .blue { color: var(--blue); }
-    .purple { color: var(--purple); }
-    .gold { color: var(--gold); }
-
-    /* =============================================
-       DIVIDERS
-    ============================================= */
-    .divider {
-      width: 60px; height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--blue));
-      border-radius: 2px;
-      margin: 16px 0 32px;
-    }
-    .center .divider { margin: 16px auto 32px; }
-
-    /* =============================================
-       BUTTONS
-    ============================================= */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--teal), #2bb8a0);
-      color: var(--navy);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,0.4); }
-
-    .btn-outline {
-      border: 1.5px solid rgba(255,255,255,0.35);
-      color: var(--white);
-      background: transparent;
-    }
-    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
-
-    .btn-ghost {
-      color: var(--teal);
-      font-size: 15px;
-      font-weight: 600;
-      background: transparent;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-ghost:hover { gap: 10px; }
-
-    /* =============================================
-       NAV
-    ============================================= */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 0 32px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
-      border-bottom: 1px solid transparent;
-    }
-    .nav.scrolled {
-      background: rgba(10,22,40,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom-color: var(--border);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nav-logo svg { width: 38px; height: 38px; }
-    .nav-logo-text {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--white-80);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-cta { display: flex; align-items: center; gap: 12px; }
-
-    /* =============================================
-       HERO
-    ============================================= */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Radial glow background */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 700px;
-      background: radial-gradient(ellipse at center, rgba(16,185,129,0.10) 0%, rgba(59,130,246,0.07) 40%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-content { position: relative; z-index: 1; }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16,185,129,0.1);
-      border: 1px solid rgba(16,185,129,0.3);
-      border-radius: 100px;
-      padding: 7px 16px;
-      font-size: 13px;
-      color: var(--teal);
-      font-weight: 600;
-      margin-bottom: 28px;
-    }
-    .hero-badge .dot {
-      width: 7px; height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(42px, 6vw, 80px);
-      line-height: 1.08;
-      font-weight: 700;
-      margin-bottom: 24px;
-      max-width: 820px;
-    }
-
-    .hero-subtitle {
-      font-size: 20px;
-      color: var(--white-80);
-      max-width: 600px;
-      line-height: 1.7;
-      margin-bottom: 44px;
-    }
-
-    .hero-form {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
-      max-width: 500px;
-    }
-    .hero-form input {
-      flex: 1;
-      background: rgba(255,255,255,0.08);
-      border: 1.5px solid var(--border);
-      border-radius: 100px;
-      padding: 14px 22px;
-      font-size: 15px;
-      color: var(--white);
-      font-family: var(--sans);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .hero-form input::placeholder { color: var(--white-60); }
-    .hero-form input:focus { border-color: var(--teal); }
-
-    .hero-form .btn-primary { padding: 14px 24px; }
-
-    .hero-note {
-      font-size: 13px;
-      color: var(--white-60);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      margin-top: 64px;
-      padding-top: 48px;
-      border-top: 1px solid var(--border);
-    }
-    .hero-stat-value {
-      font-family: var(--serif);
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--teal);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 13px;
-      color: var(--white-60);
-      margin-top: 4px;
-    }
-
-    /* =============================================
-       LOGO BAR
-    ============================================= */
-    .logo-bar {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--navy-mid);
-    }
-    .logo-bar-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--white-60);
-      margin-bottom: 28px;
-      text-align: center;
-    }
-    .logo-bar-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 56px;
-      flex-wrap: wrap;
-    }
-    .logo-bar-logos span {
-      font-size: 15px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .logo-bar-logos span:hover { color: rgba(255,255,255,0.65); }
-
-    /* =============================================
-       PROBLEM SECTION
-    ============================================= */
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .problem-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .problem-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--teal), var(--blue));
-    }
-    .problem-number {
-      font-family: var(--serif);
-      font-size: 56px;
-      font-weight: 700;
-      color: var(--teal);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .problem-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
-    }
-    .problem-desc {
-      font-size: 14px;
-      color: var(--white-80);
-      line-height: 1.65;
-    }
-
-    /* =============================================
-       SOLUTION / HOW IT WORKS
-    ============================================= */
-    .solution-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 56px;
-    }
-
-    .pathway-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .pathway-card:hover {
-      border-color: rgba(16,185,129,0.4);
-      transform: translateY(-4px);
-    }
-
-    .pathway-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 24px;
-    }
-    .pathway-icon.blue-bg { background: rgba(59,130,246,0.15); }
-    .pathway-icon.teal-bg { background: rgba(16,185,129,0.12); }
-    .pathway-icon.purple-bg { background: rgba(99,102,241,0.12); }
-
-    .pathway-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white-60);
-      margin-bottom: 8px;
-    }
-    .pathway-title {
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .pathway-desc {
-      font-size: 15px;
-      color: var(--white-80);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .pathway-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .pathway-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--white-80);
-    }
-    .pathway-features li::before {
-      content: '✓';
-      color: var(--teal);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* =============================================
-       STEPS (How It Works)
-    ============================================= */
-    .steps-section {
-      background: var(--navy-mid);
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-      position: relative;
-    }
-    .steps-grid::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: 15%;
-      right: 15%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--teal), var(--blue), transparent);
-    }
-
-    .step-card {
-      text-align: center;
-      padding: 0 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .step-num {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: var(--navy-card);
-      border: 2px solid var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--teal);
-      margin: 0 auto 24px;
-    }
-    .step-title {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-    .step-desc {
-      font-size: 14px;
-      color: var(--white-80);
-      line-height: 1.65;
-    }
-
-    /* =============================================
-       DEMO / VIDEO
-    ============================================= */
-    .demo-section {
-      padding: 100px 0;
-    }
-    .demo-wrapper {
-      position: relative;
-      margin-top: 48px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-    }
-    .demo-wrapper iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      display: block;
-      border: none;
-    }
-
-    /* Demo tabs */
-    .demo-tabs {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    .demo-tab {
-      padding: 10px 22px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      color: var(--white-80);
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .demo-tab:hover, .demo-tab.active {
-      border-color: var(--teal);
-      color: var(--teal);
-      background: var(--teal-glow);
-    }
-
-    /* Mock UI card */
-    .mock-ui {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-top: 48px;
-    }
-    .mock-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 28px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .mock-dots {
-      display: flex;
-      gap: 7px;
-    }
-    .mock-dots span {
-      width: 12px; height: 12px;
-      border-radius: 50%;
-    }
-    .mock-dots .d1 { background: #ff5f57; }
-    .mock-dots .d2 { background: #febc2e; }
-    .mock-dots .d3 { background: #28c840; }
-
-    .mock-title {
-      font-size: 13px;
-      color: var(--white-60);
-      font-weight: 500;
-    }
-
-    .prospect-card {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-      transition: border-color 0.2s;
-    }
-    .prospect-card:hover { border-color: rgba(16,185,129,0.3); }
-    .prospect-avatar {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    .prospect-name { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
-    .prospect-role { font-size: 13px; color: var(--white-60); }
-    .prospect-score {
-      text-align: center;
-    }
-    .score-value {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--teal);
-    }
-    .score-label {
-      font-size: 11px;
-      color: var(--white-60);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* =============================================
-       RESULTS / PROOF
-    ============================================= */
-    .results-section {
-      background: var(--navy-mid);
-    }
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .result-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .result-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 3px;
-    }
-    .result-card.t-teal::after { background: var(--teal); }
-    .result-card.t-blue::after { background: var(--blue); }
-    .result-card.t-purple::after { background: var(--purple); }
-    .result-card.t-gold::after { background: var(--gold); }
-
-    .result-val {
-      font-family: var(--serif);
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1;
-    }
-    .result-lbl {
-      font-size: 13px;
-      color: var(--white-60);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    /* =============================================
-       TESTIMONIALS
-    ============================================= */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .testimonial-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-    }
-    .testimonial-stars {
-      color: var(--gold);
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-    .testimonial-quote {
-      font-size: 15px;
-      color: var(--white-80);
-      line-height: 1.75;
-      margin-bottom: 28px;
-      font-style: italic;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .testimonial-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--blue));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--navy);
-      flex-shrink: 0;
-    }
-    .testimonial-name { font-weight: 600; font-size: 14px; }
-    .testimonial-role { font-size: 13px; color: var(--white-60); }
-
-    /* =============================================
-       PRICING
-    ============================================= */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-      align-items: start;
-    }
-    .pricing-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      position: relative;
-      transition: transform 0.3s;
-    }
-    .pricing-card:hover { transform: translateY(-6px); }
-    .pricing-card.featured {
-      border-color: rgba(16,185,129,0.5);
-      background: linear-gradient(160deg, rgba(16,185,129,0.07), var(--navy-card));
-    }
-    .pricing-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, var(--teal), var(--blue));
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 18px;
-      border-radius: 100px;
-      white-space: nowrap;
-    }
-    .pricing-tier {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--white-60);
-      margin-bottom: 12px;
-    }
-    .pricing-name {
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-    .pricing-price {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 8px;
-    }
-    .pricing-price .dollar {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--white-80);
-    }
-    .pricing-price .amount {
-      font-family: var(--serif);
-      font-size: 52px;
-      font-weight: 700;
-    }
-    .pricing-price .period {
-      font-size: 14px;
-      color: var(--white-60);
-    }
-    .pricing-desc {
-      font-size: 14px;
-      color: var(--white-60);
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
-    .pricing-cta {
-      width: 100%;
-      padding: 14px;
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 32px;
-      transition: all 0.2s;
-    }
-    .pricing-cta.primary {
-      background: linear-gradient(135deg, var(--teal), #2bb8a0);
-      color: var(--navy);
-    }
-    .pricing-cta.primary:hover { box-shadow: 0 8px 30px rgba(16,185,129,0.4); transform: translateY(-2px); }
-    .pricing-cta.outline {
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      color: var(--white);
-    }
-    .pricing-cta.outline:hover { border-color: var(--teal); color: var(--teal); }
-
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .pricing-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--white-80);
-    }
-    .pricing-features li .check { color: var(--teal); flex-shrink: 0; }
-    .pricing-features li .x { color: rgba(255,255,255,0.3); flex-shrink: 0; }
-
-    /* =============================================
-       BLOG
-    ============================================= */
-    .blog-section { background: var(--navy-mid); }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .blog-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .blog-card:hover {
-      border-color: rgba(16,185,129,0.3);
-      transform: translateY(-4px);
-    }
-    .blog-image {
-      height: 180px;
-      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      position: relative;
-    }
-    .blog-image-gradient {
-      position: absolute;
-      inset: 0;
-      opacity: 0.5;
-    }
-    .blog-body { padding: 28px; }
-    .blog-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 12px;
-    }
-    .blog-title {
-      font-family: var(--serif);
-      font-size: 19px;
-      font-weight: 600;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-    .blog-excerpt {
-      font-size: 14px;
-      color: var(--white-60);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .blog-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 12px;
-      color: var(--white-60);
-    }
-    .blog-meta span { display: flex; align-items: center; gap: 5px; }
-
-    /* =============================================
-       TEAM SECTION
-    ============================================= */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .team-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      text-align: center;
-    }
-    .team-avatar {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--teal));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0 auto 20px;
-      border: 3px solid var(--border);
-    }
-    .team-name {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .team-role {
-      font-size: 13px;
-      color: var(--teal);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
-    }
-    .team-bio {
-      font-size: 14px;
-      color: var(--white-80);
-      line-height: 1.65;
-    }
-
-    .advisors-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 32px;
-    }
-    .advisor-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .advisor-name {
-      font-weight: 700;
-      font-size: 15px;
-      margin-bottom: 2px;
-    }
-    .advisor-org {
-      font-size: 13px;
-      color: var(--teal);
-      margin-bottom: 8px;
-    }
-    .advisor-desc {
-      font-size: 13px;
-      color: var(--white-60);
-      line-height: 1.6;
-    }
-
-    /* =============================================
-       BOTTOM CTA
-    ============================================= */
-    .bottom-cta {
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy));
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .bottom-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(16,185,129,0.08), transparent 70%);
-    }
-    .bottom-cta-content { position: relative; z-index: 1; }
-    .bottom-cta h2 {
-      font-family: var(--serif);
-      font-size: clamp(32px, 4.5vw, 60px);
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.15;
-    }
-    .bottom-cta p {
-      font-size: 18px;
-      color: var(--white-80);
-      margin-bottom: 44px;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .bottom-cta-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .bottom-cta-form {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-    .bottom-cta-form input {
-      background: rgba(255,255,255,0.08);
-      border: 1.5px solid var(--border);
-      border-radius: 100px;
-      padding: 14px 22px;
-      font-size: 15px;
-      color: var(--white);
-      font-family: var(--sans);
-      outline: none;
-      width: 300px;
-      transition: border-color 0.2s;
-    }
-    .bottom-cta-form input::placeholder { color: var(--white-60); }
-    .bottom-cta-form input:focus { border-color: var(--teal); }
-
-    /* =============================================
-       FOOTER
-    ============================================= */
-    .footer {
-      background: var(--navy-mid);
-      border-top: 1px solid var(--border);
-      padding: 64px 0 40px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 56px;
-    }
-    .footer-brand-desc {
-      font-size: 14px;
-      color: var(--white-60);
-      line-height: 1.7;
-      margin: 16px 0 24px;
-      max-width: 280px;
-    }
-    .footer-col h3 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--white-60);
-      margin-bottom: 20px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col ul li a {
-      font-size: 14px;
-      color: var(--white-80);
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--teal); }
-
-    .footer-bottom {
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-bottom-left {
-      font-size: 13px;
-      color: var(--white-60);
-    }
-    .footer-bottom-right {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-bottom-right a {
-      font-size: 13px;
-      color: var(--white-60);
-      transition: color 0.2s;
-    }
-    .footer-bottom-right a:hover { color: var(--white); }
-
-    /* =============================================
-       PATENT BADGE
-    ============================================= */
-    .moat-section { padding: 80px 0; }
-    .moat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .moat-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      text-align: center;
-    }
-    .moat-icon { font-size: 36px; margin-bottom: 16px; }
-    .moat-value {
-      font-family: var(--serif);
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--teal);
-      margin-bottom: 6px;
-    }
-    .moat-label { font-size: 14px; color: var(--white-60); }
-
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
-    @media (max-width: 1024px) {
-      .problem-grid { grid-template-columns: repeat(3, 1fr); }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps-grid::before { display: none; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta .btn-outline { display: none; }
-      .container { padding: 0 20px; }
-      .section { padding: 70px 0; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .solution-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-stats { gap: 32px; flex-wrap: wrap; }
-      .hero-form { flex-direction: column; }
-      .hero-form input { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .moat-grid { grid-template-columns: 1fr; }
-      .advisors-grid { grid-template-columns: 1fr; }
-    }
-
-    /* =============================================
-       SCROLL ANIMATIONS
-    ============================================= */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-
-    /* =============================================
-       SCREENSHOT FLOW
-    ============================================= */
-    .ss-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-    .ss-tab {
-      padding: 9px 18px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      color: var(--white-80);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: var(--sans);
-    }
-    .ss-tab:hover, .ss-tab.active {
-      border-color: var(--teal);
-      color: var(--teal);
-      background: var(--teal-glow);
-    }
-    .ss-frame {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-    }
-    .ss-frame img {
-      border-radius: 8px;
-      transition: opacity 0.25s ease;
-    }
-
-    /* =============================================
-       SENIOR FA / GATHERER CALLOUT
-    ============================================= */
-    .senior-fa-section { padding: 80px 0; background: var(--navy-mid); }
-    .senior-metrics {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
-      margin: 40px 0;
-    }
-    .sm-card {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px 22px;
-      text-align: center;
-    }
-    .sm-val {
-      font-family: var(--serif);
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--teal);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .sm-lbl { font-size: 13px; color: var(--white-60); line-height: 1.5; }
-    .gatherer-two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 40px;
-    }
-    .gatherer-feature {
-      background: var(--navy-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-    }
-    .gatherer-feature h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--teal);
-    }
-    .gatherer-feature p {
-      font-size: 14px;
-      color: var(--white-80);
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .senior-metrics { grid-template-columns: repeat(2,1fr); }
-      .gatherer-two-col { grid-template-columns: 1fr; }
-    }
-  </style>
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-  <meta property="og:image" content="https://archematch.com/assets/images/og-image.png" />
-  <link rel="canonical" href="https://archematch.com/" />
-  <meta property="og:site_name" content="Rainmaker" />
-  <meta property="og:title" content="Rainmaker | AI-Powered Prospecting for Financial Advisors" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://archematch.com/" />
-  <meta property="og:description" content="Rainmaker uses Jungian psychology and AI to match financial advisors with their highest-compatibility prospects before outreach. 25-40% beta response rates." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Rainmaker | AI-Powered Prospecting for Financial Advisors" />
-  <meta name="twitter:description" content="Rainmaker uses Jungian psychology and AI to match financial advisors with their highest-compatibility prospects before outreach. 25-40% beta response rates." />
-  <meta name="twitter:image" content="https://archematch.com/assets/images/og-image.png" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9D1GZ9D2T"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-T9D1GZ9D2T');
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rainmaker — Stop Prospecting Blind | AI-Powered Prospecting for Financial Advisors</title>
+<meta name="description" content="Rainmaker is the first true operating system for financial advisors. It finds and wins your highest-compatibility clients with Jungian archetypes and AI — and Ask Archie coaches you with forty years of real advisor wisdom, 24/7." />
+<link rel="icon" type="image/svg+xml" href="assets/brand/mark-blue.svg" />
+<link rel="canonical" href="https://archematch.com/" />
+<meta property="og:title" content="Rainmaker — Stop Prospecting Blind" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://archematch.com/" />
+<meta property="og:description" content="The Financial Advisor Operating System · Powered by ArcheMatch. Matching by psychology, not keywords." />
+<meta property="og:image" content="https://archematch.com/assets/images/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rainmaker — Stop Prospecting Blind" />
+<meta name="twitter:description" content="The Financial Advisor Operating System · Powered by ArcheMatch. Matching by psychology, not keywords." />
+<meta name="twitter:image" content="https://archematch.com/assets/images/og-image.png" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9D1GZ9D2T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T9D1GZ9D2T');
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": "Stop Prospecting Blind: The First Financial Advisor Operating System",
-  "description": "ArcheMatch is the first true Financial Advisor Operating System: RainMaker finds and wins the right clients with archetype-based matching, and Ask Archie delivers 40 years of advisor coaching on demand.",
+  "description": "Rainmaker is the Financial Advisor Operating System: it finds and wins the right clients with archetype-based matching, and Ask Archie delivers 40 years of advisor coaching on demand.",
   "thumbnailUrl": "https://archematch.com/assets/video/demo-poster.jpg",
   "uploadDate": "2026-07-18",
   "duration": "PT5M55S",
@@ -1316,826 +37,674 @@
   "publisher": {
     "@type": "Organization",
     "name": "Rainmaker",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://archematch.com/assets/images/logo-full.png"
-    }
+    "logo": { "@type": "ImageObject", "url": "https://archematch.com/assets/images/logo-full.png" }
   }
 }
 </script>
-    <!-- AdvizorPro tracking pixel -->
-    <script src="https://app.advizorpro.com/i/fGaPOP.ap.js" defer></script>
+<!-- AdvizorPro tracking pixel -->
+<script src="https://app.advizorpro.com/i/fGaPOP.ap.js" defer></script>
+
+<style>
+/* ============ Fonts (self-hosted — no CDN, per brand kit) ============ */
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('assets/fonts/Montserrat-600-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('assets/fonts/Montserrat-700-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:800; font-display:swap;
+  src:url('assets/fonts/Montserrat-800-latin.woff2') format('woff2'); }
+@font-face { font-family:'JetBrains Mono'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('assets/fonts/JetBrainsMono-700-latin.woff2') format('woff2'); }
+
+/* ============ Brand tokens (brand-tokens.css, kit v1.0) ============ */
+:root {
+  --rm-ground:#0A0E14; --rm-surface:#141C2A; --rm-surface-2:#1B2536;
+  --rm-border:#2A3242; --rm-border-soft:rgba(255,255,255,.06);
+  --rm-text-primary:#F1F5F9; --rm-text-secondary:#CBD5E1; --rm-text-muted:#94A3B8;
+  --rm-blue-700:#1D4ED8; --rm-blue-600:#2563EB; --rm-blue-500:#3B82F6; --rm-blue-400:#60A5FA;
+  --rm-orange-600:#EA580C; --rm-orange-500:#F97316; --rm-orange-400:#FB923C;
+  --rm-success-400:#34D399;
+  --rm-font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --rm-font-mono:'JetBrains Mono','Fira Code',ui-monospace,monospace;
+  --rm-radius:12px; --rm-radius-sm:8px;
+}
+
+/* ============ Base ============ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--rm-ground); color:var(--rm-text-secondary);
+  font-family:var(--rm-font-sans); font-weight:500; font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img,svg,video { max-width:100%; }
+a { color:var(--rm-blue-400); text-decoration:none; }
+:focus-visible { outline:2px solid var(--rm-blue-400); outline-offset:3px; border-radius:4px; }
+h1,h2,h3 { color:var(--rm-text-primary); text-wrap:balance; line-height:1.15; }
+p { max-width:65ch; }
+
+.container { max-width:1160px; margin:0 auto; padding-inline:clamp(20px,5vw,56px); }
+section { padding:clamp(64px,9vw,120px) 0; }
+
+.eyebrow {
+  font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--rm-blue-400); margin-bottom:16px;
+}
+.eyebrow.orange { color:var(--rm-orange-400); }
+.section-title { font-weight:800; font-size:clamp(30px,4.4vw,46px); margin-bottom:18px; }
+.section-sub { color:var(--rm-text-muted); font-size:17px; }
+.center { text-align:center; }
+.center p { margin-inline:auto; }
+
+/* ============ Buttons — single row, fixed height, grows to fit ============ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px; white-space:nowrap;
+  height:50px; padding:0 26px; border-radius:var(--rm-radius); border:0; cursor:pointer;
+  font-family:var(--rm-font-sans); font-weight:700; font-size:15.5px;
+  transition:background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.btn-primary { background:var(--rm-blue-600); color:#fff; }
+.btn-primary:hover { background:var(--rm-blue-500); }
+.btn-ghost { background:transparent; color:var(--rm-text-primary); border:1px solid var(--rm-border); }
+.btn-ghost:hover { border-color:var(--rm-blue-400); color:var(--rm-blue-400); }
+.btn-orange { background:var(--rm-orange-600); color:#fff; }
+.btn-orange:hover { background:var(--rm-orange-500); }
+
+/* ============ Cards ============ */
+.card {
+  background:var(--rm-surface); border:1px solid var(--rm-border);
+  border-radius:var(--rm-radius); padding:28px;
+}
+
+/* ============ Navbar ============ */
+.nav {
+  position:fixed; inset-inline:0; top:0; z-index:100;
+  transition:background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled {
+  background:rgba(10,14,20,.9); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom-color:var(--rm-border-soft);
+}
+.nav-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; height:68px; }
+.nav-logo { display:inline-flex; align-items:center; gap:10px; }
+.nav-logo svg { width:34px; height:34px; }
+.wordmark { font-weight:800; font-size:17px; letter-spacing:.06em; color:var(--rm-text-primary); }
+.nav-links { display:flex; align-items:center; gap:26px; list-style:none; }
+.nav-links a { color:var(--rm-text-secondary); font-weight:600; font-size:14px; }
+.nav-links a:hover { color:var(--rm-text-primary); }
+.nav-cta { height:42px; padding:0 20px; font-size:14px; }
+@media (max-width:900px){ .nav-links { display:none; } }
+
+/* ============ Hero ============ */
+.hero { position:relative; padding:clamp(140px,18vh,190px) 0 clamp(70px,9vw,110px); overflow:hidden; }
+.hero-glow-blue,.hero-glow-orange { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+.hero-glow-blue { width:640px; height:640px; top:-220px; left:-160px; background:rgba(37,99,235,.22); }
+.hero-glow-orange { width:480px; height:480px; top:-180px; right:-140px; background:rgba(249,115,22,.10); }
+.hero-copy { position:relative; max-width:860px; }
+.hero h1 { font-weight:800; font-size:clamp(40px,6vw,68px); letter-spacing:-.01em; margin-bottom:22px; }
+.hero-sub { font-size:18px; color:var(--rm-text-secondary); margin-bottom:32px; }
+.hero-ctas { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px; }
+.proof-row { display:flex; flex-wrap:wrap; gap:10px 28px; color:var(--rm-text-muted); font-size:13.5px; font-weight:600; }
+.proof-row span { display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums; }
+.proof-row b { color:var(--rm-blue-400); font-family:var(--rm-font-mono); font-weight:700; font-size:14px; }
+.hero-visual { position:relative; max-width:980px; margin:clamp(40px,6vw,64px) auto 0; }
+.hero-visual .glass {
+  border:1px solid var(--rm-border); border-radius:var(--rm-radius);
+  background:var(--rm-surface); padding:10px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px var(--rm-border-soft);
+}
+.hero-visual video { display:block; width:100%; border-radius:var(--rm-radius-sm); background:var(--rm-ground); }
+.hero-mark-bg { position:absolute; right:-70px; bottom:-90px; width:280px; opacity:.05; pointer-events:none; }
+
+/* ============ Problem stats ============ */
+.stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+.stat-card .stat-val {
+  font-family:var(--rm-font-mono); font-weight:700; font-size:clamp(30px,3.4vw,42px);
+  color:var(--rm-blue-400); font-variant-numeric:tabular-nums; margin-bottom:8px;
+}
+.stat-card .stat-label { color:var(--rm-text-primary); font-weight:700; font-size:15.5px; margin-bottom:6px; }
+.stat-card p { font-size:14px; color:var(--rm-text-muted); }
+.kicker { text-align:center; margin:36px auto 0; color:var(--rm-text-secondary); font-weight:600; font-size:17px; }
+@media (max-width:860px){ .stat-grid { grid-template-columns:1fr; } }
+
+/* ============ Solution: Hunt · Gather · Close ============ */
+.motion-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+.motion-card { display:flex; flex-direction:column; gap:14px; }
+.motion-num { font-family:var(--rm-font-mono); font-weight:700; font-size:13px; color:var(--rm-blue-400); letter-spacing:.1em; }
+.motion-card svg { width:30px; height:30px; color:var(--rm-blue-400); }
+.motion-card h3 { font-weight:700; font-size:21px; }
+.motion-card p { font-size:14.5px; color:var(--rm-text-muted); }
+.powered { margin-top:34px; text-align:center; color:var(--rm-text-muted); font-size:13.5px; font-weight:600; letter-spacing:.04em; }
+@media (max-width:860px){ .motion-grid { grid-template-columns:1fr; } }
+
+/* ============ Ask Archie ============ */
+.archie { background:linear-gradient(180deg,var(--rm-ground),#0D1119 50%,var(--rm-ground)); }
+.archie-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,60px); align-items:center; margin-top:8px; }
+.archie-chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.chip {
+  font-size:12.5px; font-weight:600; letter-spacing:.02em; padding:7px 14px;
+  border-radius:999px; color:var(--rm-orange-400);
+  background:rgba(249,115,22,.10); border:1px solid rgba(249,115,22,.30);
+}
+.chat-card { background:var(--rm-surface); border:1px solid var(--rm-border); border-radius:var(--rm-radius); padding:26px; box-shadow:0 24px 70px rgba(0,0,0,.45); }
+.chat-eyebrow { font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-orange-400); margin-bottom:4px; }
+.chat-hint { font-size:13px; color:var(--rm-text-muted); margin-bottom:16px; }
+.archie-q {
+  display:block; width:100%; text-align:left; cursor:pointer; margin-bottom:10px;
+  background:rgba(249,115,22,.10); border:1px solid rgba(249,115,22,.32);
+  border-radius:var(--rm-radius); padding:14px 16px;
+  color:var(--rm-text-primary); font-family:var(--rm-font-sans); font-weight:600; font-size:14px; line-height:1.55;
+  transition:border-color .15s ease;
+}
+.archie-q:hover { border-color:var(--rm-orange-400); }
+.archie-a {
+  display:none; background:var(--rm-surface-2); border:1px solid var(--rm-border);
+  border-radius:var(--rm-radius); padding:16px; font-size:14px; line-height:1.7;
+  color:var(--rm-text-secondary); margin-bottom:10px;
+}
+.archie-a strong { color:var(--rm-orange-400); }
+.chat-credit { margin-top:10px; font-size:12px; color:var(--rm-text-muted); }
+.archie-trust { margin-top:24px; font-size:14px; color:var(--rm-text-secondary); font-weight:600; }
+.archie-trust small { display:block; margin-top:4px; font-weight:500; font-size:12.5px; color:var(--rm-text-muted); }
+@media (max-width:900px){ .archie-grid { grid-template-columns:1fr; } }
+
+/* ============ How it works ============ */
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:48px; counter-reset:step; }
+.step { position:relative; }
+.step-num {
+  font-family:var(--rm-font-mono); font-weight:700; font-size:14px; color:var(--rm-blue-400);
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:50%;
+  border:1px solid rgba(96,165,250,.4); background:rgba(37,99,235,.10); margin-bottom:16px;
+}
+.step h3 { font-weight:700; font-size:17px; margin-bottom:8px; }
+.step p { font-size:14px; color:var(--rm-text-muted); }
+@media (max-width:960px){ .steps { grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .steps { grid-template-columns:1fr; } }
+
+/* ============ Results / testimonials ============ */
+.quote-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+.quote-mark { font-weight:800; font-size:40px; line-height:1; color:var(--rm-blue-400); margin-bottom:10px; }
+.quote-card p { font-size:14.5px; color:var(--rm-text-secondary); margin-bottom:18px; }
+.quote-role { font-weight:600; font-size:13px; color:var(--rm-text-muted); text-transform:uppercase; letter-spacing:.08em; }
+@media (max-width:860px){ .quote-grid { grid-template-columns:1fr; } }
+
+/* ============ Pricing ============ */
+.price-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px; align-items:stretch; }
+.price-window {
+  align-self:flex-start; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--rm-blue-400); background:rgba(37,99,235,.12); border:1px solid rgba(96,165,250,.35);
+  border-radius:999px; padding:5px 12px; margin-bottom:14px;
+}
+.price-fine { font-size:12.5px; color:var(--rm-text-muted); line-height:1.55; margin:0 0 18px; }
+@media (max-width:1100px){ .price-grid { grid-template-columns:1fr 1fr; } }
+.price-card { display:flex; flex-direction:column; }
+.price-card.featured { border-color:var(--rm-blue-600); box-shadow:0 0 0 1px var(--rm-blue-600), 0 24px 60px rgba(37,99,235,.15); }
+.price-pop {
+  align-self:flex-start; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:var(--rm-blue-600); border-radius:999px; padding:5px 12px; margin-bottom:14px;
+}
+.price-tier { font-weight:700; font-size:19px; color:var(--rm-text-primary); margin-bottom:4px; }
+.price-for { font-size:13px; color:var(--rm-text-muted); margin-bottom:18px; }
+.price-amt { font-family:var(--rm-font-mono); font-weight:700; font-size:36px; color:var(--rm-text-primary); font-variant-numeric:tabular-nums; }
+.price-amt small { font-family:var(--rm-font-sans); font-weight:600; font-size:14px; color:var(--rm-text-muted); }
+.price-feats { list-style:none; margin:20px 0 26px; display:grid; gap:10px; }
+.price-feats li { display:flex; gap:10px; font-size:14px; color:var(--rm-text-secondary); }
+.price-feats svg { width:18px; height:18px; flex:none; margin-top:3px; color:var(--rm-success-400); }
+.price-card .btn { margin-top:auto; justify-content:center; }
+.price-note { text-align:center; margin:32px auto 0; font-size:14px; color:var(--rm-text-muted); font-weight:600; }
+@media (max-width:640px){ .price-grid { grid-template-columns:1fr; } }
+
+/* ============ Team ============ */
+.team-grid { display:grid; grid-template-columns:1fr; gap:20px; margin-top:48px; max-width:760px; margin-inline:auto; }
+.team-card h3 { font-weight:700; font-size:20px; margin-bottom:2px; }
+.team-role { font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--rm-blue-400); margin-bottom:12px; }
+.team-card p { font-size:14.5px; color:var(--rm-text-muted); }
+.team-advisors { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.team-advisors .team-card { padding:20px 24px; }
+.team-advisors .team-card h3 { font-size:16px; }
+.team-advisors .team-card p { font-size:13px; }
+@media (max-width:640px){ .team-advisors { grid-template-columns:1fr; } }
+
+/* ============ Final CTA ============ */
+.final-cta {
+  position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 70% 120% at 50% 0%, rgba(37,99,235,.18), transparent 70%);
+  border-top:1px solid var(--rm-border-soft);
+}
+.final-cta h2 { font-weight:800; font-size:clamp(32px,4.6vw,52px); margin-bottom:14px; }
+.final-cta p { margin:0 auto 30px; color:var(--rm-text-muted); font-size:17px; }
+
+/* ============ Footer ============ */
+footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
+.foot-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; }
+.foot-brand svg { width:32px; height:32px; }
+.foot-brand .nav-logo { margin-bottom:12px; }
+.foot-credit { font-size:13.5px; color:var(--rm-text-muted); }
+.foot-col h4 { font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-text-muted); margin-bottom:14px; }
+.foot-col ul { list-style:none; display:grid; gap:9px; }
+.foot-col a { color:var(--rm-text-secondary); font-size:14px; font-weight:600; }
+.foot-col a:hover { color:var(--rm-text-primary); }
+.foot-bottom {
+  margin-top:44px; padding-top:22px; border-top:1px solid var(--rm-border-soft);
+  display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between;
+  font-size:12.5px; color:var(--rm-text-muted); font-weight:600;
+}
+@media (max-width:860px){ .foot-grid { grid-template-columns:1fr 1fr; } }
+
+/* ============ Motion ============ */
+.fade-up { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  html { scroll-behavior:auto; }
+  .fade-up { opacity:1; transform:none; transition:none; }
+  .btn { transition:none; }
+}
+</style>
 </head>
 <body>
 
-  <!-- =============================================
-       NAV
-  ============================================= -->
-  <nav class="nav" id="mainNav">
-    <a href="/" class="nav-logo">
-      <img src="assets/images/logo-mark.png" alt="ArcheMatch" style="height:38px;width:38px;display:block;">
-      <span class="nav-logo-text">ArcheMatch</span>
+<!-- ============ 2.0 Navbar ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#" aria-label="Rainmaker home">
+      <svg viewBox="10 50 136 136" role="img" aria-hidden="true">
+        <g fill="#2563EB" stroke="none">
+          <path d="M 78 103.35 C 83.85 95.9 83.85 74.61 78 67.16 C 72.15 74.61 72.15 95.9 78 103.35 Z M 70.55 105.35 C 71.89 95.97 61.25 77.53 52.45 74.01 C 51.11 83.39 61.75 101.83 70.55 105.35 Z M 65.09 110.81 C 61.57 102.01 43.13 91.37 33.75 92.71 C 37.27 101.51 55.71 112.15 65.09 110.81 Z M 63.1 118.26 C 55.65 112.4 34.35 112.4 26.9 118.26 C 34.35 124.11 55.65 124.11 63.1 118.26 Z M 65.09 125.71 C 55.71 124.37 37.27 135.01 33.75 143.81 C 43.13 145.15 61.57 134.51 65.09 125.71 Z M 70.55 131.16 C 61.75 134.69 51.11 153.13 52.45 162.51 C 61.25 158.98 71.89 140.55 70.55 131.16 Z M 78 133.16 C 72.15 140.61 72.15 161.9 78 169.35 C 83.85 161.9 83.85 140.61 78 133.16 Z M 85.45 131.16 C 84.11 140.55 94.75 158.98 103.55 162.51 C 104.89 153.13 94.25 134.69 85.45 131.16 Z M 90.91 125.71 C 94.43 134.51 112.87 145.15 122.25 143.81 C 118.73 135.01 100.29 124.37 90.91 125.71 Z M 92.9 118.26 C 100.35 124.11 121.65 124.11 129.1 118.26 C 121.65 112.4 100.35 112.4 92.9 118.26 Z M 90.91 110.81 C 100.29 112.15 118.73 101.51 122.25 92.71 C 112.87 91.37 94.43 102.01 90.91 110.81 Z M 85.45 105.35 C 94.25 101.83 104.89 83.39 103.55 74.01 C 94.75 77.53 84.11 95.97 85.45 105.35 Z M 84.92 118.26 C 84.92 114.44 81.82 111.34 78 111.34 C 74.18 111.34 71.08 114.44 71.08 118.26 C 71.08 122.08 74.18 125.18 78 125.18 C 81.82 125.18 84.92 122.08 84.92 118.26 Z M 75.6 69.29 L 80.4 69.29 L 80.4 52.26 L 75.6 52.26 Z M 75.6 184.26 L 80.4 184.26 L 80.4 167.23 L 75.6 167.23 Z M 126.97 120.65 L 144 120.65 L 144 115.86 L 126.97 115.86 Z M 12 120.65 L 29.03 120.65 L 29.03 115.86 L 12 115.86 Z"/>
+        </g>
+        <g fill="none" stroke="#2563EB" stroke-width="5.32">
+          <path d="M 135.13 111.88 C 132.15 85.18 111.07 64.11 84.37 61.13"/>
+          <path d="M 71.63 61.13 C 44.93 64.11 23.85 85.18 20.87 111.88"/>
+          <path d="M 20.87 124.63 C 23.85 151.33 44.93 172.41 71.63 175.39"/>
+          <path d="M 84.37 175.39 C 111.07 172.41 132.15 151.33 135.13 124.63"/>
+        </g>
+      </svg>
+      <span class="wordmark">RAINMAKER</span>
     </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#ask-archie">Ask Archie</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="competitors.html">Compare</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start free</a>
+  </div>
+</header>
 
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#ask-archie">Ask Archie</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="competitors.html">vs. Competitors</a></li>
-      <li><a href="blog/">Blog</a></li>
-    </ul>
-
-    <div class="nav-cta">
-      <a href="#demo" class="btn btn-outline">Watch Demo</a>
-      <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary">Get Started Free →</a>
-    </div>
-  </nav>
-
-
-  <!-- =============================================
-       HERO
-  ============================================= -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Beta Open — 25–40% Response Rates
-        </div>
-
-        <h1 class="hero-title">
-          Stop Prospecting Blind.<br/>
-          The First True<br/>
-          <span class="teal">Financial Advisor</span><br/>
-          <span class="teal">Operating System.</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          One platform, two engines. <strong>RainMaker</strong> finds and wins your highest-compatibility clients with Jungian archetypes and AI. <strong>Ask Archie</strong> coaches you with forty years of real advisor wisdom — on demand, any hour of the day.
-        </p>
-
-        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
-          <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:17px; padding:16px 32px;">Get Your Archetype &amp; First Search Free →</a>
-          <a href="#demo" class="btn btn-outline">Watch the Demo</a>
-        </div>
-        <p class="hero-note">No card required · Upgrade when you're ready to go deeper</p>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-value">25–40%</div>
-            <div class="hero-stat-label">Response rates in beta</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">94%</div>
-            <div class="hero-stat-label">Avg. compatibility match score</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">132</div>
-            <div class="hero-stat-label">Patent claims filed</div>
-          </div>
-        </div>
+<!-- ============ 2.1 Hero ============ -->
+<section class="hero">
+  <div class="hero-glow-blue" aria-hidden="true"></div>
+  <div class="hero-glow-orange" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow">The Financial Advisor Operating System</div>
+      <h1>Stop prospecting blind.</h1>
+      <p class="hero-sub">Rainmaker is the first true operating system for financial advisors. One platform, two engines: it finds and wins your highest-compatibility clients with Jungian archetypes and AI — and Ask Archie coaches you with forty years of real advisor wisdom, any hour of the day.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get your archetype &amp; first search free</a>
+        <a class="btn btn-ghost" href="#demo">Watch the demo</a>
+      </div>
+      <div class="proof-row" aria-label="Proof points">
+        <span><b>94%</b> avg compatibility match</span>
+        <span><b>25–40%</b> response rates (beta)</span>
+        <span><b>132</b> patent claims filed</span>
       </div>
     </div>
-  </section>
-
-
-  <!-- =============================================
-       LOGO BAR
-  ============================================= -->
-  <div class="logo-bar">
-    <div class="container">
-      <p class="logo-bar-label">Built on expertise from</p>
-      <div class="logo-bar-logos">
-        <span>Merrill Lynch</span>
-        <span>UBS</span>
-        <span>Duke University</span>
-        <span>Philemon Foundation</span>
-        <span>USPTO Patent Pending</span>
+    <div class="hero-visual" id="demo">
+      <div class="glass">
+        <video src="assets/video/archematch-demo.mp4" poster="assets/video/demo-poster.jpg"
+               controls playsinline preload="metadata" title="Rainmaker demo"></video>
       </div>
     </div>
   </div>
+  <img class="hero-mark-bg" src="assets/brand/mark-white.svg" alt="" aria-hidden="true" />
+</section>
 
-
-  <!-- =============================================
-       PROBLEM
-  ============================================= -->
-  <section class="section" id="problem">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">The Problem</div>
-        <h2 class="section-title">Prospecting Is Broken.<br/>Here's the Data.</h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">The wealth management industry is facing a perfect storm — and cold outreach is dying fast.</p>
+<!-- ============ 2.2 The Problem ============ -->
+<section id="problem">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow">The problems</div>
+      <h2 class="section-title">Prospecting is broken. Here's the data.</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="card stat-card fade-up">
+        <div class="stat-val">97%</div>
+        <div class="stat-label">Failure rate</div>
+        <p>of prospecting attempts fail to connect.</p>
       </div>
-
-      <div class="problem-grid">
-        <div class="problem-card fade-up delay-1">
-          <div class="problem-number">97%</div>
-          <div class="problem-title">Failure Rate</div>
-          <p class="problem-desc">Nearly all traditional prospecting attempts fail, leading to a 90% attrition rate for new advisors in their first 3 years.</p>
-        </div>
-        <div class="problem-card fade-up delay-2">
-          <div class="problem-number">100k+</div>
-          <div class="problem-title">Advisor Shortage</div>
-          <p class="problem-desc">McKinsey projects a shortage of 100,000+ advisors by 2034. The workforce is retiring faster than it can be replaced.</p>
-        </div>
-        <div class="problem-card fade-up delay-3">
-          <div class="problem-number">$6B</div>
-          <div class="problem-title">Annual Loss</div>
-          <p class="problem-desc">Wasted annually on failed outreach and marketing spend across the industry. The core prospecting model is fundamentally broken.</p>
-        </div>
+      <div class="card stat-card fade-up">
+        <div class="stat-val">$6B/yr</div>
+        <div class="stat-label">Wasted outreach</div>
+        <p>spent every year on outreach that never lands.</p>
+      </div>
+      <div class="card stat-card fade-up">
+        <div class="stat-val">100k+</div>
+        <div class="stat-label">Advisor shortage</div>
+        <p>projected by 2034 (McKinsey). Institutional wisdom is leaving the field — and the new crop of advisors replacing it was never taught how to prospect and grow a book.</p>
       </div>
     </div>
-  </section>
+    <p class="kicker fade-up">The problem was never effort. It was aiming at the wrong people.</p>
+  </div>
+</section>
 
-
-  <!-- =============================================
-       FEATURES / SOLUTION
-  ============================================= -->
-  <section class="section" id="features" style="background: var(--navy-mid);">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">The Solution</div>
-        <h2 class="section-title">Psychological Intelligence,<br/><span class="teal">Before Outreach Begins</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">RainMaker — the first engine of the ArcheMatch operating system — uses Jungian archetypes and AI-driven research to determine compatibility before a single word is spoken, through three powerful pathways.</p>
-      </div>
-
-      <div class="solution-grid" style="margin-top: 56px;">
-
-        <div class="pathway-card fade-up delay-1">
-          <div class="pathway-icon blue-bg">🎯</div>
-          <div class="pathway-tag">For Advisors Building From Scratch</div>
-          <h3 class="pathway-title">The <span class="blue">Hunter</span> Pathway</h3>
-          <p class="pathway-desc">We scan public data signals — job changes, funding rounds, life events — and layer them against psychological profiling to surface the highest-compatibility prospects you've never met.</p>
-          <ul class="pathway-features">
-            <li>Real-time trigger event monitoring (job changes, funding, inheritance signals)</li>
-            <li>Multi-dimensional compatibility scoring: archetype, communication style, values, and professional fit</li>
-            <li>AI-generated personalized outreach scripts tailored to each prospect's type</li>
-            <li>Prospect pipeline ranked by psychological match strength</li>
-          </ul>
-        </div>
-
-        <div class="pathway-card fade-up delay-2">
-          <div class="pathway-icon teal-bg">🌐</div>
-          <div class="pathway-tag">For Established Advisors</div>
-          <h3 class="pathway-title">The <span class="teal">Gatherer</span> Pathway</h3>
-          <p class="pathway-desc">For advisors with an existing book of business, we analyze your clients' social networks to uncover warm referral opportunities that match your specific archetype — turning relationships into new relationships.</p>
-          <ul class="pathway-features">
-            <li>Social network analysis of your existing client base</li>
-            <li>Warm referral mapping — find the right ask, at the right moment</li>
-            <li>Archetype-matched referral scripts that feel natural, not scripted</li>
-            <li>Hidden opportunity scoring within your current network</li>
-          </ul>
-        </div>
-
-        <div class="pathway-card fade-up delay-3" style="grid-column: 1 / -1;">
-          <div class="pathway-icon" style="background: rgba(99,102,241,0.15);">🤝</div>
-          <div class="pathway-tag">For Advisors With Loyal Clients</div>
-          <h3 class="pathway-title">The <span style="color:var(--purple);">Best Clients</span> Pathway</h3>
-          <p class="pathway-desc">Enter up to five clients you wish you could clone — the ones who know you and love you. RainMaker maps their networks and generates permission-based warm introductions: first a note to your client, then, with their blessing, your outreach to the prospect with a trusted name attached.</p>
-          <ul class="pathway-features">
-            <li>Exemplar profiling — RainMaker learns exactly what your best relationships have in common</li>
-            <li>First-degree connection mapping from the clients who already trust you</li>
-            <li>Permission-based introduction scripts: the ask to your client, then the outreach to the prospect</li>
-            <li>Every introduction lands in the same ranked prospect pipeline as Hunter and Gatherer</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Defensible Moat -->
-      <div class="moat-grid" style="margin-top: 32px;">
-        <div class="moat-card fade-up delay-1">
-          <div class="moat-icon">🔒</div>
-          <div class="moat-value">132</div>
-          <div class="moat-label">Patent Claims Filed</div>
-        </div>
-        <div class="moat-card fade-up delay-2">
-          <div class="moat-icon">🧠</div>
-          <div class="moat-value">12</div>
-          <div class="moat-label">Jungian Archetypes, Primary &amp; Secondary Profiling</div>
-        </div>
-        <div class="moat-card fade-up delay-3">
-          <div class="moat-icon">📚</div>
-          <div class="moat-value">40+</div>
-          <div class="moat-label">Years Domain Expertise in Algorithm</div>
-        </div>
-      </div>
-
+<!-- ============ 2.3 The Solution: Hunt · Gather · Close ============ -->
+<section id="features">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">Prospecting by psychological alignment</div>
+      <h2 class="section-title">Matching by psychology, not keywords.</h2>
+      <p class="section-sub">One five-minute assessment gives you your archetype. From there, Rainmaker works three ways.</p>
     </div>
-  </section>
+    <div class="motion-grid">
+      <div class="card motion-card fade-up">
+        <div class="motion-num">01</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <h3>Hunt</h3>
+        <p>Surface new prospects matched to your archetype from public signals and real-time trigger events. For advisors building a book from scratch.</p>
+      </div>
+      <div class="card motion-card fade-up">
+        <div class="motion-num">02</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Gather</h3>
+        <p>Mine your network — and your clients' networks — for warm referral opportunities you already have standing to reach.</p>
+      </div>
+      <div class="card motion-card fade-up">
+        <div class="motion-num">03</div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+        <h3>Connect</h3>
+        <p>Connect with them through personalized, archetype-aware outreach and permission-based warm introductions from your best clients.</p>
+      </div>
+    </div>
+    <div class="powered fade-up">Powered by ArcheMatch.</div>
+  </div>
+</section>
 
-
-  <!-- =============================================
-       SENIOR FA / GATHERER
-  ============================================= -->
-  <section class="senior-fa-section" id="senior-fa">
-    <div class="container">
+<!-- ============ 2.4 Ask Archie (the ONLY orange section) ============ -->
+<section class="archie" id="ask-archie">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow orange">Ask Archie</div>
+      <h2 class="section-title">Your personalized coach — not another chatbot.</h2>
+      <p class="section-sub">Ask Archie is a coach that answers from a field-proven body of work — not the internet — in the language of your archetype and experience level. We challenge you to stump it. And if you agree with Archie's recommendation, Archie will hold you accountable.</p>
+    </div>
+    <div class="archie-grid">
       <div class="fade-up">
-        <div class="label">For Seasoned Advisors</div>
-        <h2 class="section-title">The Gatherer Pathway:<br/><span class="teal">Your Existing Network Is a Gold Mine</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle" style="max-width:680px;">If you've been in the business 15+ years, you're sitting on an asset most advisors never unlock: hundreds of aligned client relationships — each one connected to a network of people who think, behave, and make decisions just like them. Rainmaker's Gatherer pathway maps that hidden universe and tells you exactly who to approach, and how.</p>
-      </div>
-
-      <div class="senior-metrics">
-        <div class="sm-card fade-up delay-1">
-          <div class="sm-val">200+</div>
-          <div class="sm-lbl">Avg. client households a seasoned FA manages</div>
-        </div>
-        <div class="sm-card fade-up delay-2">
-          <div class="sm-val">50–200</div>
-          <div class="sm-lbl">Professional contacts in each client's network</div>
-        </div>
-        <div class="sm-card fade-up delay-3">
-          <div class="sm-val">$400K+</div>
-          <div class="sm-lbl">Potential additional annual revenue from 20 matched referrals at $1M avg. AUM / 1% fee</div>
-        </div>
-        <div class="sm-card fade-up delay-3">
-          <div class="sm-val">10×</div>
-          <div class="sm-lbl">Improvement in referral conversion when psychologically matched vs. cold introduction</div>
+        <div class="chat-card">
+          <div class="chat-eyebrow">Ask Archie</div>
+          <div class="chat-hint">Tap a question — hear Archie answer in Gary's voice.</div>
+          <button class="archie-q" data-answer="archieA1" data-audio="assets/audio/archie-advisor.mp3" type="button">
+            ▶&nbsp; What's the best way to respond to a prospect who says they already have an advisor?
+          </button>
+          <div id="archieA1" class="archie-a">
+            That objection isn't a door closing — it's the most important thing they could tell you. Your move is <strong>Constructive Doubt</strong>: don't attack their advisor, don't sell yourself. Plant one legitimate question they can't unhear… then ride the silence.
+          </div>
+          <button class="archie-q" data-answer="archieA2" data-audio="assets/audio/archie-market.mp3" type="button">
+            ▶&nbsp; How do I handle a prospect who wants to wait for the market to come down?
+          </button>
+          <div id="archieA2" class="archie-a">
+            That objection is never really about the market — it's about fear of regret. Don't argue the forecast. Move to the <strong>A-to-B approach</strong>: anchor them to their goal, not the headline, and show them what waiting actually costs.
+          </div>
+          <div class="chat-credit">Real answers from Gary's coaching library · Voice: Gary Sinderbrand</div>
         </div>
       </div>
-
-      <div class="gatherer-two-col">
-        <div class="gatherer-feature fade-up delay-1">
-          <h3>🗺️ Map Your Client Network</h3>
-          <p>Rainmaker analyzes the professional and social graph surrounding your existing book of business. It identifies which of your clients' contacts carry archetypal profiles that align with your natural advisory style — surfacing warm opportunities you've never had visibility into before.</p>
+      <div class="fade-up">
+        <p class="archie-trust">Archie coaches from forty years of proven advisor training — not the internet.
+          <small>Built on Gary Sinderbrand's frameworks.</small>
+        </p>
+        <div class="archie-chips">
+          <span class="chip">Archetype-aware</span>
+          <span class="chip">24/7</span>
+          <span class="chip">Exact language, not platitudes</span>
+          <span class="chip">Learns from every conversation</span>
         </div>
-        <div class="gatherer-feature fade-up delay-2">
-          <h3>🎯 Know the Right Ask Before You Make It</h3>
-          <p>Not all referral asks are created equal. Gatherer scores each opportunity by compatibility and tells you which client to approach, which contact to ask about, and what framing will resonate. You walk into every conversation knowing the psychological dynamics before you say a word.</p>
-        </div>
-        <div class="gatherer-feature fade-up delay-1">
-          <h3>🔁 The Knowledge-Gap Advantage</h3>
-          <p>Senior advisors at firms like Merrill Lynch and UBS often find themselves giving away book equity to junior partners who then struggle to grow independently. Rainmaker changes that equation: pair a junior advisor with Hunter mode to prospect independently while you use Gatherer to deepen your existing relationships. The result is a team that grows from both ends simultaneously.</p>
-        </div>
-        <div class="gatherer-feature fade-up delay-2">
-          <h3>📈 Maximize Your Final Decade of Production</h3>
-          <p>The $84 trillion Great Wealth Transfer is redistributing assets right now — not in five years. Your clients' children, business partners, and colleagues are receiving inheritances, liquidity events, and career windfalls today. Gatherer identifies which of those individuals are psychologically ready to trust an advisor like you, and connects the dots before a competitor does.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:40px; padding:36px; background:linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.06)); border:1px solid rgba(16,185,129,0.25); border-radius:var(--radius-lg); text-align:center;" class="fade-up">
-        <p style="font-family:var(--serif); font-size:22px; font-weight:600; margin-bottom:12px;">Your existing book is full of warm, psychologically-aligned referrals. Gatherer surfaces the ones you’ve been overlooking.</p>
-        <div style="margin-top:24px;">
-          <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary">Try the Gatherer Pathway Free →</a>
+        <div style="margin-top:30px;">
+          <a class="btn btn-orange" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Try Ask Archie free</a>
+          <p style="margin-top:10px; font-size:13px; color:var(--rm-text-muted); font-weight:600;">Your first two questions are free.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- =============================================
-       HOW IT WORKS
-  ============================================= -->
-  <section class="section steps-section" id="how-it-works">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">How It Works</div>
-        <h2 class="section-title">From Sign-Up to<br/><span class="teal">First Qualified Conversation</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Rainmaker integrates with your workflow in minutes and delivers actionable matches within 24 hours — with full Ask Archie coaching support available 24/7 from day one.</p>
+<!-- ============ 2.5 How it works ============ -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title">From blind to booked in four steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="card step fade-up">
+        <div class="step-num">1</div>
+        <h3>Discover your archetype</h3>
+        <p>A 10-minute assessment maps your Jungian archetype.</p>
       </div>
+      <div class="card step fade-up">
+        <div class="step-num">2</div>
+        <h3>Choose your lane</h3>
+        <p>Hunt, Gather, or Connect — with your pre-identified sources.</p>
+      </div>
+      <div class="card step fade-up">
+        <div class="step-num">3</div>
+        <h3>Get matched prospects</h3>
+        <p>Every candidate ranked by compatibility score.</p>
+      </div>
+      <div class="card step fade-up">
+        <div class="step-num">4</div>
+        <h3>Reach out with a personal touch</h3>
+        <p>InMail, connection request, or email.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="steps-grid">
-        <div class="step-card fade-up delay-1">
-          <div class="step-num">1</div>
-          <h3 class="step-title">Profile Your Archetype</h3>
-          <p class="step-desc">Complete a 10-minute psychological assessment. Rainmaker identifies your Jungian archetype and ideal client profile — the personality types you naturally resonate with.</p>
+<!-- ============ 2.6 Results / testimonials ============ -->
+<section id="results">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">Results</div>
+      <h2 class="section-title">Advisors are already closing with it.</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="card quote-card fade-up">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <p>I've been in the business for 18 years and never seen anything like this. My first three outreaches using Rainmaker turned into meetings. That's unheard of with cold prospecting.</p>
+        <div class="quote-role">Senior financial advisor · 18 yrs</div>
+      </div>
+      <div class="card quote-card fade-up">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <p>Rainmaker found referral opportunities in my existing client base I had completely overlooked. I closed two new accounts in the first month from people my own clients already knew.</p>
+        <div class="quote-role">Independent RIA · 12 yrs</div>
+      </div>
+      <div class="card quote-card fade-up">
+        <div class="quote-mark" aria-hidden="true">"</div>
+        <p>I was skeptical about the 'psychology' angle. But when the platform described my ideal client type and I looked at my best clients of all time — it was them, exactly. The science is real.</p>
+        <div class="quote-role">Broker-dealer advisor · 22 yrs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2.7 Pricing ============ -->
+<section id="pricing">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="section-title">One assessment. Pick your plan.</h2>
+    </div>
+    <div class="price-grid">
+      <div class="card price-card fade-up">
+        <div class="price-window">Open until Sept 30</div>
+        <div class="price-tier">Founder</div>
+        <div class="price-for">Solo advisors — early believers</div>
+        <div class="price-amt">$250<small>/mo</small></div>
+        <p class="price-fine">12-month commitment · one payment of $3,000. Founders directly engage with us and help shape the future of this tool. Pricing maintained indefinitely at this level, assuming continuous sign-ups.</p>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direct line to the product team</li>
+        </ul>
+        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Become a founder</a>
+      </div>
+      <div class="card price-card fade-up">
+        <div class="price-tier">Professional Semi-Annual</div>
+        <div class="price-for">6-month plan</div>
+        <div class="price-amt">$500<small>/mo</small></div>
+        <p class="price-fine">One payment of $3,000.</p>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start now</a>
+      </div>
+      <div class="card price-card featured fade-up">
+        <div class="price-pop">Best value</div>
+        <div class="price-tier">Professional Annual</div>
+        <div class="price-for">12-month plan</div>
+        <div class="price-amt">$400<small>/mo</small></div>
+        <p class="price-fine">One payment of $4,800. Price guaranteed not to rise, assuming continuous sign-ups.</p>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
+        </ul>
+        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start now</a>
+      </div>
+      <div class="card price-card fade-up">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-for">Firms &amp; broker-dealers</div>
+        <div class="price-amt">Custom</div>
+        <p class="price-fine">Minimum 25 seats · priced upon request.</p>
+        <ul class="price-feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Everything in Professional, per seat</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Team management &amp; white-label</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dedicated success manager</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Talk to us</a>
+      </div>
+    </div>
+    <p class="price-note fade-up">Not completely satisfied within your first 30 days? We'll make it right — terms apply.</p>
+  </div>
+</section>
+
+<!-- ============ 2.8 Team ============ -->
+<section id="team">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">Who's behind it</div>
+      <h2 class="section-title">Forty years of advisor wisdom, encoded.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="card team-card fade-up">
+        <h3>Gary Sinderbrand</h3>
+        <div class="team-role">Founder</div>
+        <p>40+ years in financial services. Trained 12,000+ advisors. Every Archie answer traces back to his field-proven frameworks.</p>
+      </div>
+      <div class="team-advisors">
+        <div class="card team-card fade-up">
+          <h3>Dr. Jimmie Lenz</h3>
+          <div class="team-role">Advisor</div>
+          <p>Director, Duke FinTech.</p>
         </div>
-        <div class="step-card fade-up delay-2">
-          <div class="step-num">2</div>
-          <h3 class="step-title">Connect Your Data Sources</h3>
-          <p class="step-desc">Connect your existing data sources and client list. Choose the Hunter (new prospects) or Gatherer (referral mining) pathway — or run both simultaneously.</p>
-        </div>
-        <div class="step-card fade-up delay-3">
-          <div class="step-num">3</div>
-          <h3 class="step-title">Receive Matched Prospects</h3>
-          <p class="step-desc">Get a ranked list of high-compatibility prospects with compatibility scores, personality insights, trigger events, and suggested conversation starters.</p>
-        </div>
-        <div class="step-card fade-up delay-3">
-          <div class="step-num">4</div>
-          <h3 class="step-title">Reach Out with Precision</h3>
-          <p class="step-desc">Use Rainmaker's AI-crafted outreach scripts — customized to each prospect's communication style and your shared archetype compatibility.</p>
+        <div class="card team-card fade-up">
+          <h3>Dr. Stephen A. Martin</h3>
+          <div class="team-role">Advisor</div>
+          <p>Jungian analyst, Philemon Foundation.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!-- ============ 2.9 Final CTA ============ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="eyebrow">The Financial Advisor Operating System</div>
+    <h2>Stop prospecting blind.</h2>
+    <p>Get your archetype and your first search, free.</p>
+    <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started free</a>
+  </div>
+</section>
 
-  <!-- =============================================
-       DEMO / VIDEO
-  ============================================= -->
-  <section class="demo-section" id="demo">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">Live Demo</div>
-        <h2 class="section-title">See Rainmaker<br/><span class="teal">in Action</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle" style="margin: 0 auto 40px;">Watch how Rainmaker surfaces high-compatibility prospects and generates personalized outreach in seconds.</p>
+<!-- ============ 2.10 Footer ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="nav-logo">
+          <img src="assets/brand/mark-white.svg" alt="" width="32" height="32" aria-hidden="true" />
+          <span class="wordmark">RAINMAKER</span>
+        </span>
+        <p class="foot-credit">An ArcheMatch, Inc. product.<br/>The Financial Advisor Operating System · Powered by ArcheMatch.</p>
       </div>
-
-      <div class="demo-tabs center">
-        <button class="demo-tab active">Overview</button>
-        <button class="demo-tab" disabled style="opacity:0.35;cursor:not-allowed;" title="Coming soon">Hunter Pathway</button>
-        <button class="demo-tab" disabled style="opacity:0.35;cursor:not-allowed;" title="Coming soon">Gatherer Pathway</button>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#ask-archie">Ask Archie</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="competitors.html">Compare</a></li>
+        </ul>
       </div>
-
-      <div class="demo-wrapper fade-up">
-        <video
-          src="assets/video/archematch-demo.mp4"
-          poster="assets/video/demo-poster.jpg"
-          controls playsinline preload="metadata"
-          title="ArcheMatch Demo"
-          style="width:100%; height:100%; display:block; border-radius:inherit; background:#0a0e14;">
-        </video>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#team">Team</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="#team">White paper</a></li>
+          <li><a href="mailto:info@archematch.com">Contact</a></li>
+        </ul>
       </div>
-
-      <!-- Real product screenshots carousel -->
-      <div class="screenshot-flow fade-up" style="margin-top: 40px;">
-        <div class="ss-tabs">
-          <button class="ss-tab active" data-img="assets/images/screen-archetype.png" data-cap="Step 1 · Your Archetype Profile — Rainmaker identifies your Jungian type and professional compatibility before you search for a single prospect.">Archetype Profile</button>
-          <button class="ss-tab" data-img="assets/images/screen-search.png" data-cap="Step 2 · Configure Your Hunt — select target traits and professions. Rainmaker scores every result against your archetype automatically.">Configure Search</button>
-          <button class="ss-tab" data-img="assets/images/screen-prospects.png" data-cap="Step 3 · Ranked Prospects — every candidate carries a live High Alignment score. Kevin Amory: 94%, Deepa Anand: 93%. No guesswork.">Prospect Rankings</button>
-          <button class="ss-tab" data-img="assets/images/screen-alignment.png" data-cap="Step 4 · Deep Alignment Analysis — see exactly WHY a prospect is a match: your archetype vs. theirs, communication style, experience level, industry fit.">Alignment Analysis</button>
-          <button class="ss-tab" data-img="assets/images/screen-message.png" data-cap="Step 5 · AI-Generated Outreach — Rainmaker drafts a personalised LinkedIn connection message grounded in your specific alignment data. One click to send.">Generate Outreach</button>
-        </div>
-        <div class="ss-frame">
-          <img id="ssImg" src="assets/images/screen-archetype.png" alt="RainMaker product screenshot" style="width:100%; border-radius: 12px; display:block;" />
-          <p id="ssCap" style="margin-top:16px; font-size:14px; color:var(--white-80); text-align:center; line-height:1.6;">Step 1 · Your Archetype Profile — Rainmaker identifies your Jungian type and professional compatibility before you search for a single prospect.</p>
-        </div>
-        <div style="text-align:center; margin-top:28px;">
-          <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary">Get Your Archetype Free at rainmakerapp.io →</a>
-          <p style="margin-top:12px; font-size:14px; color:var(--white-60);">Take the assessment and run your first prospect search free — no card required. Upgrade when you're ready to go deeper.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- =============================================
-       ASK ARCHIE
-  ============================================= -->
-  <section class="section" id="ask-archie" style="background: var(--navy-mid);">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label" style="color:var(--orange);">The Second Engine</div>
-        <h2 class="section-title">Meet <span style="color:var(--orange);">Ask Archie</span> —<br/>a 40-Year Veteran, On Demand</h2>
-        <div class="divider" style="background:var(--orange);"></div>
-        <p class="section-subtitle">Archie is forty years of real advisor coaching — full training courses, hundreds of live coaching calls, and every framework Gary Sinderbrand ever taught — distilled into an AI coach that answers the moment you need it.</p>
-      </div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:56px; align-items:center;" class="archie-grid">
-        <div class="fade-up delay-1">
-          <h3 style="font-family:var(--serif); font-size:26px; margin-bottom:18px;">How it works</h3>
-          <ul class="pathway-features">
-            <li><strong>It knows you.</strong> Archie reads your archetype and career stage, and tailors every answer to how you work — a rookie and a 30-year veteran get different coaching on the same question.</li>
-            <li><strong>Ask anything, any hour.</strong> A prospect says they already have an advisor. A client wants to wait out the market. Type the question, get the framework — with the exact language to use.</li>
-            <li><strong>It stays in its lane.</strong> Ask about trust law and Archie tells you it's a question for an estate attorney — then coaches you on being the advisor who makes that referral call. No faking. Ever.</li>
-            <li><strong>It never stops learning you.</strong> Every conversation is remembered, so the coaching compounds just like a real mentoring relationship.</li>
-          </ul>
-          <div style="margin-top:28px;">
-            <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary" style="background:var(--orange);">Try Ask Archie Free →</a>
-          </div>
-        </div>
-
-        <div class="fade-up delay-2">
-          <div style="background:var(--navy-card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
-            <div style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); margin-bottom:6px;">Ask Archie</div>
-            <div style="font-size:13px; color:var(--white-60); margin-bottom:16px;">Tap a question — hear Archie answer in Gary's voice.</div>
-            <div class="archie-q" data-answer="archieA1" data-audio="assets/audio/archie-advisor.mp3" style="background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.35); border-radius:12px; padding:14px 16px; font-size:14px; margin-bottom:10px; cursor:pointer;">
-              ▶&nbsp; What's the best way to respond to a prospect who says they already have an advisor?
-            </div>
-            <div id="archieA1" class="archie-a" style="display:none; background:var(--navy-mid); border:1px solid var(--border); border-radius:12px; padding:16px; font-size:14px; color:var(--white-80); line-height:1.7; margin-bottom:10px;">
-              That objection isn't a door closing — it's the most important thing they could tell you. Your move is <strong style="color:var(--white);">Constructive Doubt</strong>: don't attack their advisor, don't sell yourself. Plant one legitimate question they can't unhear… then ride the silence.
-            </div>
-            <div class="archie-q" data-answer="archieA2" data-audio="assets/audio/archie-market.mp3" style="background:rgba(249,115,22,0.12); border:1px solid rgba(249,115,22,0.35); border-radius:12px; padding:14px 16px; font-size:14px; margin-bottom:10px; cursor:pointer;">
-              ▶&nbsp; How do I handle a prospect who wants to wait for the market to come down?
-            </div>
-            <div id="archieA2" class="archie-a" style="display:none; background:var(--navy-mid); border:1px solid var(--border); border-radius:12px; padding:16px; font-size:14px; color:var(--white-80); line-height:1.7; margin-bottom:10px;">
-              That objection is never really about the market — it's about fear of regret. Don't argue the forecast. Move to the <strong style="color:var(--white);">A-to-B approach</strong>: anchor them to their goal, not the headline, and show them what waiting actually costs.
-            </div>
-            <div style="margin-top:8px; font-size:12px; color:var(--white-60);">Real answers from Gary's coaching library · Voice: Gary Sinderbrand</div>
-          </div>
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              var current = null;
-              document.querySelectorAll('.archie-q').forEach(function (q) {
-                q.addEventListener('click', function () {
-                  document.querySelectorAll('.archie-a').forEach(function (a) { a.style.display = 'none'; });
-                  var ans = document.getElementById(q.dataset.answer);
-                  if (ans) ans.style.display = 'block';
-                  if (current) { current.pause(); current = null; }
-                  var audio = new Audio(q.dataset.audio);
-                  audio.play().catch(function () {});
-                  current = audio;
-                });
-              });
-            });
-          </script>
-        </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="privacy.html">Terms</a></li>
+          <li><a href="privacy.html">Security</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-  <style>@media (max-width: 860px){ .archie-grid { grid-template-columns: 1fr !important; } }</style>
-
-  <!-- =============================================
-       RESULTS
-  ============================================= -->
-  <section class="section results-section" id="results">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">Beta Results</div>
-        <h2 class="section-title">The Numbers<br/><span class="teal">Don't Lie</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Early advisors in the Rainmaker beta are seeing response rates that make their peers' jaws drop.</p>
-      </div>
-
-      <div class="results-grid">
-        <div class="result-card t-teal fade-up delay-1">
-          <div class="result-val teal">25–40%</div>
-          <div class="result-lbl">Response Rate (beta avg)</div>
-        </div>
-        <div class="result-card t-blue fade-up delay-2">
-          <div class="result-val blue">3%</div>
-          <div class="result-lbl">Industry Average Response Rate</div>
-        </div>
-        <div class="result-card t-purple fade-up delay-3">
-          <div class="result-val purple">13×</div>
-          <div class="result-lbl">Better Than Cold Outreach</div>
-        </div>
-        <div class="result-card t-gold fade-up delay-3">
-          <div class="result-val gold">$84T</div>
-          <div class="result-lbl">Wealth Transfer Underway</div>
-        </div>
-      </div>
-
-      <!-- Testimonials -->
-      <div class="testimonials-grid" style="margin-top: 40px;">
-        <div class="testimonial-card fade-up delay-1">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I've been in the business for 18 years and never seen anything like this. My first three outreaches using Rainmaker turned into meetings. That's unheard of with cold prospecting."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">DW</div>
-            <div>
-              <div class="testimonial-name">David W.</div>
-              <div class="testimonial-role">Senior Financial Advisor, 18 yrs exp.</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-2">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The Gatherer pathway found referral opportunities in my existing client base I had completely overlooked. I closed two new accounts in the first month from people my own clients already knew."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">KP</div>
-            <div>
-              <div class="testimonial-name">Karen P.</div>
-              <div class="testimonial-role">Independent RIA, 12 yrs exp.</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-3">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I was skeptical about the 'psychology' angle. But when the platform described my ideal client type and I looked at my best clients of all time — it was them, exactly. The science is real."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">JM</div>
-            <div>
-              <div class="testimonial-name">James M.</div>
-              <div class="testimonial-role">Broker-Dealer, 22 yrs exp.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArcheMatch, Inc. / Rainmaker. All rights reserved.</span>
+      <span>Patent pending.</span>
     </div>
-  </section>
+  </div>
+</footer>
 
+<script>
+// Sticky nav: transparent over hero, solid + blur after scroll
+var nav = document.getElementById('nav');
+function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 24); }
+window.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
 
-  <!-- =============================================
-       BLOG
-  ============================================= -->
-  <section class="section blog-section" id="blog">
-    <div class="container">
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 56px;">
-        <div class="fade-up">
-          <div class="label">The Rainmaker Blog</div>
-          <h2 class="section-title">Prospecting for<br/><span class="teal">Aligned Individuals</span></h2>
-          <div class="divider"></div>
-        </div>
-        <a href="/blog/" class="btn-ghost fade-up">View All Posts →</a>
-      </div>
+// Fade-up on scroll (skipped entirely under reduced motion via CSS)
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold:.12 });
+document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
 
-      <div class="blog-grid">
-        <div class="blog-card fade-up delay-1">
-          <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(16,185,129,0.15));"></div>
-            🧠
-          </div>
-          <div class="blog-body">
-            <div class="blog-tag">Psychology of Prospecting</div>
-            <h3 class="blog-title"><a href="blog/cold-outreach-broken.html" style="color:inherit; text-decoration:none;">Why 97% of Cold Outreach Fails — and What the Other 3% Know About Archetype Alignment</a></h3>
-            <p class="blog-excerpt">The dirty secret of financial services prospecting isn't the script or the channel. It's that you're talking to the wrong people in the wrong way for who you are.</p>
-            <div class="blog-meta">
-              <span>📅 April 28, 2026</span>
-              <span>⏱ 8 min read</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="blog-card fade-up delay-2">
-          <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(59,130,246,0.15));"></div>
-            🎯
-          </div>
-          <div class="blog-body">
-            <div class="blog-tag">The Hunter Pathway</div>
-            <h3 class="blog-title"><a href="blog/empirical-case-psychological-prospecting.html" style="color:inherit; text-decoration:none;">Trigger Events Are Just the Beginning: How Psychological Scoring Turns Signals Into Meetings</a></h3>
-            <p class="blog-excerpt">Job changes and funding rounds are table stakes for prospecting now. The advisors winning are layering psychological compatibility on top of those signals.</p>
-            <div class="blog-meta">
-              <span>📅 April 14, 2026</span>
-              <span>⏱ 6 min read</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="blog-card fade-up delay-3">
-          <div class="blog-image">
-            <div class="blog-image-gradient" style="background: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(255,127,80,0.15));"></div>
-            🌐
-          </div>
-          <div class="blog-body">
-            <div class="blog-tag">The Gatherer Pathway</div>
-            <h3 class="blog-title"><a href="blog/gatherer-senior-advisors.html" style="color:inherit; text-decoration:none;">The $84 Trillion Opportunity Hidden in Your Existing Client Relationships</a></h3>
-            <p class="blog-excerpt">The Great Wealth Transfer isn't just happening in the broader market. Your best clients have friends, family, and colleagues going through it right now — do you know who they are?</p>
-            <div class="blog-meta">
-              <span>📅 March 31, 2026</span>
-              <span>⏱ 10 min read</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =============================================
-       PRICING
-  ============================================= -->
-  <section class="section" id="pricing" style="display:none;">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">Pricing</div>
-        <h2 class="section-title">Straightforward Plans for<br/><span class="teal">Every Advisor</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Start free for 30 days. No credit card required. Cancel anytime.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="pricing-card fade-up delay-1">
-          <div class="pricing-tier">Solo Advisor</div>
-          <div class="pricing-name">Starter</div>
-          <div class="pricing-price">
-            <span class="dollar">$</span>
-            <span class="amount">199</span>
-            <span class="period">/mo</span>
-          </div>
-          <p class="pricing-desc">Perfect for independent advisors building their first pipeline with psychological intelligence.</p>
-          <button class="pricing-cta outline">Start Free Trial</button>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> Hunter OR Gatherer Pathway (choose one)</li>
-            <li><span class="check">✓</span> 50 prospect matches per month</li>
-            <li><span class="check">✓</span> Archetype assessment &amp; profile</li>
-            <li><span class="check">✓</span> AI-generated outreach scripts</li>
-            <li><span class="check">✓</span> Basic CRM integration</li>
-            <li><span class="x">✗</span> Both pathways simultaneously</li>
-            <li><span class="x">✗</span> Team management</li>
-            <li><span class="x">✗</span> Priority support</li>
-          </ul>
-        </div>
-
-        <div class="pricing-card featured fade-up delay-2">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-tier">Growth Advisor</div>
-          <div class="pricing-name">Professional</div>
-          <div class="pricing-price">
-            <span class="dollar">$</span>
-            <span class="amount teal">499</span>
-            <span class="period">/mo</span>
-          </div>
-          <p class="pricing-desc">The full Rainmaker system — both pathways running simultaneously for maximum pipeline velocity.</p>
-          <button class="pricing-cta primary">Start Free Trial</button>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> <strong>Both Hunter &amp; Gatherer Pathways</strong></li>
-            <li><span class="check">✓</span> 200 prospect matches per month</li>
-            <li><span class="check">✓</span> Advanced archetype compatibility scoring</li>
-            <li><span class="check">✓</span> AI-generated outreach scripts + follow-ups</li>
-            <li><span class="check">✓</span> CRM integration + public profile data analysis</li>
-            <li><span class="check">✓</span> Social network mapping (Gatherer)</li>
-            <li><span class="check">✓</span> Priority support</li>
-            <li><span class="x">✗</span> Team management &amp; multi-seat</li>
-          </ul>
-        </div>
-
-        <div class="pricing-card fade-up delay-3">
-          <div class="pricing-tier">RIA Firms &amp; B-Ds</div>
-          <div class="pricing-name">Enterprise</div>
-          <div class="pricing-price">
-            <span class="amount" style="font-size: 38px;">Custom</span>
-          </div>
-          <p class="pricing-desc">Per-seat licensing for broker-dealers and RIA firms. Annual contracts with volume discounts and white-label options.</p>
-          <button class="pricing-cta outline">Contact Sales</button>
-          <ul class="pricing-features">
-            <li><span class="check">✓</span> Everything in Professional</li>
-            <li><span class="check">✓</span> Multi-seat team management</li>
-            <li><span class="check">✓</span> Unlimited prospect matches</li>
-            <li><span class="check">✓</span> Custom archetype training data</li>
-            <li><span class="check">✓</span> White-label options available</li>
-            <li><span class="check">✓</span> Dedicated customer success manager</li>
-            <li><span class="check">✓</span> Data licensing for institutional research</li>
-            <li><span class="check">✓</span> SLA &amp; compliance support</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =============================================
-       TEAM
-  ============================================= -->
-  <section class="section" id="team" style="background: var(--navy-mid);">
-    <div class="container">
-      <div class="center fade-up">
-        <div class="label">The Team</div>
-        <h2 class="section-title">Built by a 40-Year Veteran Who Lived the Problem<br/><span class="teal">— and Taught the Solutions</span></h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Rainmaker was born from 40+ years on the ground at Merrill Lynch and UBS — and the realization that the best advisors win on psychology, not persistence.</p>
-      </div>
-
-      <div class="team-grid" style="grid-template-columns: 1fr; justify-items: center;">
-        <div class="team-card fade-up delay-1" style="max-width: 560px;">
-          <div class="team-avatar">GS</div>
-          <div class="team-name">Gary Sinderbrand</div>
-          <div class="team-role">Founder &amp; CEO</div>
-          <p class="team-bio">40+ years in financial services. Trained 12,000+ advisors. Every framework in RainMaker and Ask Archie came from his four decades on the ground.</p>
-        </div>
-      </div>
-
-      <h3 style="font-family: var(--serif); font-size: 24px; margin: 56px 0 0; text-align: center; color: var(--white-80);">Key Advisors</h3>
-      <div class="advisors-grid">
-        <div class="advisor-card fade-up delay-1">
-          <div class="advisor-name">Dr. Jimmie Lenz</div>
-          <div class="advisor-org">Duke University FinTech Director</div>
-          <p class="advisor-desc">25+ years in capital markets, machine learning and blockchain expertise. Academic validation for our archetype matching system.</p>
-        </div>
-        <div class="advisor-card fade-up delay-2">
-          <div class="advisor-name">Dr. Stephen A. Martin</div>
-          <div class="advisor-org">Jungian Analyst, Philemon Foundation</div>
-          <p class="advisor-desc">Academic validation for our 12-archetype personality system. Deep expertise in Jungian psychology and its application to human compatibility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =============================================
-       BOTTOM CTA
-  ============================================= -->
-  <section class="bottom-cta" id="get-started">
-    <div class="container">
-      <div class="bottom-cta-content">
-        <div class="label" style="display: inline-block; margin-bottom: 24px;">Get Started Today</div>
-        <h2>Ready to Prospect<br/><span class="teal">the Right Way?</span></h2>
-        <p>Get your archetype and run your first prospect search free — no card required. Upgrade when you're ready to go deeper.</p>
-        <div class="bottom-cta-actions" style="margin-top: 8px;">
-          <a href="https://www.rainmakerapp.io" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:17px; padding:16px 32px;">Get Started Free at rainmakerapp.io →</a>
-          <a href="#demo" class="btn btn-outline">Watch Demo First</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =============================================
-       FOOTER
-  ============================================= -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="/" class="nav-logo" style="display: inline-flex; margin-bottom: 4px;">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
-              <circle cx="40" cy="40" r="36" stroke="#10b981" stroke-width="2" fill="none"/>
-              <circle cx="40" cy="40" r="5" fill="#10b981"/>
-              <line x1="40" y1="10" x2="40" y2="22" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-              <line x1="40" y1="58" x2="40" y2="70" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-              <line x1="10" y1="40" x2="22" y2="40" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-              <line x1="58" y1="40" x2="70" y2="40" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="nav-logo-text" style="font-size:15px;">ArcheMatch</span>
-          </a>
-          <p class="footer-brand-desc">AI-powered prospecting for financial advisors. Where psychology meets prosperity.</p>
-        </div>
-
-        <div class="footer-col">
-          <h3>Product</h3>
-          <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#demo">Watch Demo</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="blog/">Blog</a></li>
-            <li><a href="blog/psychology-of-alignment-whitepaper.html">White Paper</a></li>
-            <li><a href="competitors.html">vs. Competitors</a></li>
-            <li><a href="blog/gatherer-senior-advisors.html">Gatherer for Senior FAs</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="#team">Team</a></li>
-            <li><a href="mailto:hello@archematch.com">Careers</a></li>
-            <li><a href="mailto:hello@archematch.com">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-bottom-left">© 2026 Archematch Inc. / Rainmaker. All rights reserved. Patent Pending.</p>
-        <div class="footer-bottom-right">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Security</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- =============================================
-       SCRIPTS
-  ============================================= -->
-  <script>
-    // Nav scroll effect
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Scroll fade-in animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Demo tabs (video)
-    document.querySelectorAll('.demo-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    // Screenshot flow tabs
-    document.querySelectorAll('.ss-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.ss-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        const img = document.getElementById('ssImg');
-        const cap = document.getElementById('ssCap');
-        img.style.opacity = '0';
-        setTimeout(() => {
-          img.src = this.dataset.img;
-          cap.textContent = this.dataset.cap;
-          img.style.opacity = '1';
-        }, 200);
-      });
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
-
+// Ask Archie: reveal answer + play Gary's voice
+var currentAudio = null;
+document.querySelectorAll('.archie-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    document.querySelectorAll('.archie-a').forEach(function(a){ a.style.display = 'none'; });
+    var ans = document.getElementById(q.dataset.answer);
+    if (ans) ans.style.display = 'block';
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    currentAudio = new Audio(q.dataset.audio);
+    currentAudio.play().catch(function(){});
+  });
+});
+</script>
 </body>
 </html>
