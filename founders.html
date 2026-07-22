@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Founders Circle Application | Rainmaker</title>
+<meta name="description" content="Apply for the Rainmaker Founders Circle. Founders directly engage with the team, help shape the tool, and lock in founder pricing." />
+<link rel="icon" type="image/svg+xml" href="assets/brand/mark-blue.svg" />
+<link rel="canonical" href="https://archematch.com/founders.html" />
+<meta name="robots" content="index,follow" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9D1GZ9D2T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T9D1GZ9D2T');
+</script>
+
+<style>
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('assets/fonts/Montserrat-600-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('assets/fonts/Montserrat-700-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:800; font-display:swap;
+  src:url('assets/fonts/Montserrat-800-latin.woff2') format('woff2'); }
+
+:root {
+  --rm-ground:#0A0E14; --rm-surface:#141C2A; --rm-surface-2:#1B2536;
+  --rm-border:#2A3242; --rm-border-soft:rgba(255,255,255,.06);
+  --rm-text-primary:#F1F5F9; --rm-text-secondary:#CBD5E1; --rm-text-muted:#94A3B8;
+  --rm-blue-600:#2563EB; --rm-blue-500:#3B82F6; --rm-blue-400:#60A5FA;
+  --rm-font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --rm-radius:12px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  background:var(--rm-ground); color:var(--rm-text-secondary);
+  font-family:var(--rm-font-sans); font-weight:500; font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; min-height:100vh;
+}
+a { color:var(--rm-blue-400); text-decoration:none; }
+:focus-visible { outline:2px solid var(--rm-blue-400); outline-offset:3px; border-radius:4px; }
+.wrap { max-width:640px; margin:0 auto; padding:clamp(24px,5vw,48px) clamp(20px,5vw,32px) 80px; }
+.top { display:flex; align-items:center; justify-content:space-between; margin-bottom:clamp(40px,7vw,64px); }
+.nav-logo { display:inline-flex; align-items:center; gap:10px; }
+.nav-logo img { width:32px; height:32px; }
+.wordmark { font-weight:800; font-size:16px; letter-spacing:.06em; color:var(--rm-text-primary); }
+.back { font-weight:600; font-size:14px; color:var(--rm-text-secondary); }
+.back:hover { color:var(--rm-text-primary); }
+.eyebrow { font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-blue-400); margin-bottom:14px; }
+h1 { font-weight:800; font-size:clamp(30px,5vw,42px); color:var(--rm-text-primary); line-height:1.15; text-wrap:balance; margin-bottom:16px; }
+.intro { color:var(--rm-text-muted); margin-bottom:8px; }
+.timeline {
+  margin:22px 0 34px; padding:14px 18px; font-size:14px; font-weight:600; color:var(--rm-text-secondary);
+  background:rgba(37,99,235,.08); border:1px solid rgba(96,165,250,.3); border-radius:var(--rm-radius);
+}
+form { background:var(--rm-surface); border:1px solid var(--rm-border); border-radius:var(--rm-radius); padding:clamp(22px,4vw,32px); }
+.field { margin-bottom:20px; }
+label { display:block; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--rm-text-muted); margin-bottom:8px; }
+input,select {
+  width:100%; height:48px; padding:0 14px; font-family:var(--rm-font-sans); font-weight:500; font-size:15px;
+  color:var(--rm-text-primary); background:var(--rm-surface-2);
+  border:1px solid var(--rm-border); border-radius:8px;
+}
+input::placeholder { color:#5B6778; }
+input:focus,select:focus { outline:none; border-color:var(--rm-blue-400); }
+select { appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%2394A3B8' stroke-width='2'/></svg>"); background-repeat:no-repeat; background-position:right 14px center; }
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap; width:100%;
+  height:52px; padding:0 26px; border-radius:var(--rm-radius); border:0; cursor:pointer;
+  background:var(--rm-blue-600); color:#fff; font-family:var(--rm-font-sans); font-weight:700; font-size:16px;
+}
+.btn:hover { background:var(--rm-blue-500); }
+.fine { margin-top:16px; font-size:12.5px; color:var(--rm-text-muted); }
+.thanks { display:none; background:var(--rm-surface); border:1px solid var(--rm-border); border-radius:var(--rm-radius); padding:32px; text-align:center; }
+.thanks h2 { font-weight:800; font-size:24px; color:var(--rm-text-primary); margin-bottom:12px; }
+.thanks p { color:var(--rm-text-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="nav-logo" href="index.html" aria-label="Rainmaker home">
+      <img src="assets/brand/mark-blue.svg" alt="" />
+      <span class="wordmark">RAINMAKER</span>
+    </a>
+    <a class="back" href="index.html#pricing">&larr; Back to pricing</a>
+  </div>
+
+  <div class="eyebrow">Founders Circle</div>
+  <h1>Apply to help shape Rainmaker.</h1>
+  <p class="intro">Founders get the platform at founder pricing, locked in indefinitely, and a direct line to the team building it. Your feedback shapes what we build next.</p>
+  <div class="timeline">We anticipate going live with our Founders program in early September, and we'll keep you advised every step of the way.</div>
+
+  <form id="founderForm" action="https://formsubmit.co/founders@archematch.com" method="POST">
+    <input type="hidden" name="_subject" value="Founders Circle application" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="https://archematch.com/founders.html?submitted=1" />
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+    <div class="field">
+      <label for="f-name">Full name</label>
+      <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+    </div>
+    <div class="field">
+      <label for="f-email">Email</label>
+      <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@firm.com" />
+    </div>
+    <div class="field">
+      <label for="f-phone">Phone</label>
+      <input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(555) 555-5555" />
+    </div>
+    <div class="field">
+      <label for="f-firm">Firm</label>
+      <input id="f-firm" name="firm" type="text" required autocomplete="organization" placeholder="Your firm" />
+    </div>
+    <div class="field">
+      <label for="f-service">Length of service</label>
+      <select id="f-service" name="length_of_service" required>
+        <option value="" selected disabled>Years in the business</option>
+        <option>Under 5 years</option>
+        <option>5&ndash;10 years</option>
+        <option>11&ndash;20 years</option>
+        <option>21&ndash;30 years</option>
+        <option>30+ years</option>
+      </select>
+    </div>
+    <button class="btn" type="submit">Submit application</button>
+    <p class="fine">We'll only use this information to keep you advised about the Founders program. No spam, ever.</p>
+  </form>
+
+  <div class="thanks" id="thanks">
+    <h2>Application received.</h2>
+    <p>Thank you. We anticipate going live with our Founders program in early September, and we'll keep you advised at the email you provided.</p>
+    <p style="margin-top:18px;"><a href="index.html">&larr; Back to the site</a></p>
+  </div>
+</div>
+
+<script>
+if (new URLSearchParams(location.search).get('submitted') === '1') {
+  document.getElementById('founderForm').style.display = 'none';
+  document.querySelector('.timeline').style.display = 'none';
+  document.getElementById('thanks').style.display = 'block';
+}
+</script>
+</body>
+</html>

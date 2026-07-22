@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rainmaker — Stop Prospecting Blind | AI-Powered Prospecting for Financial Advisors</title>
-<meta name="description" content="Rainmaker is the first true operating system for financial advisors. It finds and wins your highest-compatibility clients with Jungian archetypes and AI — and Ask Archie coaches you with forty years of real advisor wisdom, 24/7." />
+<title>Rainmaker: Stop Prospecting Blind | The Financial Advisor Operating System</title>
+<meta name="description" content="Rainmaker is the first true operating system for financial advisors. It finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with forty years of real advisor wisdom, 24/7." />
 <link rel="icon" type="image/svg+xml" href="assets/brand/mark-blue.svg" />
 <link rel="canonical" href="https://archematch.com/" />
-<meta property="og:title" content="Rainmaker — Stop Prospecting Blind" />
+<meta property="og:title" content="Rainmaker: Stop Prospecting Blind" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://archematch.com/" />
 <meta property="og:description" content="The Financial Advisor Operating System · Powered by ArcheMatch. Matching by psychology, not keywords." />
 <meta property="og:image" content="https://archematch.com/assets/images/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Rainmaker — Stop Prospecting Blind" />
+<meta name="twitter:title" content="Rainmaker: Stop Prospecting Blind" />
 <meta name="twitter:description" content="The Financial Advisor Operating System · Powered by ArcheMatch. Matching by psychology, not keywords." />
 <meta name="twitter:image" content="https://archematch.com/assets/images/og-image.png" />
 <!-- Google tag (gtag.js) -->
@@ -143,6 +143,7 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .hero-copy { position:relative; max-width:860px; }
 .hero h1 { font-weight:800; font-size:clamp(40px,6vw,68px); letter-spacing:-.01em; margin-bottom:22px; }
 .hero-sub { font-size:18px; color:var(--rm-text-secondary); margin-bottom:32px; }
+.hero-tryout { font-size:14px; color:var(--rm-text-muted); font-weight:600; margin:-16px 0 28px; }
 .hero-ctas { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:36px; }
 .proof-row { display:flex; flex-wrap:wrap; gap:10px 28px; color:var(--rm-text-muted); font-size:13.5px; font-weight:600; }
 .proof-row span { display:inline-flex; align-items:center; gap:8px; font-variant-numeric:tabular-nums; }
@@ -203,6 +204,15 @@ section { padding:clamp(64px,9vw,120px) 0; }
   color:var(--rm-text-secondary); margin-bottom:10px;
 }
 .archie-a strong { color:var(--rm-orange-400); }
+.listen-row { display:flex; align-items:center; gap:14px; margin-top:14px; }
+.listen-btn {
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap; cursor:pointer;
+  height:34px; padding:0 16px; border-radius:999px;
+  background:transparent; border:1px solid rgba(249,115,22,.45);
+  color:var(--rm-orange-400); font-family:var(--rm-font-sans); font-weight:700; font-size:12.5px;
+}
+.listen-btn:hover { background:rgba(249,115,22,.10); }
+.vol { width:110px; accent-color:var(--rm-orange-500); cursor:pointer; }
 .chat-credit { margin-top:10px; font-size:12px; color:var(--rm-text-muted); }
 .archie-trust { margin-top:24px; font-size:14px; color:var(--rm-text-secondary); font-weight:600; }
 .archie-trust small { display:block; margin-top:4px; font-weight:500; font-size:12.5px; color:var(--rm-text-muted); }
@@ -237,6 +247,14 @@ section { padding:clamp(64px,9vw,120px) 0; }
   border-radius:999px; padding:5px 12px; margin-bottom:14px;
 }
 .price-fine { font-size:12.5px; color:var(--rm-text-muted); line-height:1.55; margin:0 0 18px; }
+.founders-note { margin:10px auto 0; font-size:15px; font-weight:700; }
+.founders-note a { color:var(--rm-blue-400); text-decoration:underline; text-underline-offset:4px; }
+.btn-locked {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap;
+  height:50px; padding:0 26px; border-radius:var(--rm-radius);
+  border:1px dashed var(--rm-border); color:var(--rm-text-muted);
+  font-weight:700; font-size:15.5px; cursor:default; margin-top:auto;
+}
 @media (max-width:1100px){ .price-grid { grid-template-columns:1fr 1fr; } }
 .price-card { display:flex; flex-direction:column; }
 .price-card.featured { border-color:var(--rm-blue-600); box-shadow:0 0 0 1px var(--rm-blue-600), 0 24px 60px rgba(37,99,235,.15); }
@@ -343,23 +361,21 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
     <div class="hero-copy">
       <div class="eyebrow">The Financial Advisor Operating System</div>
       <h1>Stop prospecting blind.</h1>
-      <p class="hero-sub">Rainmaker is the first true operating system for financial advisors. One platform, two engines: it finds and wins your highest-compatibility clients with Jungian archetypes and AI — and Ask Archie coaches you with forty years of real advisor wisdom, any hour of the day.</p>
+      <p class="hero-sub">Rainmaker is the first true operating system for financial advisors. One platform, two engines: it finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with forty years of real advisor wisdom, any hour of the day.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get your archetype &amp; first search free</a>
         <a class="btn btn-ghost" href="#demo">Watch the demo</a>
       </div>
+      <p class="hero-tryout">Try it early, free: register, discover your archetype, explore your professional profile, run your first search, and ask Archie two questions.</p>
       <div class="proof-row" aria-label="Proof points">
         <span><b>94%</b> avg compatibility match</span>
         <span><b>25–40%</b> response rates (beta)</span>
         <span><b>132</b> patent claims filed</span>
       </div>
     </div>
-    <div class="hero-visual" id="demo">
-      <div class="glass">
-        <video src="assets/video/archematch-demo.mp4" poster="assets/video/demo-poster.jpg"
-               controls playsinline preload="metadata" title="Rainmaker demo"></video>
-      </div>
-    </div>
+    <!-- SIZZLE REEL PLACEHOLDER: when Gary delivers the sizzle reel, add it here as
+         <div class="hero-visual"><div class="glass"><video ...></video></div></div>
+         (the full demo now lives in the #demo section near the bottom of the page) -->
   </div>
   <img class="hero-mark-bg" src="assets/brand/mark-white.svg" alt="" aria-hidden="true" />
 </section>
@@ -385,7 +401,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
       <div class="card stat-card fade-up">
         <div class="stat-val">100k+</div>
         <div class="stat-label">Advisor shortage</div>
-        <p>projected by 2034 (McKinsey). Institutional wisdom is leaving the field — and the new crop of advisors replacing it was never taught how to prospect and grow a book.</p>
+        <p>projected by 2034 (McKinsey). Institutional wisdom is leaving the field, and the new crop of advisors replacing it was never taught how to prospect and grow a book.</p>
       </div>
     </div>
     <p class="kicker fade-up">The problem was never effort. It was aiming at the wrong people.</p>
@@ -411,7 +427,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
         <div class="motion-num">02</div>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <h3>Gather</h3>
-        <p>Mine your network — and your clients' networks — for warm referral opportunities you already have standing to reach.</p>
+        <p>Mine your network, and your clients' networks, for warm referral opportunities you already have standing to reach.</p>
       </div>
       <div class="card motion-card fade-up">
         <div class="motion-num">03</div>
@@ -429,31 +445,39 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
   <div class="container">
     <div class="center fade-up">
       <div class="eyebrow orange">Ask Archie</div>
-      <h2 class="section-title">Your personalized coach — not another chatbot.</h2>
-      <p class="section-sub">Ask Archie is a coach that answers from a field-proven body of work — not the internet — in the language of your archetype and experience level. We challenge you to stump it. And if you agree with Archie's recommendation, Archie will hold you accountable.</p>
+      <h2 class="section-title">Your personalized coach. Not another chatbot.</h2>
+      <p class="section-sub">Ask Archie is a coach that answers from a field-proven body of work, not the internet, in the language of your archetype and experience level. We challenge you to stump it. And if you agree with Archie's recommendation, Archie will hold you accountable.</p>
     </div>
     <div class="archie-grid">
       <div class="fade-up">
         <div class="chat-card">
           <div class="chat-eyebrow">Ask Archie</div>
-          <div class="chat-hint">Tap a question — hear Archie answer in Gary's voice.</div>
-          <button class="archie-q" data-answer="archieA1" data-audio="assets/audio/archie-advisor.mp3" type="button">
-            ▶&nbsp; What's the best way to respond to a prospect who says they already have an advisor?
+          <div class="chat-hint">Tap a question to read Archie's answer, then listen in Gary's voice if you'd like.</div>
+          <button class="archie-q" data-answer="archieA1" type="button">
+            What's the best way to respond to a prospect who says they already have an advisor?
           </button>
           <div id="archieA1" class="archie-a">
-            That objection isn't a door closing — it's the most important thing they could tell you. Your move is <strong>Constructive Doubt</strong>: don't attack their advisor, don't sell yourself. Plant one legitimate question they can't unhear… then ride the silence.
+            <p>That objection isn't a door closing, it's the most important thing they could tell you. Your move is <strong>Constructive Doubt</strong>: don't attack their advisor, don't sell yourself. Plant one legitimate question they can't unhear… then ride the silence.</p>
+            <div class="listen-row">
+              <button class="listen-btn" type="button" data-audio="assets/audio/archie-advisor.mp3">▶ Listen</button>
+              <input type="range" class="vol" min="0" max="1" step="0.05" value="0.9" aria-label="Volume" />
+            </div>
           </div>
-          <button class="archie-q" data-answer="archieA2" data-audio="assets/audio/archie-market.mp3" type="button">
-            ▶&nbsp; How do I handle a prospect who wants to wait for the market to come down?
+          <button class="archie-q" data-answer="archieA2" type="button">
+            How do I handle a prospect who wants to wait for the market to come down?
           </button>
           <div id="archieA2" class="archie-a">
-            That objection is never really about the market — it's about fear of regret. Don't argue the forecast. Move to the <strong>A-to-B approach</strong>: anchor them to their goal, not the headline, and show them what waiting actually costs.
+            <p>That objection is never really about the market, it's about fear of regret. Don't argue the forecast. Move to the <strong>A-to-B approach</strong>: anchor them to their goal, not the headline, and show them what waiting actually costs.</p>
+            <div class="listen-row">
+              <button class="listen-btn" type="button" data-audio="assets/audio/archie-market.mp3">▶ Listen</button>
+              <input type="range" class="vol" min="0" max="1" step="0.05" value="0.9" aria-label="Volume" />
+            </div>
           </div>
           <div class="chat-credit">Real answers from Gary's coaching library · Voice: Gary Sinderbrand</div>
         </div>
       </div>
       <div class="fade-up">
-        <p class="archie-trust">Archie coaches from forty years of proven advisor training — not the internet.
+        <p class="archie-trust">Archie coaches from forty years of proven advisor training, not the internet.
           <small>Built on Gary Sinderbrand's frameworks.</small>
         </p>
         <div class="archie-chips">
@@ -487,7 +511,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
       <div class="card step fade-up">
         <div class="step-num">2</div>
         <h3>Choose your lane</h3>
-        <p>Hunt, Gather, or Connect — with your pre-identified sources.</p>
+        <p>Hunt, Gather, or Connect, with your pre-identified sources.</p>
       </div>
       <div class="card step fade-up">
         <div class="step-num">3</div>
@@ -523,7 +547,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
       </div>
       <div class="card quote-card fade-up">
         <div class="quote-mark" aria-hidden="true">"</div>
-        <p>I was skeptical about the 'psychology' angle. But when the platform described my ideal client type and I looked at my best clients of all time — it was them, exactly. The science is real.</p>
+        <p>I was skeptical about the 'psychology' angle. But when the platform described my ideal client type and I looked at my best clients of all time, it was them, exactly. The science is real.</p>
         <div class="quote-role">Broker-dealer advisor · 22 yrs</div>
       </div>
     </div>
@@ -536,48 +560,50 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
     <div class="center fade-up">
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">One assessment. Pick your plan.</h2>
+      <p class="section-sub">We anticipate going live in early September. Plans below open then, but you can apply for the Founders Circle today.</p>
+      <p class="founders-note"><a href="founders.html">Now accepting applications for our Founders Circle. Click here to apply.</a></p>
     </div>
     <div class="price-grid">
       <div class="card price-card fade-up">
-        <div class="price-window">Open until Sept 30</div>
+        <div class="price-window">Now accepting applications</div>
         <div class="price-tier">Founder</div>
-        <div class="price-for">Solo advisors — early believers</div>
-        <div class="price-amt">$250<small>/mo</small></div>
-        <p class="price-fine">12-month commitment · one payment of $3,000. Founders directly engage with us and help shape the future of this tool. Pricing maintained indefinitely at this level, assuming continuous sign-ups.</p>
+        <div class="price-for">Solo advisors, early believers</div>
+        <div class="price-amt">$298<small>/mo</small></div>
+        <p class="price-fine">12-month commitment · one payment of $3,576. Founders directly engage with us and help shape the future of this tool. Pricing maintained indefinitely at this level, assuming continuous sign-ups.</p>
         <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes: Hunt · Gather · Connect</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direct line to the product team</li>
         </ul>
-        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Become a founder</a>
+        <a class="btn btn-primary" href="founders.html">Apply for the Founders Circle</a>
       </div>
       <div class="card price-card fade-up">
         <div class="price-tier">Professional Semi-Annual</div>
         <div class="price-for">6-month plan</div>
-        <div class="price-amt">$500<small>/mo</small></div>
-        <p class="price-fine">One payment of $3,000.</p>
+        <div class="price-amt">$498<small>/mo</small></div>
+        <p class="price-fine">One payment of $2,988.</p>
         <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes: Hunt · Gather · Connect</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
         </ul>
-        <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start now</a>
+        <span class="btn-locked">Opens September</span>
       </div>
       <div class="card price-card featured fade-up">
         <div class="price-pop">Best value</div>
         <div class="price-tier">Professional Annual</div>
         <div class="price-for">12-month plan</div>
-        <div class="price-amt">$400<small>/mo</small></div>
-        <p class="price-fine">One payment of $4,800. Price guaranteed not to rise, assuming continuous sign-ups.</p>
+        <div class="price-amt">$398<small>/mo</small></div>
+        <p class="price-fine">One payment of $4,776. Price guaranteed not to rise, assuming continuous sign-ups.</p>
         <ul class="price-feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes — Hunt · Gather · Connect</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All three lanes: Hunt · Gather · Connect</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ask Archie included</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
         </ul>
-        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start now</a>
+        <span class="btn-locked">Opens September</span>
       </div>
       <div class="card price-card fade-up">
         <div class="price-tier">Enterprise</div>
@@ -589,10 +615,10 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Team management &amp; white-label</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dedicated success manager</li>
         </ul>
-        <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Talk to us</a>
+        <a class="btn btn-ghost" href="mailto:info@archematch.com?subject=Rainmaker%20Enterprise">Talk to us</a>
       </div>
     </div>
-    <p class="price-note fade-up">Not completely satisfied within your first 30 days? We'll make it right — terms apply.</p>
+    <p class="price-note fade-up">Not completely satisfied within your first 30 days? We'll make it right (terms apply).</p>
   </div>
 </section>
 
@@ -625,13 +651,30 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
   </div>
 </section>
 
-<!-- ============ 2.9 Final CTA ============ -->
+<!-- ============ 2.9 Demo (moved to bottom of stack) ============ -->
+<section id="demo">
+  <div class="container">
+    <div class="center fade-up">
+      <div class="eyebrow">See it in action</div>
+      <h2 class="section-title">Watch the full demo.</h2>
+    </div>
+    <div class="hero-visual">
+      <div class="glass">
+        <video src="assets/video/archematch-demo.mp4" poster="assets/video/demo-poster.jpg"
+               controls playsinline preload="metadata" title="Rainmaker demo"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2.10 Final CTA ============ -->
 <section class="final-cta">
   <div class="container">
     <div class="eyebrow">The Financial Advisor Operating System</div>
     <h2>Stop prospecting blind.</h2>
-    <p>Get your archetype and your first search, free.</p>
+    <p>Try it early, free: register, discover your archetype, run your first search, and ask Archie two questions.</p>
     <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started free</a>
+    <p class="founders-note" style="margin-top:18px;"><a href="founders.html">Or apply for the Founders Circle</a></p>
   </div>
 </section>
 
@@ -652,6 +695,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><a href="#features">Features</a></li>
           <li><a href="#ask-archie">Ask Archie</a></li>
           <li><a href="#pricing">Pricing</a></li>
+          <li><a href="founders.html">Founders Circle</a></li>
           <li><a href="competitors.html">Compare</a></li>
         </ul>
       </div>
@@ -693,16 +737,39 @@ var io = new IntersectionObserver(function(entries){
 }, { threshold:.12 });
 document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
 
-// Ask Archie: reveal answer + play Gary's voice
-var currentAudio = null;
+// Ask Archie: question reveals the written answer only (no autoplay)
+var currentAudio = null, currentBtn = null;
+function stopArchieAudio(){
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+  if (currentBtn) { currentBtn.textContent = '▶ Listen'; }
+  currentAudio = null; currentBtn = null;
+}
 document.querySelectorAll('.archie-q').forEach(function(q){
   q.addEventListener('click', function(){
+    stopArchieAudio();
     document.querySelectorAll('.archie-a').forEach(function(a){ a.style.display = 'none'; });
     var ans = document.getElementById(q.dataset.answer);
     if (ans) ans.style.display = 'block';
-    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-    currentAudio = new Audio(q.dataset.audio);
-    currentAudio.play().catch(function(){});
+  });
+});
+// Listen buttons: opt-in playback with per-answer volume control
+document.querySelectorAll('.listen-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if (currentBtn === btn) { stopArchieAudio(); return; }
+    stopArchieAudio();
+    var vol = btn.parentElement.querySelector('.vol');
+    currentAudio = new Audio(btn.dataset.audio);
+    currentAudio.volume = vol ? parseFloat(vol.value) : 0.9;
+    currentBtn = btn;
+    btn.textContent = '■ Stop';
+    currentAudio.addEventListener('ended', stopArchieAudio);
+    currentAudio.play().catch(stopArchieAudio);
+  });
+});
+document.querySelectorAll('.vol').forEach(function(vol){
+  vol.addEventListener('input', function(){
+    var btn = vol.parentElement.querySelector('.listen-btn');
+    if (currentAudio && currentBtn === btn) currentAudio.volume = parseFloat(vol.value);
   });
 });
 </script>
