@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArcheMatch Overview | Rainmaker</title>
+<link rel="icon" type="image/svg+xml" href="assets/brand/mark-blue.svg" />
+<!-- Unlisted page: shared by direct link only. Not in nav, footer, or sitemap. -->
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T9D1GZ9D2T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T9D1GZ9D2T');
+</script>
+
+<style>
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('assets/fonts/Montserrat-600-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('assets/fonts/Montserrat-700-latin.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-style:normal; font-weight:800; font-display:swap;
+  src:url('assets/fonts/Montserrat-800-latin.woff2') format('woff2'); }
+
+:root {
+  --rm-ground:#0A0E14; --rm-surface:#141C2A; --rm-surface-2:#1B2536;
+  --rm-border:#2A3242; --rm-border-soft:rgba(255,255,255,.06);
+  --rm-text-primary:#F1F5F9; --rm-text-secondary:#CBD5E1; --rm-text-muted:#94A3B8;
+  --rm-blue-600:#2563EB; --rm-blue-500:#3B82F6; --rm-blue-400:#60A5FA;
+  --rm-font-sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --rm-radius:12px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  background:var(--rm-ground); color:var(--rm-text-secondary);
+  font-family:var(--rm-font-sans); font-weight:500; font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; min-height:100vh;
+}
+a { color:var(--rm-blue-400); text-decoration:none; }
+:focus-visible { outline:2px solid var(--rm-blue-400); outline-offset:3px; border-radius:4px; }
+.wrap { max-width:960px; margin:0 auto; padding:clamp(24px,5vw,48px) clamp(20px,5vw,32px) 80px; }
+.top { display:flex; align-items:center; justify-content:space-between; margin-bottom:clamp(32px,6vw,56px); }
+.nav-logo { display:inline-flex; align-items:center; gap:10px; }
+.nav-logo img { width:32px; height:32px; }
+.wordmark { font-weight:800; font-size:16px; letter-spacing:.06em; color:var(--rm-text-primary); }
+.eyebrow { font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-blue-400); margin-bottom:14px; }
+h1 { font-weight:800; font-size:clamp(28px,4.6vw,40px); color:var(--rm-text-primary); line-height:1.15; text-wrap:balance; margin-bottom:clamp(24px,4vw,36px); }
+.video {
+  position:relative; aspect-ratio:16/9; background:var(--rm-surface);
+  border:1px solid var(--rm-border); border-radius:var(--rm-radius); overflow:hidden;
+}
+.video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.foot { margin-top:28px; font-size:14px; color:var(--rm-text-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="nav-logo" href="/">
+      <img src="assets/brand/mark-blue.svg" alt="" />
+      <span class="wordmark">RAINMAKER</span>
+    </a>
+  </div>
+
+  <div class="eyebrow">ArcheMatch</div>
+  <h1>The first true financial advisor operating system.</h1>
+
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/HoIiWuoxnhQ?rel=0"
+      title="ArcheMatch: The First True Financial Advisor Operating System | Rainmaker + Ask Archie"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <p class="foot">&copy; 2026 ArcheMatch, Inc. / Rainmaker. Patent pending.</p>
+</div>
+</body>
+</html>
