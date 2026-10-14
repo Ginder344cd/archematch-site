@@ -43,6 +43,7 @@ a { color:var(--rm-blue-400); text-decoration:none; }
 :focus-visible { outline:2px solid var(--rm-blue-400); outline-offset:3px; border-radius:4px; }
 .wrap { max-width:640px; margin:0 auto; padding:clamp(24px,5vw,48px) clamp(20px,5vw,32px) 80px; }
 .top { display:flex; align-items:center; justify-content:space-between; margin-bottom:clamp(40px,7vw,64px); }
+.top-links { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 .nav-logo { display:inline-flex; align-items:center; gap:10px; }
 .nav-logo img { width:32px; height:32px; }
 .wordmark { font-weight:800; font-size:16px; letter-spacing:.06em; color:var(--rm-text-primary); }
@@ -85,13 +86,16 @@ select { appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xml
       <img src="assets/brand/mark-blue.svg" alt="" />
       <span class="wordmark">RAINMAKER</span>
     </a>
-    <a class="back" href="index.html#pricing">&larr; Back to pricing</a>
+    <span class="top-links">
+      <a class="back" href="index.html#pricing">&larr; Back to pricing</a>
+      <a class="back" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting instead &rarr;</a>
+    </span>
   </div>
 
   <div class="eyebrow">Founders Circle</div>
   <h1>Apply to help shape Rainmaker.</h1>
   <p class="intro">Founders get the platform at founder pricing, locked in indefinitely, and a direct line to the team building it. Your feedback shapes what we build next.</p>
-  <div class="timeline">We anticipate going live with our Founders program in early September, and we'll keep you advised every step of the way.</div>
+  <div class="timeline">The Founders Circle is open now — apply below and we'll be in touch to get you set up.</div>
 
   <form id="founderForm" action="https://formsubmit.co/6b70d123353203fd303edfc7fd1c36ac" method="POST">
     <input type="hidden" name="_subject" value="Founders Circle application" />
@@ -133,7 +137,7 @@ select { appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xml
 
   <div class="thanks" id="thanks">
     <h2>Application received.</h2>
-    <p>Thank you. We anticipate going live with our Founders program in early September, and we'll keep you advised at the email you provided.</p>
+    <p>Thank you. We'll be in touch at the email you provided to get you set up.</p>
     <p style="margin-top:18px;"><a href="index.html">&larr; Back to the site</a></p>
   </div>
 </div>

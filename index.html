@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rainmaker: Stop Prospecting Blind | The Financial Advisor Operating System</title>
-<meta name="description" content="Rainmaker is the first true operating system for financial advisors. It finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with forty years of real advisor wisdom, 24/7." />
+<meta name="description" content="Rainmaker is the first true operating system for financial advisors. It finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with thirty-five years of real advisor wisdom, 24/7." />
 <link rel="icon" type="image/svg+xml" href="assets/brand/mark-blue.svg" />
 <link rel="canonical" href="https://archematch.com/" />
 <meta property="og:title" content="Rainmaker: Stop Prospecting Blind" />
@@ -29,7 +29,7 @@
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": "Stop Prospecting Blind: The First Financial Advisor Operating System",
-  "description": "Rainmaker is the Financial Advisor Operating System: it finds and wins the right clients with archetype-based matching, and Ask Archie delivers 40 years of advisor coaching on demand.",
+  "description": "Rainmaker is the Financial Advisor Operating System: it finds and wins the right clients with archetype-based matching, and Ask Archie delivers 35+ years of advisor coaching on demand.",
   "thumbnailUrl": "https://archematch.com/assets/video/demo-poster.jpg",
   "uploadDate": "2026-07-18",
   "duration": "PT5M55S",
@@ -108,6 +108,10 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .btn-ghost:hover { border-color:var(--rm-blue-400); color:var(--rm-blue-400); }
 .btn-orange { background:var(--rm-orange-600); color:#fff; }
 .btn-orange:hover { background:var(--rm-orange-500); }
+/* Ghost for use inside the orange Ask Archie section: the default .btn-ghost hovers
+   blue, which would leak the prospecting colour into a coaching section. */
+.btn-ghost-orange { background:transparent; color:var(--rm-text-primary); border:1px solid var(--rm-border); }
+.btn-ghost-orange:hover { border-color:var(--rm-orange-400); color:var(--rm-orange-400); }
 
 /* ============ Cards ============ */
 .card {
@@ -133,7 +137,10 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .nav-links a { color:var(--rm-text-secondary); font-weight:600; font-size:14px; }
 .nav-links a:hover { color:var(--rm-text-primary); }
 .nav-cta { height:42px; padding:0 20px; font-size:14px; }
+.nav-ctas { display:flex; align-items:center; gap:10px; flex-shrink:0; }
 @media (max-width:900px){ .nav-links { display:none; } }
+/* Below ~560px the pair would crowd the wordmark; booking is the one that stays. */
+@media (max-width:560px){ .nav-cta-alt { display:none; } }
 
 /* ============ Hero ============ */
 .hero { position:relative; padding:clamp(140px,18vh,190px) 0 clamp(70px,9vw,110px); overflow:hidden; }
@@ -256,12 +263,9 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .price-fine { font-size:12.5px; color:var(--rm-text-muted); line-height:1.55; margin:0 0 18px; }
 .founders-note { margin:10px auto 0; font-size:15px; font-weight:700; }
 .founders-note a { color:var(--rm-blue-400); text-decoration:underline; text-underline-offset:4px; }
-.btn-locked {
-  display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap;
-  height:50px; padding:0 26px; border-radius:var(--rm-radius);
-  border:1px dashed var(--rm-border); color:var(--rm-text-muted);
-  font-weight:700; font-size:15.5px; cursor:default; margin-top:auto;
-}
+/* Plan CTAs sit on the card floor so all four line up across the grid
+   regardless of how many feature rows each plan lists. */
+.price-cta { margin-top:auto; justify-content:center; }
 @media (max-width:1100px){ .price-grid { grid-template-columns:1fr 1fr; } }
 .price-card { display:flex; flex-direction:column; }
 .price-card.featured { border-color:var(--rm-blue-600); box-shadow:0 0 0 1px var(--rm-blue-600), 0 24px 60px rgba(37,99,235,.15); }
@@ -298,7 +302,22 @@ section { padding:clamp(64px,9vw,120px) 0; }
   border-top:1px solid var(--rm-border-soft);
 }
 .final-cta h2 { font-weight:800; font-size:clamp(32px,4.6vw,52px); margin-bottom:14px; }
-.final-cta p { margin:0 auto 30px; color:var(--rm-text-muted); font-size:17px; }
+.final-cta p { margin:0 auto 30px; color:var(--rm-text-muted); font-size:17px; max-width:62ch; }
+.final-cta-row { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+
+/* ============ Contact ============ */
+.contact { padding-bottom:clamp(60px,8vw,96px); }
+.contact-card {
+  display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:center;
+  padding:clamp(28px,4vw,44px);
+}
+.contact-title { font-weight:800; font-size:clamp(26px,3.4vw,38px); margin-bottom:14px; }
+.contact-sub { color:var(--rm-text-secondary); font-size:16.5px; max-width:60ch; }
+.contact-actions { display:grid; gap:12px; justify-items:start; }
+.contact-email { font-size:15px; font-weight:600; color:var(--rm-text-secondary); }
+.contact-email a { color:var(--rm-blue-400); text-decoration:underline; text-underline-offset:4px; }
+.contact-fine { font-size:13px; color:var(--rm-text-muted); font-weight:600; }
+@media (max-width:820px){ .contact-card { grid-template-columns:1fr; gap:26px; } }
 
 /* ============ Footer ============ */
 footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
@@ -332,7 +351,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
 <!-- ============ 2.0 Navbar ============ -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a class="nav-logo" href="#" aria-label="Rainmaker home">
+    <a class="nav-logo" href="/" aria-label="Rainmaker home">
       <svg viewBox="10 50 136 136" role="img" aria-hidden="true">
         <g fill="#2563EB" stroke="none">
           <path d="M 78 103.35 C 83.85 95.9 83.85 74.61 78 67.16 C 72.15 74.61 72.15 95.9 78 103.35 Z M 70.55 105.35 C 71.89 95.97 61.25 77.53 52.45 74.01 C 51.11 83.39 61.75 101.83 70.55 105.35 Z M 65.09 110.81 C 61.57 102.01 43.13 91.37 33.75 92.71 C 37.27 101.51 55.71 112.15 65.09 110.81 Z M 63.1 118.26 C 55.65 112.4 34.35 112.4 26.9 118.26 C 34.35 124.11 55.65 124.11 63.1 118.26 Z M 65.09 125.71 C 55.71 124.37 37.27 135.01 33.75 143.81 C 43.13 145.15 61.57 134.51 65.09 125.71 Z M 70.55 131.16 C 61.75 134.69 51.11 153.13 52.45 162.51 C 61.25 158.98 71.89 140.55 70.55 131.16 Z M 78 133.16 C 72.15 140.61 72.15 161.9 78 169.35 C 83.85 161.9 83.85 140.61 78 133.16 Z M 85.45 131.16 C 84.11 140.55 94.75 158.98 103.55 162.51 C 104.89 153.13 94.25 134.69 85.45 131.16 Z M 90.91 125.71 C 94.43 134.51 112.87 145.15 122.25 143.81 C 118.73 135.01 100.29 124.37 90.91 125.71 Z M 92.9 118.26 C 100.35 124.11 121.65 124.11 129.1 118.26 C 121.65 112.4 100.35 112.4 92.9 118.26 Z M 90.91 110.81 C 100.29 112.15 118.73 101.51 122.25 92.71 C 112.87 91.37 94.43 102.01 90.91 110.81 Z M 85.45 105.35 C 94.25 101.83 104.89 83.39 103.55 74.01 C 94.75 77.53 84.11 95.97 85.45 105.35 Z M 84.92 118.26 C 84.92 114.44 81.82 111.34 78 111.34 C 74.18 111.34 71.08 114.44 71.08 118.26 C 71.08 122.08 74.18 125.18 78 125.18 C 81.82 125.18 84.92 122.08 84.92 118.26 Z M 75.6 69.29 L 80.4 69.29 L 80.4 52.26 L 75.6 52.26 Z M 75.6 184.26 L 80.4 184.26 L 80.4 167.23 L 75.6 167.23 Z M 126.97 120.65 L 144 120.65 L 144 115.86 L 126.97 115.86 Z M 12 120.65 L 29.03 120.65 L 29.03 115.86 L 12 115.86 Z"/>
@@ -354,16 +373,20 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
         <li><a href="#results">Results</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="competitors.html">Compare</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn-primary nav-cta" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start free</a>
+    <div class="nav-ctas">
+      <a class="btn btn-ghost nav-cta nav-cta-alt" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Start free</a>
+      <a class="btn btn-primary nav-cta" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
+    </div>
   </div>
 </header>
 
 <!-- ============ 2.1 Hero ============ -->
 <section class="hero">
   <!-- Silent background loop: Seedance AI advisor scene + handshake (Pexels, cottonbro studio,
-       https://www.pexels.com/video/a-person-shaking-hands-6814545/) + RainMaker product UI -->
+       https://www.pexels.com/video/a-person-shaking-hands-6814545/) + Rainmaker product UI -->
   <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
     <source src="assets/hero-loop.mp4" type="video/mp4" />
   </video>
@@ -374,16 +397,16 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
     <div class="hero-copy">
       <div class="eyebrow">The Financial Advisor Operating System</div>
       <h1>Stop prospecting blind.</h1>
-      <p class="hero-sub">Rainmaker is the first true operating system for financial advisors. One platform, two engines: it finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with forty years of real advisor wisdom, any hour of the day.</p>
+      <p class="hero-sub">Rainmaker is the first true operating system for financial advisors. One platform, two engines: it finds and wins your highest-compatibility clients with Jungian archetypes and AI, and coaches you personally with thirty-five years of real advisor wisdom, any hour of the day.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get your archetype &amp; first search free</a>
-        <a class="btn btn-ghost" href="#demo">Watch the demo</a>
+        <a class="btn btn-primary" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
+        <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get your archetype &amp; first search free</a>
       </div>
-      <p class="hero-tryout">Try it early, free: register, discover your archetype, explore your professional profile, run your first search, and ask Archie two questions.</p>
+      <p class="hero-tryout">Talk to us about your book, or start free on your own: register, discover your archetype, explore your professional profile, run your first search, and ask Archie two questions. <a href="#demo">Watch the demo</a></p>
       <div class="proof-row" aria-label="Proof points">
-        <span><b>94%</b> avg compatibility match</span>
-        <span><b>25–40%</b> response rates (beta)</span>
-        <span><b>132</b> patent claims filed</span>
+        <span><b>12,000+</b> advisors trained over 35+ years</span>
+        <span><b>48</b> coaching voices: 12 archetypes × 4 tenure bands</span>
+        <span><b>185</b> claims across two provisional patent filings</span>
       </div>
     </div>
     <!-- SIZZLE REEL PLACEHOLDER: when Gary delivers the sizzle reel, add it here as
@@ -490,7 +513,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
         </div>
       </div>
       <div class="fade-up">
-        <p class="archie-trust">Archie coaches from forty years of proven advisor training, not the internet.
+        <p class="archie-trust">Archie coaches from thirty-five years of proven advisor training, not the internet.
           <small>Built on Gary Sinderbrand's frameworks.</small>
         </p>
         <div class="archie-chips">
@@ -500,7 +523,10 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <span class="chip">Learns from every conversation</span>
         </div>
         <div style="margin-top:30px;">
-          <a class="btn btn-orange" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Try Ask Archie free</a>
+          <div style="display:flex; flex-wrap:wrap; gap:14px;">
+            <a class="btn btn-orange" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Try Ask Archie free</a>
+            <a class="btn btn-ghost-orange" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
+          </div>
           <p style="margin-top:10px; font-size:13px; color:var(--rm-text-muted); font-weight:600;">Your first two questions are free.</p>
         </div>
       </div>
@@ -573,7 +599,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
     <div class="center fade-up">
       <div class="eyebrow">Pricing</div>
       <h2 class="section-title">Pick your plan.</h2>
-      <p class="section-sub">We anticipate going live in early September. Plans below open then, but you can apply for the Founders Circle today.</p>
+      <p class="section-sub">Every plan is live now. Start on your own, book a meeting if you'd rather talk it through first, or apply for the Founders Circle.</p>
       <p class="founders-note"><a href="founders.html">Now accepting applications for our Founders Circle. Click here to apply.</a></p>
     </div>
     <div class="price-grid">
@@ -589,7 +615,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Direct line to the product team</li>
         </ul>
-        <a class="btn btn-primary" href="founders.html">Apply now</a>
+        <a class="btn btn-primary price-cta" href="founders.html">Apply now</a>
       </div>
       <div class="card price-card fade-up">
         <div class="price-tier">Professional Semi-Annual</div>
@@ -602,7 +628,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
         </ul>
-        <span class="btn-locked">Opens September</span>
+        <a class="btn btn-ghost price-cta" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started</a>
       </div>
       <div class="card price-card featured fade-up">
         <div class="price-pop">Best value</div>
@@ -616,7 +642,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>200 monthly matches</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Network mapping</li>
         </ul>
-        <span class="btn-locked">Opens September</span>
+        <a class="btn btn-primary price-cta" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started</a>
       </div>
       <div class="card price-card fade-up">
         <div class="price-tier">Enterprise</div>
@@ -628,7 +654,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Team management &amp; white-label</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dedicated success manager</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:info@archematch.com?subject=Rainmaker%20Enterprise">Talk to us</a>
+        <a class="btn btn-ghost price-cta" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
       </div>
     </div>
     <p class="price-note fade-up">Not completely satisfied within your first 30 days? We'll make it right (terms apply).</p>
@@ -685,9 +711,30 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
   <div class="container">
     <div class="eyebrow">The Financial Advisor Operating System</div>
     <h2>Stop prospecting blind.</h2>
-    <p>Try it early, free: register, discover your archetype, run your first search, and ask Archie two questions.</p>
-    <a class="btn btn-primary" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started free</a>
+    <p>Book a working session with us, or try it free on your own: register, discover your archetype, run your first search, and ask Archie two questions.</p>
+    <div class="final-cta-row">
+      <a class="btn btn-primary" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
+      <a class="btn btn-ghost" href="https://www.rainmakerapp.io" target="_blank" rel="noopener">Get started free</a>
+    </div>
     <p class="founders-note" style="margin-top:18px;"><a href="founders.html">Or apply for the Founders Circle</a></p>
+  </div>
+</section>
+
+<!-- ============ 2.9.5 Contact ============ -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="card contact-card fade-up">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 class="contact-title">Talk to a human.</h2>
+        <p class="contact-sub">Questions about fit, pricing, your firm, or a rollout across a team — we'd rather have the conversation than trade emails. Pick a time that works and you'll get one of us, not a sales script.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a>
+        <p class="contact-email">Or email <a href="mailto:info@archematch.com">info@archematch.com</a></p>
+        <p class="contact-fine">Firms &amp; broker-dealers: ask about Enterprise (25+ seats).</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -718,7 +765,8 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
           <li><a href="#team">Team</a></li>
           <li><a href="blog/">Blog</a></li>
           <li><a href="#team">White paper</a></li>
-          <li><a href="mailto:info@archematch.com">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://www.rainmakerapp.io/meet" target="_blank" rel="noopener">Book a meeting</a></li>
         </ul>
       </div>
       <div class="foot-col">
