@@ -232,6 +232,20 @@ section { padding:clamp(64px,9vw,120px) 0; }
 
 /* ============ Pricing ============ */
 .price-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-top:48px; align-items:stretch; }
+/* Three plans rather than four: wider columns, so the advisor card can carry
+   its free-vs-Pro split without the feature lines wrapping every few words. */
+.price-grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+/* The free/Pro split inside the advisor card. Two short labelled lists beat one
+   long undifferentiated tick list, because the whole funnel turns on knowing
+   which part costs nothing. */
+.price-split { margin-bottom:22px; }
+.price-split-label {
+  font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.14em;
+  color:var(--rm-text-muted); margin:0 0 10px;
+}
+.price-split .price-feats { margin:0 0 20px; }
+.price-split .price-feats:last-of-type { margin-bottom:0; }
+.price-feats li strong { color:var(--rm-text-primary); font-weight:700; }
 .price-window {
   align-self:flex-start; font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   color:var(--rm-blue-400); background:rgba(37,99,235,.12); border:1px solid rgba(96,165,250,.35);
@@ -254,12 +268,18 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .price-for { font-size:13px; color:var(--rm-text-muted); margin-bottom:18px; }
 .price-amt { font-family:var(--rm-font-mono); font-weight:700; font-size:36px; color:var(--rm-text-primary); font-variant-numeric:tabular-nums; }
 .price-amt small { font-family:var(--rm-font-sans); font-weight:600; font-size:14px; color:var(--rm-text-muted); }
+/* A words-not-digits value ("Start with a pilot", "Custom") in the 36px mono
+   face wraps badly and reads like a number. Set it in the sans face instead. */
+.price-amt-text { font-family:var(--rm-font-sans); font-size:26px; letter-spacing:-.01em; }
 .price-feats { list-style:none; margin:20px 0 26px; display:grid; gap:10px; }
 .price-feats li { display:flex; gap:10px; font-size:14px; color:var(--rm-text-secondary); }
 .price-feats svg { width:18px; height:18px; flex:none; margin-top:3px; color:var(--rm-success-400); }
 .price-card .btn { margin-top:auto; justify-content:center; }
 .price-note { text-align:center; margin:32px auto 0; font-size:14px; color:var(--rm-text-muted); font-weight:600; }
 @media (max-width:640px){ .price-grid { grid-template-columns:1fr; } }
+/* The three-up grid goes straight to one column: two-up would leave an orphan
+   third card, and these cards carry more copy than the old four did. */
+@media (max-width:1100px){ .price-grid-3 { grid-template-columns:1fr; max-width:620px; margin-inline:auto; } }
 
 /* ============ Team ============ */
 .team-grid { display:grid; grid-template-columns:1fr; gap:20px; margin-top:48px; max-width:760px; margin-inline:auto; }
