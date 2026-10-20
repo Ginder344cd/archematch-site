@@ -159,7 +159,7 @@ section { padding:clamp(64px,9vw,120px) 0; }
 .kicker { text-align:center; margin:36px auto 0; color:var(--rm-text-secondary); font-weight:600; font-size:17px; }
 @media (max-width:860px){ .stat-grid { grid-template-columns:1fr; } }
 
-/* ============ Solution: Hunt · Gather · Close ============ */
+/* ============ Solution: Referrals · Outreach · Coaching ============ */
 .motion-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
 .motion-card { display:flex; flex-direction:column; gap:14px; }
 .motion-num { font-family:var(--rm-font-mono); font-weight:700; font-size:13px; color:var(--rm-blue-400); letter-spacing:.1em; }
