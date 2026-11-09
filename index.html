@@ -46,6 +46,7 @@
 
 <!-- Design system: see assets/css/brand.css. Fonts are preloaded because the
      stylesheet discovers them one hop late, which otherwise flashes fallback. -->
+<link rel="preload" href="assets/fonts/Montserrat-600-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/Montserrat-700-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/Montserrat-800-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/css/brand.css" />
@@ -87,9 +88,11 @@
 <section class="hero">
   <!-- Silent background loop: Seedance AI advisor scene + handshake (Pexels, cottonbro studio,
        https://www.pexels.com/video/a-person-shaking-hands-6814545/) + Rainmaker product UI -->
-  <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
-    <source src="assets/hero-loop.mp4" type="video/mp4" />
-  </video>
+  <!-- The 1.9 MB loop is attached by the script at the bottom of the page after load, and only
+       on wider screens without Save-Data or reduced motion. Phones get the poster alone, so the
+       loop no longer competes with the hero text and fonts for bandwidth. -->
+  <video class="hero-bg" muted loop playsinline preload="none" poster="assets/hero-poster.webp" aria-hidden="true"
+         data-src="assets/hero-loop.mp4"></video>
   <div class="hero-bg-overlay" aria-hidden="true"></div>
   <div class="hero-glow-blue" aria-hidden="true"></div>
   <div class="hero-glow-orange" aria-hidden="true"></div>
@@ -400,8 +403,8 @@
     </div>
     <div class="hero-visual">
       <div class="glass">
-        <video src="assets/video/archematch-demo.mp4" poster="assets/video/demo-poster.jpg"
-               controls playsinline preload="metadata" title="Rainmaker demo"></video>
+        <video src="assets/video/archematch-demo.mp4" poster="assets/video/demo-poster.webp"
+               controls playsinline preload="none" title="Rainmaker demo"></video>
       </div>
     </div>
   </div>
@@ -451,7 +454,7 @@
         <p class="foot-credit">An ArcheMatch, Inc. product.<br/>The Organic Growth System for Financial Advisors · Powered by ArcheMatch.</p>
       </div>
       <div class="foot-col">
-        <h4>Product</h4>
+        <h2 class="foot-title">Product</h2>
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#ask-archie">Ask Archie</a></li>
@@ -461,7 +464,7 @@
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
+        <h2 class="foot-title">Company</h2>
         <ul>
           <li><a href="#team">Team</a></li>
           <li><a href="blog/">Blog</a></li>
@@ -471,7 +474,7 @@
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Legal</h4>
+        <h2 class="foot-title">Legal</h2>
         <ul>
           <li><a href="privacy.html">Privacy</a></li>
           <li><a href="privacy.html">Terms</a></li>
@@ -487,6 +490,19 @@
 </footer>
 
 <script>
+// Hero background loop: start it only once the page has loaded, and skip it on phones,
+// Save-Data connections and reduced-motion (CSS hides the video there too).
+window.addEventListener('load', function(){
+  var v = document.querySelector('.hero-bg[data-src]');
+  if (!v) return;
+  var conn = navigator.connection || {};
+  if (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')) return;
+  if (!matchMedia('(min-width: 768px)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  v.src = v.dataset.src;
+  v.play().catch(function(){});
+});
+
 // Sticky nav: transparent over hero, solid + blur after scroll
 var nav = document.getElementById('nav');
 function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 24); }
