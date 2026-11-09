@@ -329,7 +329,7 @@ footer { border-top:1px solid var(--rm-border-soft); padding:56px 0 40px; }
 .foot-brand svg { width:32px; height:32px; }
 .foot-brand .nav-logo { margin-bottom:12px; }
 .foot-credit { font-size:13.5px; color:var(--rm-text-muted); }
-.foot-col h4 { font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-text-muted); margin-bottom:14px; }
+.foot-col h2 { font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--rm-text-muted); margin-bottom:14px; }
 .foot-col ul { list-style:none; display:grid; gap:9px; }
 .foot-col a { color:var(--rm-text-secondary); font-size:14px; font-weight:600; }
 .foot-col a:hover { color:var(--rm-text-primary); }
